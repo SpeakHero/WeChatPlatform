@@ -15,10 +15,10 @@
 ----------------------------------------------------------------*/
 
 /*
-    获取AccessToken API地址：http://qydev.weixin.qq.com/wiki/index.php?title=%E4%B8%BB%E5%8A%A8%E8%B0%83%E7%94%A8
-    获取微信服务器ip段 API地址：http://qydev.weixin.qq.com/wiki/index.php?title=%E5%9B%9E%E8%B0%83%E6%A8%A1%E5%BC%8F#.E8.8E.B7.E5.8F.96.E5.BE.AE.E4.BF.A1.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.9A.84ip.E6.AE.B5
-    获取调用微信JS接口的临时票据 API地址：http://qydev.weixin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1JS%E6%8E%A5%E5%8F%A3
-    userid转换成openid API地址:http://qydev.weixin.qq.com/wiki/index.php?title=Userid%E4%B8%8Eopenid%E4%BA%92%E6%8D%A2%E6%8E%A5%E5%8F%A3
+    获取AccessToken API地址：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E4%B8%BB%E5%8A%A8%E8%B0%83%E7%94%A8
+    获取微信服务器ip段 API地址：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E5%9B%9E%E8%B0%83%E6%A8%A1%E5%BC%8F#.E8.8E.B7.E5.8F.96.E5.BE.AE.E4.BF.A1.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.9A.84ip.E6.AE.B5
+    获取调用微信JS接口的临时票据 API地址：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1JS%E6%8E%A5%E5%8F%A3
+    userid转换成openid API地址:http://qydev.WeiXin.qq.com/wiki/index.php?title=Userid%E4%B8%8Eopenid%E4%BA%92%E6%8D%A2%E6%8E%A5%E5%8F%A3
  */
 
 using System;
@@ -26,18 +26,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Helpers;
-using CQCMXY.Weixin.HttpUtility;
-using CQCMXY.Weixin.QY.Entities;
+using CQCMXY.WeiXin.Helpers;
+using CQCMXY.WeiXin.HttpUtility;
+using CQCMXY.WeiXin.QY.Entities;
 
-namespace CQCMXY.Weixin.QY.CommonAPIs
+namespace CQCMXY.WeiXin.QY.CommonAPIs
 {
     /// <summary>
     /// 通用基础API
     /// </summary>
     public partial class CommonApi
     {
-        public const string API_URL = "https://qyapi.weixin.qq.com/cgi-bin";
+        public const string API_URL = "https://qyapi.WeiXin.qq.com/cgi-bin";
 
         /// <summary>
         /// 获取AccessToken
@@ -81,7 +81,7 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
         /// <returns></returns>
         public static GetCallBackIpResult GetCallBackIp(string accessToken)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/getcallbackip?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/getcallbackip?access_token={0}", accessToken);
 
             return Get.GetJson<GetCallBackIpResult>(url);
         }
@@ -96,7 +96,7 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
         {
             var accessToken = GetToken(corpId, corpSecret).access_token;
 
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token={0}",
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/get_jsapi_ticket?access_token={0}",
                                     accessToken);
 
             JsApiTicketResult result = Get.GetJson<JsApiTicketResult>(url);
@@ -112,7 +112,7 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
         /// <returns></returns>
         public static ProviderTokenResult GetProviderToken(string corpId, string providerSecret, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://qyapi.weixin.qq.com/cgi-bin/service/get_provider_token";
+            var url = "https://qyapi.WeiXin.qq.com/cgi-bin/service/get_provider_token";
 
             var data = new
                 {
@@ -133,7 +133,7 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
         /// <returns></returns>
         public static ConvertToOpenIdResult ConvertToOpenId(string accessToken, string userId, string agentId = null, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/user/convert_to_openid?access_token={0}",
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/user/convert_to_openid?access_token={0}",
                 accessToken);
 
             var data = new
@@ -154,7 +154,7 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
         /// <returns></returns>
         public static ConvertToUserIdResult ConvertToUserId(string accessToken, string openId, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/user/convert_to_userid?access_token={0}",
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/user/convert_to_userid?access_token={0}",
                 accessToken);
 
             var data = new

@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.Entities
+namespace CQCMXY.WeiXin.MP.Entities
 {
     /// <summary>
     /// 事件之扫码推事件且弹出“消息接收中”提示框(scancode_waitmsg)

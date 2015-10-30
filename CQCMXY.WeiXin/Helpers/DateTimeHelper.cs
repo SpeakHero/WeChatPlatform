@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.Helpers
+namespace CQCMXY.WeiXin.Helpers
 {
     public static class DateTimeHelper
     {
@@ -46,7 +46,7 @@ namespace CQCMXY.Weixin.Helpers
         /// </summary>
         /// <param name="dateTime">时间</param>
         /// <returns></returns>
-        public static long GetWeixinDateTime(DateTime dateTime)
+        public static long GetWeiXinDateTime(DateTime dateTime)
         {
             return (dateTime.Ticks - BaseTime.Ticks) / 10000000 - 8 * 60 * 60;
         }

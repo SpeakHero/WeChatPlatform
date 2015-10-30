@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
-    /// 微小店接口，官方API：http://mp.weixin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97%E6%8E%A5%E5%8F%A3
+    /// 微小店接口，官方API：http://mp.WeiXin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97%E6%8E%A5%E5%8F%A3
     /// </summary>
-    public static class WeixinShopGroup
+    public static class WeiXinShopGroup
     {
         /// <summary>
         /// 增加分组
@@ -21,7 +21,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static AddGroupResult AddGroup(string accessToken, AddGroupData addGroupData)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/group/add?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/group/add?access_token={0}";
 
             return CommonJsonSend.Send<AddGroupResult>(accessToken, urlFormat, addGroupData);
         }
@@ -34,7 +34,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult DeleteGroup(string accessToken, int groupId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/group/del?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/group/del?access_token={0}";
 
             return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, groupId);
         }
@@ -47,7 +47,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult PropertyModGroup(string accessToken, PropertyModGroup propertyModGroup)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/group/propertymod?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/group/propertymod?access_token={0}";
 
             return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, propertyModGroup);
         }
@@ -60,7 +60,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult ProductModGroup(string accessToken, ProductModGroup productModGroup)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/group/productmod?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/group/productmod?access_token={0}";
 
             return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, productModGroup);
         }
@@ -72,7 +72,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetAllGroup GetAllGroup(string accessToken)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/group/getall?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/group/getall?access_token={0}";
 
             return CommonJsonSend.Send<GetAllGroup>(accessToken, urlFormat, null, CommonJsonSendType.GET);
         }
@@ -85,7 +85,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetByIdGroup GetByIdGroup(string accessToken, int groupId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/group/getbyid?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/group/getbyid?access_token={0}";
 
             return CommonJsonSend.Send<GetByIdGroup>(accessToken, urlFormat, groupId);
         }

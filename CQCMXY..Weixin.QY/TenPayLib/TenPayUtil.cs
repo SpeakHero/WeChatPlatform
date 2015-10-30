@@ -12,9 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web;
-using CQCMXY.Weixin.QY.Helpers;
+using CQCMXY.WeiXin.QY.Helpers;
 
-namespace CQCMXY.Weixin.QY.TenPayLib
+namespace CQCMXY.WeiXin.QY.TenPayLib
 {
     /// <summary>
     /// TenpayUtil 的摘要说明。

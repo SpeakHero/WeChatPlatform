@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.Entities
+namespace CQCMXY.WeiXin.MP.Entities
 {
     /// <summary>
     /// 弹出地理位置选择器的事件推送中的SendLocationInfo

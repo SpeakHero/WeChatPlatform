@@ -16,9 +16,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.MessageHandlers
+namespace CQCMXY.WeiXin.MessageHandlers
 {
     public interface IMessageHandler<TRequest, TResponse> : IMessageHandlerDocument
         where TRequest : IRequestMessageBase
@@ -27,7 +27,7 @@ namespace CQCMXY.Weixin.MessageHandlers
         /// <summary>
         /// 发送者用户名（OpenId）
         /// </summary>
-        string WeixinOpenId { get; }
+        string WeiXinOpenId { get; }
 
         /// <summary>
         /// 取消执行Execute()方法。一般在OnExecuting()中用于临时阻止执行Execute()。

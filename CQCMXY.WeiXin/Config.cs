@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin
+namespace CQCMXY.WeiXin
 {
     /// <summary>
     /// 全局设置

@@ -17,7 +17,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.Helpers
+namespace CQCMXY.WeiXin.Helpers
 {
     public class FileHelper
     {

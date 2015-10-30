@@ -12,19 +12,19 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方文档：http://mp.weixin.qq.com/wiki/index.php?title=%E7%BD%91%E9%A1%B5%E6%8E%88%E6%9D%83%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF#.E7.AC.AC.E4.B8.80.E6.AD.A5.EF.BC.9A.E7.94.A8.E6.88.B7.E5.90.8C.E6.84.8F.E6.8E.88.E6.9D.83.EF.BC.8C.E8.8E.B7.E5.8F.96code
+    官方文档：http://mp.WeiXin.qq.com/wiki/index.php?title=%E7%BD%91%E9%A1%B5%E6%8E%88%E6%9D%83%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF#.E7.AC.AC.E4.B8.80.E6.AD.A5.EF.BC.9A.E7.94.A8.E6.88.B7.E5.90.8C.E6.84.8F.E6.8E.88.E6.9D.83.EF.BC.8C.E8.8E.B7.E5.8F.96code
  */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.AdvancedAPIs.OAuth;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.OAuth;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     public static class OAuthApi
     {
@@ -40,7 +40,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         public static string GetAuthorizeUrl(string appId, string redirectUrl, string state, OAuthScope scope, string responseType = "code")
         {
             var url =
-                string.Format("https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type={2}&scope={3}&state={4}#wechat_redirect",
+                string.Format("https://open.WeiXin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type={2}&scope={3}&state={4}#wechat_redirect",
                                 appId, redirectUrl.UrlEncode(), responseType, scope, state);
 
             /* 这一步发送之后，客户会得到授权页面，无论同意或拒绝，都会返回redirectUrl页面。
@@ -61,7 +61,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         public static OAuthAccessTokenResult GetAccessToken(string appId, string secret, string code, string grantType = "authorization_code")
         {
             var url =
-                string.Format("https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type={3}",
+                string.Format("https://api.WeiXin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type={3}",
                                 appId, secret, code, grantType);
 
             return CommonJsonSend.Send<OAuthAccessTokenResult>(null, url, null, CommonJsonSendType.GET);
@@ -77,7 +77,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         public static OAuthAccessTokenResult RefreshToken(string appId, string refreshToken, string grantType = "refresh_token")
         {
             var url =
-                string.Format("https://api.weixin.qq.com/sns/oauth2/refresh_token?appid={0}&grant_type={1}&refresh_token={2}",
+                string.Format("https://api.WeiXin.qq.com/sns/oauth2/refresh_token?appid={0}&grant_type={1}&refresh_token={2}",
                                 appId, grantType, refreshToken);
 
             return CommonJsonSend.Send<OAuthAccessTokenResult>(null, url, null, CommonJsonSendType.GET);
@@ -92,7 +92,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static OAuthUserInfo GetUserInfo(string accessToken, string openId, Language lang = Language.zh_CN)
         {
-            var url = string.Format("https://api.weixin.qq.com/sns/userinfo?access_token={0}&openid={1}&lang={2}", accessToken, openId, lang);
+            var url = string.Format("https://api.WeiXin.qq.com/sns/userinfo?access_token={0}&openid={1}&lang={2}", accessToken, openId, lang);
             return CommonJsonSend.Send<OAuthUserInfo>(null, url, null, CommonJsonSendType.GET);
         }
 
@@ -104,7 +104,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
 		/// <returns></returns>
 		public static WxJsonResult Auth(string accessToken, string openId)
 		{
-			var url = string.Format("https://api.weixin.qq.com/sns/auth?access_token={0}&openid={1}", accessToken, openId);
+			var url = string.Format("https://api.WeiXin.qq.com/sns/auth?access_token={0}&openid={1}", accessToken, openId);
 			return CommonJsonSend.Send<WxJsonResult>(null, url, null, CommonJsonSendType.GET);
 		}
     }

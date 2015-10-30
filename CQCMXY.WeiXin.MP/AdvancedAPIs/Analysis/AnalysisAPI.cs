@@ -15,21 +15,21 @@
 ----------------------------------------------------------------*/
 
 /*
-    图文分析数据接口详见：http://mp.weixin.qq.com/wiki/8/c0453610fb5131d1fcb17b4e87c82050.html
-    接口分析数据接口详见：http://mp.weixin.qq.com/wiki/8/30ed81ae38cf4f977194bf1a5db73668.html
-    消息分析数据接口详见：http://mp.weixin.qq.com/wiki/12/32d42ad542f2e4fc8a8aa60e1bce9838.html
-    用户分析数据接口详见：http://mp.weixin.qq.com/wiki/3/ecfed6e1a0a03b5f35e5efac98e864b7.html
+    图文分析数据接口详见：http://mp.WeiXin.qq.com/wiki/8/c0453610fb5131d1fcb17b4e87c82050.html
+    接口分析数据接口详见：http://mp.WeiXin.qq.com/wiki/8/30ed81ae38cf4f977194bf1a5db73668.html
+    消息分析数据接口详见：http://mp.WeiXin.qq.com/wiki/12/32d42ad542f2e4fc8a8aa60e1bce9838.html
+    用户分析数据接口详见：http://mp.WeiXin.qq.com/wiki/3/ecfed6e1a0a03b5f35e5efac98e864b7.html
  */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.HttpUtility;
-using CQCMXY.Weixin.MP.AdvancedAPIs.Analysis;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.HttpUtility;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.Analysis;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
     /// 分析数据接口
@@ -51,7 +51,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getarticlesummary?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getarticlesummary?access_token={0}";
 
                 var data = new
                 {
@@ -78,7 +78,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getarticletotal?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getarticletotal?access_token={0}";
 
                 var data = new
                 {
@@ -104,7 +104,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getuserread?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getuserread?access_token={0}";
 
                 var data = new
                 {
@@ -130,7 +130,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getuserreadhour?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getuserreadhour?access_token={0}";
 
                 var data = new
                 {
@@ -156,7 +156,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getusershare?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getusershare?access_token={0}";
 
                 var data = new
                 {
@@ -182,7 +182,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getusersharehour?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getusersharehour?access_token={0}";
 
                 var data = new
                 {
@@ -208,7 +208,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getinterfacesummary?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getinterfacesummary?access_token={0}";
 
                 var data = new
                 {
@@ -234,7 +234,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getinterfacesummaryhour?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getinterfacesummaryhour?access_token={0}";
 
                 var data = new
                 {
@@ -259,7 +259,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getupstreammsg?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getupstreammsg?access_token={0}";
 
                 var data = new
                 {
@@ -285,7 +285,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getupstreammsghour?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getupstreammsghour?access_token={0}";
 
                 var data = new
                 {
@@ -311,7 +311,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getupstreammsgweek?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getupstreammsgweek?access_token={0}";
 
                 var data = new
                 {
@@ -337,7 +337,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getupstreammsgmonth?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getupstreammsgmonth?access_token={0}";
 
                 var data = new
                 {
@@ -363,7 +363,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getupstreammsgdist?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getupstreammsgdist?access_token={0}";
 
                 var data = new
                 {
@@ -389,7 +389,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getupstreammsgdistweek?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getupstreammsgdistweek?access_token={0}";
 
                 var data = new
                 {
@@ -415,7 +415,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getupstreammsgdistmonth?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getupstreammsgdistmonth?access_token={0}";
 
                 var data = new
                 {
@@ -441,7 +441,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getusersummary?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getusersummary?access_token={0}";
 
                 var data = new
                 {
@@ -467,7 +467,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string urlFormat = "https://api.weixin.qq.com/datacube/getusercumulate?access_token={0}";
+                string urlFormat = "https://api.WeiXin.qq.com/datacube/getusercumulate?access_token={0}";
 
                 var data = new
                 {

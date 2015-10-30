@@ -21,15 +21,15 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Context;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.QY.Entities;
-using CQCMXY.Weixin.QY.Helpers;
+using CQCMXY.WeiXin.Context;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.QY.Entities;
+using CQCMXY.WeiXin.QY.Helpers;
 using Tencent;
 
-namespace CQCMXY.Weixin.QY.MessageHandlers
+namespace CQCMXY.WeiXin.QY.MessageHandlers
 {
-    public interface IQyMessageHandler : Weixin.MessageHandlers.IMessageHandler<IRequestMessageBase, IResponseMessageBase>
+    public interface IQyMessageHandler : WeiXin.MessageHandlers.IMessageHandler<IRequestMessageBase, IResponseMessageBase>
     {
         /// <summary>
         /// 原始加密信息
@@ -39,20 +39,20 @@ namespace CQCMXY.Weixin.QY.MessageHandlers
         new IResponseMessageBase ResponseMessage { get; set; }
     }
 
-    public abstract class QyMessageHandler<TC> : Weixin.MessageHandlers.MessageHandler<TC, IRequestMessageBase, IResponseMessageBase>, IQyMessageHandler
+    public abstract class QyMessageHandler<TC> : WeiXin.MessageHandlers.MessageHandler<TC, IRequestMessageBase, IResponseMessageBase>, IQyMessageHandler
         where TC : class ,IMessageContext<IRequestMessageBase, IResponseMessageBase>, new()
     {
         /// <summary>
         /// 上下文（仅限于当前MessageHandler基类内）
         /// </summary>
-        public static WeixinContext<TC, IRequestMessageBase, IResponseMessageBase> GlobalWeixinContext = new Context.WeixinContext<TC, IRequestMessageBase, IResponseMessageBase>();
+        public static WeiXinContext<TC, IRequestMessageBase, IResponseMessageBase> GlobalWeiXinContext = new Context.WeiXinContext<TC, IRequestMessageBase, IResponseMessageBase>();
 
         /// <summary>
         /// 全局消息上下文
         /// </summary>
-        public override WeixinContext<TC, IRequestMessageBase, IResponseMessageBase> WeixinContext
+        public override WeiXinContext<TC, IRequestMessageBase, IResponseMessageBase> WeiXinContext
         {
-            get { return GlobalWeixinContext; }
+            get { return GlobalWeiXinContext; }
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace CQCMXY.Weixin.QY.MessageHandlers
 
         /// <summary>
         /// 最后返回的ResponseDocument。
-        /// 这里是CQCMXY.Weixin.QY，应当在ResponseDocument基础上进行加密（每次获取重新加密，所以结果会不同）
+        /// 这里是CQCMXY.WeiXin.QY，应当在ResponseDocument基础上进行加密（每次获取重新加密，所以结果会不同）
         /// </summary>
         public override XDocument FinalResponseDocument
         {
@@ -192,9 +192,9 @@ namespace CQCMXY.Weixin.QY.MessageHandlers
             RequestMessage = RequestMessageFactory.GetRequestEntity(requestDocument);
 
             //记录上下文
-            if (WeixinContextGlobal.UseWeixinContext)
+            if (WeiXinContextGlobal.UseWeiXinContext)
             {
-                WeixinContext.InsertMessage(RequestMessage);
+                WeiXinContext.InsertMessage(RequestMessage);
             }
 
             return requestDocument;
@@ -259,7 +259,7 @@ namespace CQCMXY.Weixin.QY.MessageHandlers
                             }
                             else
                             {
-                                throw new WeixinException("没有找到合适的消息类型。");
+                                throw new WeiXinException("没有找到合适的消息类型。");
                             }
                         }
                         break;
@@ -296,9 +296,9 @@ namespace CQCMXY.Weixin.QY.MessageHandlers
                 }
 
                 //记录上下文
-                if (WeixinContextGlobal.UseWeixinContext && ResponseMessage != null)
+                if (WeiXinContextGlobal.UseWeiXinContext && ResponseMessage != null)
                 {
-                    WeixinContext.InsertMessage(ResponseMessage);
+                    WeiXinContext.InsertMessage(ResponseMessage);
                 }
             }
             catch (Exception ex)
@@ -432,8 +432,8 @@ namespace CQCMXY.Weixin.QY.MessageHandlers
                 case Event.LOCATION_SELECT://弹出地理位置选择器
                     responseMessage = OnEvent_LocationSelectRequest(RequestMessage as RequestMessageEvent_Location_Select);
                     break;
-                case Event.PIC_WEIXIN://弹出微信相册发图器
-                    responseMessage = OnEvent_PicWeixinRequest(RequestMessage as RequestMessageEvent_Pic_Weixin);
+                case Event.PIC_WeiXin://弹出微信相册发图器
+                    responseMessage = OnEvent_PicWeiXinRequest(RequestMessage as RequestMessageEvent_Pic_WeiXin);
                     break;
                 case Event.PIC_SYSPHOTO://弹出系统拍照发图
                     responseMessage = OnEvent_PicSysphotoRequest(RequestMessage as RequestMessageEvent_Pic_Sysphoto);
@@ -519,7 +519,7 @@ namespace CQCMXY.Weixin.QY.MessageHandlers
         /// 弹出微信相册发图器
         /// </summary>
         /// <returns></returns>
-        public virtual IResponseMessageBase OnEvent_PicWeixinRequest(RequestMessageEvent_Pic_Weixin requestMessage)
+        public virtual IResponseMessageBase OnEvent_PicWeiXinRequest(RequestMessageEvent_Pic_WeiXin requestMessage)
         {
             return DefaultResponseMessage(requestMessage);
         }

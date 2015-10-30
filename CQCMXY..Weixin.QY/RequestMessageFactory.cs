@@ -21,12 +21,12 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.QY.Helpers;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.QY.Helpers;
 
-namespace CQCMXY.Weixin.QY
+namespace CQCMXY.WeiXin.QY
 {
-    using CQCMXY.Weixin.QY.Entities;
+    using CQCMXY.WeiXin.QY.Entities;
 
     public static class RequestMessageFactory
     {
@@ -97,8 +97,8 @@ namespace CQCMXY.Weixin.QY
                                 case "PIC_PHOTO_OR_ALBUM"://弹出拍照或者相册发图（pic_photo_or_album）
                                     requestMessage = new RequestMessageEvent_Pic_Photo_Or_Album();
                                     break;
-                                case "PIC_WEIXIN"://弹出微信相册发图器(pic_weixin)
-                                    requestMessage = new RequestMessageEvent_Pic_Weixin();
+                                case "PIC_WeiXin"://弹出微信相册发图器(pic_WeiXin)
+                                    requestMessage = new RequestMessageEvent_Pic_WeiXin();
                                     break;
                                 case "LOCATION_SELECT"://弹出地理位置选择器（location_select）
                                     requestMessage = new RequestMessageEvent_Location_Select();
@@ -124,7 +124,7 @@ namespace CQCMXY.Weixin.QY
                 }
                 catch (ArgumentException ex)
                 {
-                    throw new WeixinException(string.Format("RequestMessage转换出错！可能是MsgType不存在！，XML：{0}", doc.ToString()), ex);
+                    throw new WeiXinException(string.Format("RequestMessage转换出错！可能是MsgType不存在！，XML：{0}", doc.ToString()), ex);
                 }
             }
             else if (doc.Root.Element("InfoType") != null)
@@ -151,12 +151,12 @@ namespace CQCMXY.Weixin.QY
                 }
                 catch (ArgumentException ex)
                 {
-                    throw new WeixinException(string.Format("RequestMessage转换出错！可能是MsgType和InfoType都不存在！，XML：{0}", doc.ToString()), ex);
+                    throw new WeiXinException(string.Format("RequestMessage转换出错！可能是MsgType和InfoType都不存在！，XML：{0}", doc.ToString()), ex);
                 }
             }
             else
             {
-                throw new WeixinException(string.Format("RequestMessage转换出错！可能是MsgType和InfoType都不存在！，XML：{0}", doc.ToString()));
+                throw new WeiXinException(string.Format("RequestMessage转换出错！可能是MsgType和InfoType都不存在！，XML：{0}", doc.ToString()));
             }
             
             return requestMessage;

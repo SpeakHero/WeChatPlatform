@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AppStore
+namespace CQCMXY.WeiXin.MP.AppStore
 {
     /// <summary>
     /// JSON返回结果（用于菜单接口等）

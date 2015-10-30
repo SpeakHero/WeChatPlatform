@@ -9,7 +9,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方API：https://pay.weixin.qq.com/wiki/doc/api/mch_pay.php?chapter=14_2
+    官方API：https://pay.WeiXin.qq.com/wiki/doc/api/mch_pay.php?chapter=14_2
  */
 
 using System;
@@ -19,7 +19,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs
 {
     /// <summary>
     /// 企业号微信支付接口
@@ -35,13 +35,13 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static string Transfers(string data, int timeOut = Config.TIME_OUT)
         {
-            var urlFormat = "https://api.mch.weixin.qq.com/mmpaymkttransfers/promotion/transfers";
+            var urlFormat = "https://api.mch.WeiXin.qq.com/mmpaymkttransfers/promotion/transfers";
 
             var formDataBytes = data == null ? new byte[0] : Encoding.UTF8.GetBytes(data);
             MemoryStream ms = new MemoryStream();
             ms.Write(formDataBytes, 0, formDataBytes.Length);
             ms.Seek(0, SeekOrigin.Begin);//设置指针读取位置
-            return CQCMXY.Weixin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms, timeOut: timeOut);
+            return CQCMXY.WeiXin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms, timeOut: timeOut);
         }
 
         /// <summary>
@@ -52,13 +52,13 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static string GetTransferInfo(string data, int timeOut = Config.TIME_OUT)
         {
-            var urlFormat = "https://api.mch.weixin.qq.com/mmpaymkttransfers/gettransferinfo";
+            var urlFormat = "https://api.mch.WeiXin.qq.com/mmpaymkttransfers/gettransferinfo";
 
             var formDataBytes = data == null ? new byte[0] : Encoding.UTF8.GetBytes(data);
             MemoryStream ms = new MemoryStream();
             ms.Write(formDataBytes, 0, formDataBytes.Length);
             ms.Seek(0, SeekOrigin.Begin);//设置指针读取位置
-            return CQCMXY.Weixin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms, timeOut: timeOut);
+            return CQCMXY.WeiXin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms, timeOut: timeOut);
         }
     }
 }

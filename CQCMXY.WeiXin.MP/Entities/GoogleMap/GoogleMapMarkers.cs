@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.Entities.GoogleMap
+namespace CQCMXY.WeiXin.MP.Entities.GoogleMap
 {
     /// <summary>
     /// 标记大小

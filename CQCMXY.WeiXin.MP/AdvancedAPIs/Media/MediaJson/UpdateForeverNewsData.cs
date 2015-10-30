@@ -12,10 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.MP.AdvancedAPIs.GroupMessage;
-using CQCMXY.Weixin.MP.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.GroupMessage;
+using CQCMXY.WeiXin.MP.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Media
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Media
 {
     /// <summary>
     /// 修改永久图文素材需要post的数据

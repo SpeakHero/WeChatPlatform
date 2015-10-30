@@ -19,9 +19,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.MP.Entities.GoogleMap;
+using CQCMXY.WeiXin.MP.Entities.GoogleMap;
 
-namespace CQCMXY.Weixin.MP.Helpers
+namespace CQCMXY.WeiXin.MP.Helpers
 {
     public static class GoogleMapHelper
     {

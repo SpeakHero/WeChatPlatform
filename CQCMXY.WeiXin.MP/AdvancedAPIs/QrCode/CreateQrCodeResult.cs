@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.QrCode
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.QrCode
 {
     /// <summary>
     /// 二维码创建返回结果

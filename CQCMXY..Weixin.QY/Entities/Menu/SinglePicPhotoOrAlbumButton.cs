@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.QY.Entities.Menu
+namespace CQCMXY.WeiXin.QY.Entities.Menu
 {
     /// <summary>
     /// 单个按键

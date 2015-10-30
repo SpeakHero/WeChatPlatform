@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.CustomService
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.CustomService
 {
 	public class CustomOnlineJson : WxJsonResult
 	{

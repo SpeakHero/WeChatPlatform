@@ -12,7 +12,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方API：https://mp.weixin.qq.com/paymch/readtemplate?t=mp/business/course2_tmpl&lang=zh_CN&token=25857919#4
+    官方API：https://mp.WeiXin.qq.com/paymch/readtemplate?t=mp/business/course2_tmpl&lang=zh_CN&token=25857919#4
  */
 
 using System;
@@ -20,13 +20,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
-    /// 微信支付接口，官方API：https://mp.weixin.qq.com/paymch/readtemplate?t=mp/business/course2_tmpl&lang=zh_CN&token=25857919#4
+    /// 微信支付接口，官方API：https://mp.WeiXin.qq.com/paymch/readtemplate?t=mp/business/course2_tmpl&lang=zh_CN&token=25857919#4
     /// </summary>
     public static class TenPay
     {
@@ -40,7 +40,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <param name="productId">商品唯一id</param>
         public static string NativePay(string sign, string appId, string timesTamp, string nonceStr, string productId)
         {
-            var urlFormat = "weixin://wxpay/bizpayurl?sign={0}&appid={1}&productid={2}&timestamp={3}&noncestr={4}";
+            var urlFormat = "WeiXin://wxpay/bizpayurl?sign={0}&appid={1}&productid={2}&timestamp={3}&noncestr={4}";
             var url = string.Format(urlFormat, sign, appId, productId, timesTamp, nonceStr);
 
             return url;
@@ -62,7 +62,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             var accessToken = AccessTokenContainer.GetToken(appId);
 
-            var urlFormat = "https://api.weixin.qq.com/pay/delivernotify?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/pay/delivernotify?access_token={0}";
 
             //组装发送消息
             var data = new
@@ -93,7 +93,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             var accessToken = AccessTokenContainer.GetToken(appId);
 
-            var urlFormat = "https://api.weixin.qq.com/pay/orderquery?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/pay/orderquery?access_token={0}";
 
             //组装发送消息
             var data = new

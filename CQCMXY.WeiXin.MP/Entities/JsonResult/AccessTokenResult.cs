@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.Entities
+namespace CQCMXY.WeiXin.MP.Entities
 {
     /// <summary>
     /// access_token请求后的JSON返回格式

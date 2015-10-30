@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.QY.Entities
+namespace CQCMXY.WeiXin.QY.Entities
 {
     public class GetCallBackIpResult : QyJsonResult
     {

@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.TemplateMessage
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.TemplateMessage
 {
     /// <summary>
     /// 模板消息的数据项类型

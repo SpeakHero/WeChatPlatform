@@ -19,9 +19,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.MP.Entities.BaiduMap;
+using CQCMXY.WeiXin.MP.Entities.BaiduMap;
 
-namespace CQCMXY.Weixin.MP.Helpers
+namespace CQCMXY.WeiXin.MP.Helpers
 {
     /// <summary>
     /// 百度地图静态图片API，文档：http://api.map.baidu.com/lbsapi/cloud/staticimg.htm

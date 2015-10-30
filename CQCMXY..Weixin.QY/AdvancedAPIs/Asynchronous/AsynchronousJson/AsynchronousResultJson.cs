@@ -12,9 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs.Asynchronous
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs.Asynchronous
 {
     /// <summary>
     /// 异步任务Id返回结果

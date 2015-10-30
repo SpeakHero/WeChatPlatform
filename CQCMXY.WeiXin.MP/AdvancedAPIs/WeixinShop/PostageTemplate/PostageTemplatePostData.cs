@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.MP.Entities;
+using CQCMXY.WeiXin.MP.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
     /// 邮费模板信息

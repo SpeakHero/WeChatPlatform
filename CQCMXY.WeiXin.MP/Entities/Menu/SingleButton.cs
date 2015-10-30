@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.Entities.Menu
+namespace CQCMXY.WeiXin.MP.Entities.Menu
 {
     /// <summary>
     /// 所有单击按钮的基类（view，click等）

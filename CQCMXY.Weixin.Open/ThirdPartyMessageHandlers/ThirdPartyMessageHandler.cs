@@ -4,13 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Context;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.Open.Entities.Request;
-using CQCMXY.Weixin.Open.Helpers;
+using CQCMXY.WeiXin.Context;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.Open.Entities.Request;
+using CQCMXY.WeiXin.Open.Helpers;
 using Tencent;
 
-namespace CQCMXY.Weixin.Open.MessageHandlers
+namespace CQCMXY.WeiXin.Open.MessageHandlers
 {
     public abstract class ThirdPartyMessageHandler
     {

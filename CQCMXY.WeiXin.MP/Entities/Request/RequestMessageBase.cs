@@ -15,11 +15,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.MP.Entities
+namespace CQCMXY.WeiXin.MP.Entities
 {
-    public interface IRequestMessageBase : Weixin.Entities.IRequestMessageBase
+    public interface IRequestMessageBase : WeiXin.Entities.IRequestMessageBase
     {
         RequestMsgType MsgType { get; }
         string Encrypt { get; set; }
@@ -29,7 +29,7 @@ namespace CQCMXY.Weixin.MP.Entities
     /// <summary>
     /// 接收到请求的消息
     /// </summary>
-    public class RequestMessageBase : Weixin.Entities.RequestMessageBase, IRequestMessageBase
+    public class RequestMessageBase : WeiXin.Entities.RequestMessageBase, IRequestMessageBase
     {
         public virtual RequestMsgType MsgType
         {

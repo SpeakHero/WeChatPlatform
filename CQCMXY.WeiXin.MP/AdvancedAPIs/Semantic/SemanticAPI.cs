@@ -15,8 +15,8 @@
 ----------------------------------------------------------------*/
 
 /*
-    API：http://mp.weixin.qq.com/wiki/0/0ce78b3c9524811fee34aba3e33f3448.html
-    文档下载：http://mp.weixin.qq.com/wiki/static/assets/f48efdb46b4bca35caed4f01ca92e7da.zip
+    API：http://mp.WeiXin.qq.com/wiki/0/0ce78b3c9524811fee34aba3e33f3448.html
+    文档下载：http://mp.WeiXin.qq.com/wiki/static/assets/f48efdb46b4bca35caed4f01ca92e7da.zip
  */
 
 using System;
@@ -27,12 +27,12 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web.Script.Serialization;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.AdvancedAPIs.Semantic;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.Semantic;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
     /// 语意理解接口
@@ -51,7 +51,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = "https://api.weixin.qq.com/semantic/semproxy/search?access_token={0}";
+                var urlFormat = "https://api.WeiXin.qq.com/semantic/semproxy/search?access_token={0}";
 
                 //switch (semanticPostData.category)
                 //{

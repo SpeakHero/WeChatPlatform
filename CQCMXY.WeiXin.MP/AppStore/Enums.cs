@@ -8,7 +8,7 @@
     创建标识：CQCMXY - 20150319
 ----------------------------------------------------------------*/
 
-namespace CQCMXY.Weixin.MP.AppStore
+namespace CQCMXY.WeiXin.MP.AppStore
 {
     /// <summary>
     /// P2P返回结果类型
@@ -36,7 +36,7 @@ namespace CQCMXY.Weixin.MP.AppStore
     /// <summary>
     /// 性别
     /// </summary>
-    public enum WeixinSex
+    public enum WeiXinSex
     {
         未设置 = 0,
         男 = 1,

@@ -15,19 +15,19 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方文档：http://qydev.weixin.qq.com/wiki/index.php?title=%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%94%E7%94%A8%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E
+    官方文档：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%94%E7%94%A8%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E
  */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.HttpUtility;
-using CQCMXY.Weixin.QY.AdvancedAPIs.ThirdPartyAuth;
-using CQCMXY.Weixin.QY.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.HttpUtility;
+using CQCMXY.WeiXin.QY.AdvancedAPIs.ThirdPartyAuth;
+using CQCMXY.WeiXin.QY.CommonAPIs;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs
 {
     public static class ThirdPartyAuthApi
     {
@@ -41,7 +41,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetSuiteTokenResult GetSuiteToken(string suiteId, string suiteSecret, string suiteTicket, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://qyapi.weixin.qq.com/cgi-bin/service/get_suite_token";
+            var url = "https://qyapi.WeiXin.qq.com/cgi-bin/service/get_suite_token";
 
             var data = new
                 {
@@ -63,7 +63,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetPreAuthCodeResult GetPreAuthCode(string suiteAccessToken, string suiteId, int[] appId, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/service/get_pre_auth_code?suite_access_token={0}", suiteAccessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/service/get_pre_auth_code?suite_access_token={0}", suiteAccessToken);
 
             var data = new
                 {
@@ -84,7 +84,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetPermanentCodeResult GetPermanentCode(string suiteAccessToken, string suiteId, string authCode, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/service/get_permanent_code?suite_access_token={0}", suiteAccessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/service/get_permanent_code?suite_access_token={0}", suiteAccessToken);
 
             var data = new
             {
@@ -106,7 +106,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetAuthInfoResult GetAuthInfo(string suiteAccessToken, string suiteId, string authCorpId, string permanentCode, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/service/get_auth_info?suite_access_token={0}", suiteAccessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/service/get_auth_info?suite_access_token={0}", suiteAccessToken);
 
             var data = new
             {
@@ -130,7 +130,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetAgentResult GetAgent(string suiteAccessToken, string suiteId, string authCorpId, string permanentCode, string agentId, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/service/get_agent?suite_access_token={0}", suiteAccessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/service/get_agent?suite_access_token={0}", suiteAccessToken);
 
             var data = new
             {
@@ -155,7 +155,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult SetAgent(string suiteAccessToken, string suiteId, string authCorpId, string permanentCode, ThirdParty_AgentData agent, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/service/set_agent?suite_access_token={0}", suiteAccessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/service/set_agent?suite_access_token={0}", suiteAccessToken);
 
             var data = new
             {
@@ -179,7 +179,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetCorpTokenResult GetCorpToken(string suiteAccessToken, string suiteId, string authCorpId, string permanentCode, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/service/get_corp_token?suite_access_token={0}", suiteAccessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/service/get_corp_token?suite_access_token={0}", suiteAccessToken);
 
             var data = new
             {

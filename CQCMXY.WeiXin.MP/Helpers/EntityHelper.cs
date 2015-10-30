@@ -18,10 +18,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Helpers;
-using CQCMXY.Weixin.MP.Entities;
+using CQCMXY.WeiXin.Helpers;
+using CQCMXY.WeiXin.MP.Entities;
 
-namespace CQCMXY.Weixin.MP.Helpers
+namespace CQCMXY.WeiXin.MP.Helpers
 {
     public static class EntityHelper
     {
@@ -278,7 +278,7 @@ namespace CQCMXY.Weixin.MP.Helpers
                             break;
                         case "DateTime":
                             root.Add(new XElement(propName,
-                                                  DateTimeHelper.GetWeixinDateTime(
+                                                  DateTimeHelper.GetWeiXinDateTime(
                                                       (DateTime)prop.GetValue(entity, null))));
                             break;
                         case "Boolean":

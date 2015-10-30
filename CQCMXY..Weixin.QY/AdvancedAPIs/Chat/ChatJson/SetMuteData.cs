@@ -12,9 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs.OAuth2
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs.OAuth2
 {
     /// <summary>
     /// 成员新消息免打扰参数

@@ -20,7 +20,7 @@ namespace MsgCryptTest
              /* 1. 对用户回复的数据进行解密。
              * 用户回复消息或者点击事件响应时，企业会收到回调消息，假设企业收到的推送消息：
              * 	POST /cgi-bin/wxpush? msg_signature=477715d11cdb4164915debcba66cb864d751f3e6&timestamp=1409659813&nonce=1372623149 HTTP/1.1
-	            Host: qy.weixin.qq.com
+	            Host: qy.WeiXin.qq.com
                 Content-Length: 613
              *
              * 	<xml>

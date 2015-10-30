@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AppStore
+namespace CQCMXY.WeiXin.MP.AppStore
 {
     /// <summary>
     /// 微微嗨开发者信息。申请开发者：http://www.weiweihi.com/User/Developer/Apply

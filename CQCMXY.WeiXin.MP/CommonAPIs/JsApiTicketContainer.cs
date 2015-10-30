@@ -15,10 +15,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.MP.Entities;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.MP.Entities;
 
-namespace CQCMXY.Weixin.MP.CommonAPIs
+namespace CQCMXY.WeiXin.MP.CommonAPIs
 {
     class JsApiTicketBag
     {
@@ -93,7 +93,7 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
         {
             if (!JsApiTicketCollection.ContainsKey(appId))
             {
-                throw new WeixinException("此appId尚未注册，请先使用JsApiTicketContainer.Register完成注册（全局执行一次即可）！");
+                throw new WeiXinException("此appId尚未注册，请先使用JsApiTicketContainer.Register完成注册（全局执行一次即可）！");
             }
 
             var accessTicketBag = JsApiTicketCollection[appId];

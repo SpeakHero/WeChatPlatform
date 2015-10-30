@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MessageHandlers;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MessageHandlers;
 
-namespace CQCMXY.Weixin.MP.MvcExtension
+namespace CQCMXY.WeiXin.MP.MvcExtension
 {
 
    
     /// <summary>
     /// 返回MessageHandler结果
     /// </summary>
-    public class WeixinResult : ContentResult
+    public class WeiXinResult : ContentResult
     {
         //private string _content;
         protected IMessageHandlerDocument _messageHandlerDocument;
 
-        public WeixinResult(string content)
+        public WeiXinResult(string content)
         {
             //_content = content;
             base.Content = content;
         }
 
-        public WeixinResult(IMessageHandlerDocument messageHandlerDocument)
+        public WeiXinResult(IMessageHandlerDocument messageHandlerDocument)
         {
             _messageHandlerDocument = messageHandlerDocument;
         }
@@ -60,12 +60,12 @@ namespace CQCMXY.Weixin.MP.MvcExtension
                 //使用IMessageHandler输出
                 if (_messageHandlerDocument == null)
                 {
-                    throw new CQCMXY.Weixin.Exceptions.WeixinException("执行WeixinResult时提供的MessageHandler不能为Null！", null);
+                    throw new CQCMXY.WeiXin.Exceptions.WeiXinException("执行WeiXinResult时提供的MessageHandler不能为Null！", null);
                 }
 
                 if (_messageHandlerDocument.FinalResponseDocument == null)
                 {
-                    //throw new CQCMXY.Weixin.MP.WeixinException("ResponseMessage不能为Null！", null);
+                    //throw new CQCMXY.WeiXin.MP.WeiXinException("ResponseMessage不能为Null！", null);
                 }
                 else
                 {

@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Card
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Card
 {
     /// <summary>
     /// 商品信息

@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.QY.Entities.Response
+namespace CQCMXY.WeiXin.QY.Entities.Response
 {
     /// <summary>
     /// 返回给服务器的加密消息

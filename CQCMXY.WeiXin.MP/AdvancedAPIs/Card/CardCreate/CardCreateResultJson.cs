@@ -18,9 +18,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Card
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Card
 {
     /// <summary>
     /// 创建卡券返回结果

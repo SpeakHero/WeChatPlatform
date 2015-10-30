@@ -15,7 +15,7 @@
 ----------------------------------------------------------------*/
 
 /* 
-   API地址：http://mp.weixin.qq.com/wiki/0/56d992c605a97245eb7e617854b169fc.html
+   API地址：http://mp.WeiXin.qq.com/wiki/0/56d992c605a97245eb7e617854b169fc.html
 */
 
 using System;
@@ -26,12 +26,12 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web.Script.Serialization;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.AdvancedAPIs.Groups;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.Groups;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
     /// 用户组接口
@@ -50,7 +50,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = "https://api.weixin.qq.com/cgi-bin/groups/create?access_token={0}";
+                var urlFormat = "https://api.WeiXin.qq.com/cgi-bin/groups/create?access_token={0}";
                 var data = new
                 {
                     group = new
@@ -72,7 +72,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = "https://api.weixin.qq.com/cgi-bin/groups/get?access_token={0}";
+                var urlFormat = "https://api.WeiXin.qq.com/cgi-bin/groups/get?access_token={0}";
                 var url = string.Format(urlFormat, accessToken);
                 return HttpUtility.Get.GetJson<GroupsJson>(url);
 
@@ -90,7 +90,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = "https://api.weixin.qq.com/cgi-bin/groups/getid?access_token={0}";
+                var urlFormat = "https://api.WeiXin.qq.com/cgi-bin/groups/getid?access_token={0}";
                 var data = new { openid = openId };
                 return CommonJsonSend.Send<GetGroupIdResult>(accessToken, urlFormat, data, timeOut: timeOut);
 
@@ -109,7 +109,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = "https://api.weixin.qq.com/cgi-bin/groups/update?access_token={0}";
+                var urlFormat = "https://api.WeiXin.qq.com/cgi-bin/groups/update?access_token={0}";
                 var data = new
                 {
                     group = new
@@ -135,7 +135,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = "https://api.weixin.qq.com/cgi-bin/groups/members/update?access_token={0}";
+                var urlFormat = "https://api.WeiXin.qq.com/cgi-bin/groups/members/update?access_token={0}";
                 var data = new
                 {
                     openid = openId,
@@ -158,7 +158,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = "https://api.weixin.qq.com/cgi-bin/groups/members/batchupdate?access_token={0}";
+                var urlFormat = "https://api.WeiXin.qq.com/cgi-bin/groups/members/batchupdate?access_token={0}";
 
                 var data = new
                 {
@@ -182,7 +182,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = "https://api.weixin.qq.com/cgi-bin/groups/delete?access_token={0}";
+                var urlFormat = "https://api.WeiXin.qq.com/cgi-bin/groups/delete?access_token={0}";
 
                 var data = new
                 {

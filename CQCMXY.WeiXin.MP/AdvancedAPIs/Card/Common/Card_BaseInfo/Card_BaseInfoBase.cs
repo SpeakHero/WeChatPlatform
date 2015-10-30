@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Card
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Card
 {
     /// <summary>
     /// 基本的卡券数据，所有卡券通用。作为 Card_BaseInfo和 的基类

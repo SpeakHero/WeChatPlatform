@@ -18,7 +18,7 @@
 ----------------------------------------------------------------*/
 
 /* 
-    多客服接口聊天记录接口，官方API：http://mp.weixin.qq.com/wiki/index.php?title=%E8%8E%B7%E5%8F%96%E5%AE%A2%E6%9C%8D%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95
+    多客服接口聊天记录接口，官方API：http://mp.WeiXin.qq.com/wiki/index.php?title=%E8%8E%B7%E5%8F%96%E5%AE%A2%E6%9C%8D%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95
 */
 
 using System;
@@ -26,12 +26,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Script.Serialization;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.AdvancedAPIs.CustomService;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.Helpers;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.CustomService;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Helpers;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
     /// 多客服接口
@@ -53,7 +53,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = "https://api.weixin.qq.com/cgi-bin/customservice/getrecord?access_token={0}";
+                var urlFormat = "https://api.WeiXin.qq.com/cgi-bin/customservice/getrecord?access_token={0}";
 
                 //规范页码
                 if (pageSize <= 0)
@@ -68,8 +68,8 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
                 //组装发送消息
                 var data = new
                 {
-                    starttime = DateTimeHelper.GetWeixinDateTime(startTime),
-                    endtime = DateTimeHelper.GetWeixinDateTime(endTime),
+                    starttime = DateTimeHelper.GetWeiXinDateTime(startTime),
+                    endtime = DateTimeHelper.GetWeiXinDateTime(endTime),
                     openId = openId,
                     pagesize = pageSize,
                     pageIndex = pageIndex
@@ -90,7 +90,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/cgi-bin/customservice/getkflist?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/cgi-bin/customservice/getkflist?access_token={0}", accessToken);
                 return CommonJsonSend.Send<CustomInfoJson>(null, urlFormat, null, CommonJsonSendType.GET, timeOut: timeOut);
                 //return GetCustomInfoResult<CustomInfoJson>(urlFormat);
 
@@ -107,7 +107,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/cgi-bin/customservice/getonlinekflist?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/cgi-bin/customservice/getonlinekflist?access_token={0}", accessToken);
                 return CommonJsonSend.Send<CustomOnlineJson>(null, urlFormat, null, CommonJsonSendType.GET, timeOut: timeOut);
                 //return GetCustomInfoResult<CustomOnlineJson>(urlFormat);
 
@@ -134,7 +134,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/customservice/kfaccount/add?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/customservice/kfaccount/add?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -161,7 +161,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/customservice/kfaccount/update?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/customservice/kfaccount/update?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -187,7 +187,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("http://api.weixin.qq.com/customservice/kfaccount/uploadheadimg?access_token={0}&kf_account={1}", accessToken, kfAccount);
+                var url = string.Format("http://api.WeiXin.qq.com/customservice/kfaccount/uploadheadimg?access_token={0}&kf_account={1}", accessToken, kfAccount);
                 var fileDictionary = new Dictionary<string, string>();
                 fileDictionary["media"] = file;
                 return HttpUtility.Post.PostFileGetJson<WxJsonResult>(url, null, fileDictionary, null, timeOut: timeOut);
@@ -206,7 +206,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/customservice/kfaccount/del?access_token={0}&kf_account={1}", accessToken, kfAccount);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/customservice/kfaccount/del?access_token={0}&kf_account={1}", accessToken, kfAccount);
                 return CommonJsonSend.Send<WxJsonResult>(null, urlFormat, null, CommonJsonSendType.GET, timeOut: timeOut);
 
             }, accessTokenOrAppId);
@@ -225,7 +225,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/customservice/kfsession/create?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/customservice/kfsession/create?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -252,7 +252,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/customservice/kfsession/close?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/customservice/kfsession/close?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -277,7 +277,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/customservice/kfsession/getsession?access_token={0}&openid={1}", accessToken, openId);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/customservice/kfsession/getsession?access_token={0}&openid={1}", accessToken, openId);
 
                 return CommonJsonSend.Send<GetSessionStateResultJson>(null, urlFormat, null, CommonJsonSendType.GET, timeOut: timeOut);
 
@@ -295,7 +295,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/customservice/kfsession/getsessionlist?access_token={0}&kf_account={1}", accessToken, kfAccount);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/customservice/kfsession/getsessionlist?access_token={0}&kf_account={1}", accessToken, kfAccount);
 
                 return CommonJsonSend.Send<GetSessionListResultJson>(null, urlFormat, null, CommonJsonSendType.GET, timeOut: timeOut);
 
@@ -312,7 +312,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/customservice/kfsession/getwaitcase?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/customservice/kfsession/getwaitcase?access_token={0}", accessToken);
 
                 return CommonJsonSend.Send<GetWaitCaseResultJson>(null, urlFormat, null, CommonJsonSendType.GET, timeOut: timeOut);
 

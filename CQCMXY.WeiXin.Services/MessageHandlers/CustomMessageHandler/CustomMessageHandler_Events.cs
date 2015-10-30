@@ -12,15 +12,15 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
-using CQCMXY.Weixin.MP.Agent;
-using CQCMXY.Weixin.Context;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.MP.Helpers;
-using CQCMXY.Weixin.MP.MessageHandlers;
-using CQCMXY.Weixin.Service.Utilities;
-using CQCMXY.Weixin.MP;
+using CQCMXY.WeiXin.MP.Agent;
+using CQCMXY.WeiXin.Context;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.MP.Helpers;
+using CQCMXY.WeiXin.MP.MessageHandlers;
+using CQCMXY.WeiXin.Service.Utilities;
+using CQCMXY.WeiXin.MP;
 
-namespace CQCMXY.Weixin.Service.CustomMessageHandler
+namespace CQCMXY.WeiXin.Service.CustomMessageHandler
 {
     /// <summary>
     /// 自定义MessageHandler
@@ -79,8 +79,8 @@ namespace CQCMXY.Weixin.Service.CustomMessageHandler
                         {
                             Title = "您点击了子菜单图文按钮",
                             Description = "您点击了子菜单图文按钮，这是一条图文信息。",
-                            PicUrl = "http://weixin.CQCMXY.com/Images/qrcode.jpg",
-                            Url = "http://weixin.CQCMXY.com"
+                            PicUrl = "http://WeiXin.CQCMXY.com/Images/qrcode.jpg",
+                            Url = "http://WeiXin.CQCMXY.com"
                         });
                     }
                     break;
@@ -95,8 +95,8 @@ namespace CQCMXY.Weixin.Service.CustomMessageHandler
                         reponseMessage = strongResponseMessage;
                         strongResponseMessage.Music.Title = "天籁之音";
                         strongResponseMessage.Music.Description = "真的是天籁之音";
-                        strongResponseMessage.Music.MusicUrl = "http://weixin.CQCMXY.com/Content/music1.mp3";
-                        strongResponseMessage.Music.HQMusicUrl = "http://weixin.CQCMXY.com/Content/music1.mp3";
+                        strongResponseMessage.Music.MusicUrl = "http://WeiXin.CQCMXY.com/Content/music1.mp3";
+                        strongResponseMessage.Music.HQMusicUrl = "http://WeiXin.CQCMXY.com/Content/music1.mp3";
                         strongResponseMessage.Music.ThumbMediaId = uploadResult.thumb_media_id;
                     }
                     break;
@@ -141,9 +141,9 @@ namespace CQCMXY.Weixin.Service.CustomMessageHandler
                         strongResponseMessage.Articles.Add(new Article()
                         {
                             Title = "OAuth2.0测试",
-                            Description = "点击【查看全文】进入授权页面。\r\n注意：此页面仅供测试（是专门的一个临时测试账号的授权，并非CQCMXY.Weixin.MP SDK官方账号，所以如果授权后出现错误页面数正常情况），测试号随时可能过期。请将此DEMO部署到您自己的服务器上，并使用自己的appid和secret。",
-                            Url = "http://weixin.CQCMXY.com/oauth2",
-                            PicUrl = "http://weixin.CQCMXY.com/Images/qrcode.jpg"
+                            Description = "点击【查看全文】进入授权页面。\r\n注意：此页面仅供测试（是专门的一个临时测试账号的授权，并非CQCMXY.WeiXin.MP SDK官方账号，所以如果授权后出现错误页面数正常情况），测试号随时可能过期。请将此DEMO部署到您自己的服务器上，并使用自己的appid和secret。",
+                            Url = "http://WeiXin.CQCMXY.com/oauth2",
+                            PicUrl = "http://WeiXin.CQCMXY.com/Images/qrcode.jpg"
                         });
                         reponseMessage = strongResponseMessage;
                     }
@@ -292,11 +292,11 @@ namespace CQCMXY.Weixin.Service.CustomMessageHandler
         }
 
         /// <summary>
-        /// 事件之弹出微信相册发图器(pic_weixin)
+        /// 事件之弹出微信相册发图器(pic_WeiXin)
         /// </summary>
         /// <param name="requestMessage"></param>
         /// <returns></returns>
-        public override IResponseMessageBase OnEvent_PicWeixinRequest(RequestMessageEvent_Pic_Weixin requestMessage)
+        public override IResponseMessageBase OnEvent_PicWeiXinRequest(RequestMessageEvent_Pic_WeiXin requestMessage)
         {
             var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
             responseMessage.Content = "事件之弹出微信相册发图器";

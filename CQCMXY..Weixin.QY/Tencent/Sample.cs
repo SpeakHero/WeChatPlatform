@@ -20,7 +20,7 @@ namespace MsgCryptTest
             1. 验证回调URL
              * 点击验证时，企业收到类似请求：
              * GET /cgi-bin/wxpush?msg_signature=5c45ff5e21c57e6ad56bac8758b79b1d9ac89fd3&timestamp=1409659589&nonce=263014780&echostr=P9nAzCzyDtyTWESHep1vC5X9xho%2FqYX3Zpb4yKa9SKld1DsH3Iyt3tP3zNdtp%2B4RPcs8TgAE7OaBO%2BFZXvnaqQ%3D%3D 
-             * HTTP/1.1 Host: qy.weixin.qq.com
+             * HTTP/1.1 Host: qy.WeiXin.qq.com
              * 接收到该请求时，企业应1.先验证签名的正确性 2. 解密出echostr原文。
              * 以上两步用verifyURL完成
             */
@@ -43,7 +43,7 @@ namespace MsgCryptTest
              /* 2. 对用户回复的数据进行解密。
              * 用户回复消息或者点击事件响应时，企业会收到回调消息，假设企业收到的推送消息：
              * 	POST /cgi-bin/wxpush? msg_signature=477715d11cdb4164915debcba66cb864d751f3e6&timestamp=1409659813&nonce=1372623149 HTTP/1.1
-	            Host: qy.weixin.qq.com
+	            Host: qy.WeiXin.qq.com
                 Content-Length: 613
              *
              * 	<xml>

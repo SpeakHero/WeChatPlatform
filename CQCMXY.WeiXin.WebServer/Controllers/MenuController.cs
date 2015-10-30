@@ -13,10 +13,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.MP.Entities.Menu;
-using CQCMXY.Weixin.MP;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.MP.Entities.Menu;
+using CQCMXY.WeiXin.MP;
 
 namespace CQCMXY.WeiXin.WebServer.Controllers
 {
@@ -62,8 +62,8 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
             try
             {
                 //重新整理按钮信息
-                var bg = Weixin.MP.CommonAPIs.CommonApi.GetMenuFromJsonResult(resultFull).menu;
-                var result = Weixin.MP.CommonAPIs.CommonApi.CreateMenu(token, bg);
+                var bg = WeiXin.MP.CommonAPIs.CommonApi.GetMenuFromJsonResult(resultFull).menu;
+                var result = WeiXin.MP.CommonAPIs.CommonApi.CreateMenu(token, bg);
                 var json = new
                 {
                     Success = result.errmsg == "ok",
@@ -80,7 +80,7 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
 
         public ActionResult GetMenu(string token)
         {
-            var result = Weixin.MP.CommonAPIs.CommonApi.GetMenu(token);
+            var result = WeiXin.MP.CommonAPIs.CommonApi.GetMenu(token);
             if (result == null)
             {
                 return Json(new { error = "菜单不存在或验证失败！" }, JsonRequestBehavior.AllowGet);
@@ -92,7 +92,7 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         {
             try
             {
-                var result = Weixin.MP.CommonAPIs.CommonApi.DeleteMenu(token);
+                var result = WeiXin.MP.CommonAPIs.CommonApi.DeleteMenu(token);
                 var json = new
                 {
                     Success = result.errmsg == "ok",

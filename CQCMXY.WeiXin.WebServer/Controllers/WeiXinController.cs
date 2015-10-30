@@ -1,7 +1,7 @@
-﻿using CQCMXY.Weixin.MP;
-using CQCMXY.Weixin.MP.Entities.Request;
-using CQCMXY.Weixin.MP.MvcExtension;
-using CQCMXY.Weixin.Service.CustomMessageHandler;
+﻿using CQCMXY.WeiXin.MP;
+using CQCMXY.WeiXin.MP.Entities.Request;
+using CQCMXY.WeiXin.MP.MvcExtension;
+using CQCMXY.WeiXin.Service.CustomMessageHandler;
 using CQCMXY.WeiXin.Data.Models;
 using System;
 using System.Collections.Generic;
@@ -17,26 +17,26 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
     {
 
 
-        public WeiXinAccoutInfo weixininfo = new WeiXinAccoutInfo();
+        public WeiXinAccoutInfo WeiXininfo = new WeiXinAccoutInfo();
 
-        //public static readonly string Token = weixininfo.Token;//与微信公众账号后台的Token设置保持一致，区分大小写。
-        //public static readonly string EncodingAESKey = weixininfo.WeixinEncodingAESKey;//与微信公众账号后台的EncodingAESKey设置保持一致，区分大小写。
-        //public static readonly string AppId = weixininfo.appID;//与微信公众账号后台的AppId设置保持一致，区分大小写。
+        //public static readonly string Token = WeiXininfo.Token;//与微信公众账号后台的Token设置保持一致，区分大小写。
+        //public static readonly string EncodingAESKey = WeiXininfo.WeiXinEncodingAESKey;//与微信公众账号后台的EncodingAESKey设置保持一致，区分大小写。
+        //public static readonly string AppId = WeiXininfo.appID;//与微信公众账号后台的AppId设置保持一致，区分大小写。
 
         /// <summary>
-        /// 微信后台验证地址（使用Get），微信后台的“接口配置信息”的Url填写如：http://weixin.cqcmxy.com/weixin
+        /// 微信后台验证地址（使用Get），微信后台的“接口配置信息”的Url填写如：http://WeiXin.cqcmxy.com/WeiXin
         /// </summary>
         [HttpGet]
         [ActionName("Index")]
         public ActionResult Get(PostModel postModel, string echostr)
         {
-            if (CheckSignature.Check(postModel.Signature, postModel.Timestamp, postModel.Nonce, weixininfo.Token))
+            if (CheckSignature.Check(postModel.Signature, postModel.Timestamp, postModel.Nonce, WeiXininfo.Token))
             {
                 return Content(echostr); //返回随机字符串则表示验证通过
             }
             else
             {
-                return Content("failed:" + postModel.Signature + "," + Weixin.MP.CheckSignature.GetSignature(postModel.Timestamp, postModel.Nonce, weixininfo.Token) + "。" +
+                return Content("failed:" + postModel.Signature + "," + WeiXin.MP.CheckSignature.GetSignature(postModel.Timestamp, postModel.Nonce, WeiXininfo.Token) + "。" +
                     "如果你在浏览器中看到这句话，说明此地址可以被作为微信公众账号后台的Url，请注意保持Token一致。");
             }
         }
@@ -48,14 +48,14 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         [ActionName("Index")]
         public ActionResult Post(PostModel postModel)
         {
-            if (!CheckSignature.Check(postModel.Signature, postModel.Timestamp, postModel.Nonce, this.weixininfo.Token))
+            if (!CheckSignature.Check(postModel.Signature, postModel.Timestamp, postModel.Nonce, this.WeiXininfo.Token))
             {
                 return Content("参数错误！");
             }
 
-            postModel.Token = weixininfo.Token;
-            postModel.EncodingAESKey = weixininfo.EncodingAESKey;//根据自己后台的设置保持一致
-            postModel.AppId = weixininfo.appID;//根据自己后台的设置保持一致
+            postModel.Token = WeiXininfo.Token;
+            postModel.EncodingAESKey = WeiXininfo.EncodingAESKey;//根据自己后台的设置保持一致
+            postModel.AppId = WeiXininfo.appID;//根据自己后台的设置保持一致
             //每个人上下文消息储存的最大数量，防止内存占用过多，如果该参数小于等于0，则不限制
             var maxRecordCount = 10;
             var logPath = Server.MapPath(string.Format("~/App_Data/MP/{0}/", DateTime.Now.ToString("yyyy-MM-dd")));
@@ -97,10 +97,7 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
                     //记录加密后的响应信息
                     messageHandler.FinalResponseDocument.Save(Path.Combine(logPath, string.Format("{0}_Response_Final_{1}.txt", DateTime.Now.Ticks, messageHandler.RequestMessage.FromUserName)));
                 }
-
-                //return Content(messageHandler.ResponseDocument.ToString());//v0.7-
-                return new FixWeixinBugWeixinResult(messageHandler);//为了解决官方微信5.0软件换行bug暂时添加的方法，平时用下面一个方法即可
-                //return new WeixinResult(messageHandler);//v0.8+
+                return new FixWeiXinBugWeiXinResult(messageHandler);//为了解决官方微信5.0软件换行bug暂时添加的方法
             }
             catch (Exception ex)
             {
@@ -139,17 +136,17 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         [ActionName("MiniPost")]
         public ActionResult MiniPost(PostModel postModel)
         {
-            if (!CheckSignature.Check(postModel.Signature, postModel.Timestamp, postModel.Nonce, this.weixininfo.Token))
+            if (!CheckSignature.Check(postModel.Signature, postModel.Timestamp, postModel.Nonce, this.WeiXininfo.Token))
             {
                 //return Content("参数错误！");//v0.7-
-                return new WeixinResult("参数错误！");//v0.8+
+                return new WeiXinResult("参数错误！");//v0.8+
             }
-            postModel.Token = weixininfo.Token;
-            postModel.EncodingAESKey = weixininfo.EncodingAESKey;//根据自己后台的设置保持一致
-            postModel.AppId = weixininfo.appID;//根据自己后台的设置保持一致
+            postModel.Token = WeiXininfo.Token;
+            postModel.EncodingAESKey = WeiXininfo.EncodingAESKey;//根据自己后台的设置保持一致
+            postModel.AppId = WeiXininfo.appID;//根据自己后台的设置保持一致
             var messageHandler = new CustomMessageHandler(Request.InputStream, postModel, 10);
             messageHandler.Execute();//执行微信处理过程
-            return new FixWeixinBugWeixinResult(messageHandler);//v0.8+
+            return new FixWeiXinBugWeiXinResult(messageHandler);//v0.8+
         }
 
 

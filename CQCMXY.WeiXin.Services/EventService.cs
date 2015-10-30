@@ -11,11 +11,11 @@
 using System;
 using System.Diagnostics;
 using System.Web;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.MP.Helpers;
-using CQCMXY.Weixin.MP;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.MP.Helpers;
+using CQCMXY.WeiXin.MP;
 
-namespace CQCMXY.Weixin.Service
+namespace CQCMXY.WeiXin.Service
 {
     /// <summary>
     /// 事件处理程序，此代码的简化MessageHandler方法已由/CustomerMessageHandler/CustomerMessageHandler_Event.cs完成，
@@ -42,11 +42,11 @@ namespace CQCMXY.Weixin.Service
                     {
                         var strongResponseMessage = requestMessage.CreateResponseMessage<ResponseMessageText>();
 
-                        //获取CQCMXY.Weixin.MP.dll版本信息
-                        var fileVersionInfo = FileVersionInfo.GetVersionInfo(HttpContext.Current.Server.MapPath("~/bin/CQCMXY.Weixin.MP.dll"));
+                        //获取CQCMXY.WeiXin.MP.dll版本信息
+                        var fileVersionInfo = FileVersionInfo.GetVersionInfo(HttpContext.Current.Server.MapPath("~/bin/CQCMXY.WeiXin.MP.dll"));
                         var version = fileVersionInfo.FileVersion;
                         strongResponseMessage.Content = string.Format(
-                            "欢迎关注【CQCMXY.Weixin.MP 微信公众平台SDK】，当前运行版本：v{0}。\r\n您还可以发送【位置】【图片】【语音】信息，查看不同格式的回复。\r\nSDK官方地址：http://weixin.CQCMXY.com",
+                            "欢迎关注【CQCMXY.WeiXin.MP 微信公众平台SDK】，当前运行版本：v{0}。\r\n您还可以发送【位置】【图片】【语音】信息，查看不同格式的回复。\r\nSDK官方地址：http://WeiXin.CQCMXY.com",
                             version);
                         responseMessage = strongResponseMessage;
                         break;

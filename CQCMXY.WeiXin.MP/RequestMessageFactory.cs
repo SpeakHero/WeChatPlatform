@@ -20,16 +20,16 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.Helpers;
-using CQCMXY.Weixin.MP.Entities.Request;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.Helpers;
+using CQCMXY.WeiXin.MP.Entities.Request;
 using Tencent;
 
-namespace CQCMXY.Weixin.MP
+namespace CQCMXY.WeiXin.MP
 {
     using System.Xml.Linq;
-    using CQCMXY.Weixin.MP.Entities;
-    using CQCMXY.Weixin.MP.Helpers;
+    using CQCMXY.WeiXin.MP.Entities;
+    using CQCMXY.WeiXin.MP.Helpers;
 
     public static class RequestMessageFactory
     {
@@ -122,8 +122,8 @@ namespace CQCMXY.Weixin.MP
                             case "PIC_PHOTO_OR_ALBUM"://弹出拍照或者相册发图（pic_photo_or_album）
                                 requestMessage = new RequestMessageEvent_Pic_Photo_Or_Album();
                                 break;
-                            case "PIC_WEIXIN"://弹出微信相册发图器(pic_weixin)
-                                requestMessage = new RequestMessageEvent_Pic_Weixin();
+                            case "PIC_WeiXin"://弹出微信相册发图器(pic_WeiXin)
+                                requestMessage = new RequestMessageEvent_Pic_WeiXin();
                                 break;
                             case "LOCATION_SELECT"://弹出地理位置选择器（location_select）
                                 requestMessage = new RequestMessageEvent_Location_Select();
@@ -176,7 +176,7 @@ namespace CQCMXY.Weixin.MP
             }
             catch (ArgumentException ex)
             {
-                throw new WeixinException(string.Format("RequestMessage转换出错！可能是MsgType不存在！，XML：{0}", doc.ToString()), ex);
+                throw new WeiXinException(string.Format("RequestMessage转换出错！可能是MsgType不存在！，XML：{0}", doc.ToString()), ex);
             }
             return requestMessage;
         }

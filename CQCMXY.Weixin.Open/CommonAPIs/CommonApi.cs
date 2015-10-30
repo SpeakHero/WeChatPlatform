@@ -9,7 +9,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    API：http://mp.weixin.qq.com/wiki/index.php?title=%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3&oldid=103
+    API：http://mp.WeiXin.qq.com/wiki/index.php?title=%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3&oldid=103
     
  */
 
@@ -19,12 +19,12 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using CQCMXY.Weixin.Helpers;
-using CQCMXY.Weixin.Open.Entities;
-using CQCMXY.Weixin.Open.Helpers;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Helpers;
+using CQCMXY.WeiXin.Open.Entities;
+using CQCMXY.WeiXin.Open.Helpers;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.Open.CommonAPIs
+namespace CQCMXY.WeiXin.Open.CommonAPIs
 {
     /// <summary>
     /// 通用接口
@@ -42,7 +42,7 @@ namespace CQCMXY.Weixin.Open.CommonAPIs
         /// <returns></returns>
         public static ComponentAccessTokenResult GetComponentAccessToken(string componentAppId, string componentAppSecret, string componentVerifyTicket, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://api.weixin.qq.com/cgi-bin/component/api_component_token";
+            var url = "https://api.WeiXin.qq.com/cgi-bin/component/api_component_token";
 
             var data = new
                 {
@@ -70,7 +70,7 @@ namespace CQCMXY.Weixin.Open.CommonAPIs
 
             var url =
                 string.Format(
-                    "https://api.weixin.qq.com/cgi-bin/component/api_create_preauthcode?component_access_token={0}",
+                    "https://api.WeiXin.qq.com/cgi-bin/component/api_create_preauthcode?component_access_token={0}",
                     componentAccessToken);
 
             var data = new

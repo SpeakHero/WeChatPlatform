@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.QY.Entities
+namespace CQCMXY.WeiXin.QY.Entities
 {
     /// <summary>
     /// 具有EventKey属性的RequestMessage接口

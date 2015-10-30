@@ -17,14 +17,14 @@ using System.Linq;
 using System.Text;
 using Tencent;
 
-namespace CQCMXY.Weixin.QY
+namespace CQCMXY.WeiXin.QY
 {
     public static class Signature
     {
         /// <summary>
         /// 在网站没有提供Token（或传入为null）的情况下的默认Token，建议在网站中进行配置。
         /// </summary>
-        public const string Token = "weixin";
+        public const string Token = "WeiXin";
         /// <summary>
         /// 在网站没有提供EncodingAESKey（或传入为null）的情况下的默认Token，建议在网站中进行配置。
         /// </summary>

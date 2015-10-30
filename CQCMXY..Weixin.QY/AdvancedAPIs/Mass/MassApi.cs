@@ -15,7 +15,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方文档：http://qydev.weixin.qq.com/wiki/index.php?title=%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF
+    官方文档：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF
  */
 
 using System;
@@ -25,19 +25,19 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.QY.AdvancedAPIs.Mass;
-using CQCMXY.Weixin.QY.CommonAPIs;
-using CQCMXY.Weixin.QY.Entities;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.QY.AdvancedAPIs.Mass;
+using CQCMXY.WeiXin.QY.CommonAPIs;
+using CQCMXY.WeiXin.QY.Entities;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs
 {
     /// <summary>
     /// 发送消息
     /// </summary>
     public static class MassApi
     {
-        private const string URL_FORMAT = "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token={0}";
+        private const string URL_FORMAT = "https://qyapi.WeiXin.qq.com/cgi-bin/message/send?access_token={0}";
 
         /// <summary>
         /// 发送文本信息

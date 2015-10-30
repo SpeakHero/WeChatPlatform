@@ -12,9 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.MP.Entities;
+using CQCMXY.WeiXin.MP.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Poi
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Poi
 {
     /// <summary>
     /// 创建门店需要Post的数据

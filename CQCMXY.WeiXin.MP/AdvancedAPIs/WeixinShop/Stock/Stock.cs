@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
-    /// 微小店接口，官方API：http://mp.weixin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97%E6%8E%A5%E5%8F%A3
+    /// 微小店接口，官方API：http://mp.WeiXin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97%E6%8E%A5%E5%8F%A3
     /// </summary>
-    public static class WeixinShopStock
+    public static class WeiXinShopStock
     {
         /// <summary>
         /// 增加库存
@@ -21,7 +21,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult AddStock(string accessToken, AddStockData addStockData)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/stock/add?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/stock/add?access_token={0}";
 
             return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, addStockData);
         }
@@ -34,7 +34,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult ReduceStock(string accessToken, ReduceStockData reduceStockData)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/stock/reduce?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/stock/reduce?access_token={0}";
 
             return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, reduceStockData);
         }

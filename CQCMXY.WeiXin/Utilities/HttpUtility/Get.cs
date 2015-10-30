@@ -18,10 +18,10 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.Exceptions;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.Exceptions;
 
-namespace CQCMXY.Weixin.HttpUtility
+namespace CQCMXY.WeiXin.HttpUtility
 {
     public static class Get
     {

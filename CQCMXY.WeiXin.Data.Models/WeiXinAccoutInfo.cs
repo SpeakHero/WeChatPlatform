@@ -17,7 +17,7 @@ namespace CQCMXY.WeiXin.Data.Models
         public string appsecret { get; set; } = "645b72602a6b597d91576970df0ab70f";
 
 
-        public string Token { get; set; } = "cqcmxyweixindev";
-        public string EncodingAESKey { get; set; }= "cqcmxyweixindev";
+        public string Token { get; set; } = "cqcmxyWeiXindev";
+        public string EncodingAESKey { get; set; }= "cqcmxyWeiXindev";
     }
 }

@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.Helpers
+namespace CQCMXY.WeiXin.MP.Helpers
 {
     public class GpsHelper
     {

@@ -1,7 +1,7 @@
 ﻿/*----------------------------------------------------------------
     Copyright (C) 2015 CQCMXY
     
-    文件名：WeixinException.cs
+    文件名：WeiXinException.cs
     文件功能描述：微信自定义异常基类
     
     
@@ -16,19 +16,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.Exceptions
+namespace CQCMXY.WeiXin.Exceptions
 {
     /// <summary>
     /// 微信自定义异常基类
     /// </summary>
-    public class WeixinException : ApplicationException
+    public class WeiXinException : ApplicationException
     {
-        public WeixinException(string message)
+        public WeiXinException(string message)
             : base(message, null)
         {
         }
 
-        public WeixinException(string message, Exception inner)
+        public WeiXinException(string message, Exception inner)
             : base(message, inner)
         {
         }

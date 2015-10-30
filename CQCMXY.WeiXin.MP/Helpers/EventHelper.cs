@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace CQCMXY.Weixin.MP.Helpers
+namespace CQCMXY.WeiXin.MP.Helpers
 {
     public class EventHelper
     {

@@ -12,10 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.MP.AppStore.Api;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.MP.AppStore.Api;
 
-namespace CQCMXY.Weixin.MP.AppStore
+namespace CQCMXY.WeiXin.MP.AppStore
 {
     public class AppStoreManager
     {
@@ -89,10 +89,10 @@ namespace CQCMXY.Weixin.MP.AppStore
             var formData = new Dictionary<string, string>();
             formData["appKey"] = passportBag.AppKey;
             formData["secret"] = passportBag.AppSecret;
-            var result = CQCMXY.Weixin.HttpUtility.Post.PostGetJson<PassportResult>(getPassportUrl, formData: formData);
+            var result = CQCMXY.WeiXin.HttpUtility.Post.PostGetJson<PassportResult>(getPassportUrl, formData: formData);
             if (result.Result != AppResultKind.成功)
             {
-                throw new WeixinException("获取Passort失败！错误信息：" + result.Result, null);
+                throw new WeiXinException("获取Passort失败！错误信息：" + result.Result, null);
             }
 
             passportBag.Passport = result.Data;

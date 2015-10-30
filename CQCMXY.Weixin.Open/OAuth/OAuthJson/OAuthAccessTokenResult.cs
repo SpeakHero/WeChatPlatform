@@ -13,9 +13,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.Open.OAuth
+namespace CQCMXY.WeiXin.Open.OAuth
 {
     /// <summary>
     /// 获取OAuth AccessToken的结果

@@ -24,9 +24,9 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using CQCMXY.Weixin.Helpers;
+using CQCMXY.WeiXin.Helpers;
 
-namespace CQCMXY.Weixin.HttpUtility
+namespace CQCMXY.WeiXin.HttpUtility
 {
     public static class RequestUtility
     {
@@ -369,7 +369,7 @@ namespace CQCMXY.Weixin.HttpUtility
         /// </summary>
         /// <param name="httpContext"></param>
         /// <returns></returns>
-        public static bool IsWeixinClientRequest(this HttpContext httpContext)
+        public static bool IsWeiXinClientRequest(this HttpContext httpContext)
         {
             return !string.IsNullOrEmpty(httpContext.Request.UserAgent) &&
                    httpContext.Request.UserAgent.Contains("MicroMessenger");

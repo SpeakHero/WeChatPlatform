@@ -16,9 +16,9 @@ using System.Collections;
 using System.Collections.Specialized;
 using System.Text;
 using System.Web;
-using CQCMXY.Weixin.MP.Helpers;
+using CQCMXY.WeiXin.MP.Helpers;
 
-namespace CQCMXY.Weixin.MP.TenPayLib
+namespace CQCMXY.WeiXin.MP.TenPayLib
 {
     /// <summary>
     /// ResponseHandler 的摘要说明。

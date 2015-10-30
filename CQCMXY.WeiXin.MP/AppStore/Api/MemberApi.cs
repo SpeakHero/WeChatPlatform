@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AppStore.Api
+namespace CQCMXY.WeiXin.MP.AppStore.Api
 {
     public class MemberApi : BaseApi
     {
@@ -22,13 +22,13 @@ namespace CQCMXY.Weixin.MP.AppStore.Api
         {
         }
 
-        private GetMemberResult GetMemberFunc(int weixinId, string openId)
+        private GetMemberResult GetMemberFunc(int WeiXinId, string openId)
         {
             var url = _passport.ApiUrl + "GetMember";
             var formData = new Dictionary<string, string>();
             formData["token"] = _passport.Token;
             formData["openid"] = openId;
-            formData["weixinId"] = weixinId.ToString();
+            formData["WeiXinId"] = WeiXinId.ToString();
 
             var result = HttpUtility.Post.PostGetJson<GetMemberResult>(url, formData: formData);
             return result;
@@ -38,9 +38,9 @@ namespace CQCMXY.Weixin.MP.AppStore.Api
         /// 获取用户信息
         /// </summary>
         /// <returns></returns>
-        public GetMemberResult GetMember(int weixinId, string openId)
+        public GetMemberResult GetMember(int WeiXinId, string openId)
         {
-            return ApiConnection.Connection(() => GetMemberFunc(weixinId, openId)) as GetMemberResult;
+            return ApiConnection.Connection(() => GetMemberFunc(WeiXinId, openId)) as GetMemberResult;
         }
     }
 }

@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.QY
+namespace CQCMXY.WeiXin.QY
 {
     /// <summary>
     /// 接收消息类型
@@ -110,7 +110,7 @@ namespace CQCMXY.Weixin.QY
         /// <summary>
         /// 弹出微信相册发图器
         /// </summary>
-        PIC_WEIXIN,
+        PIC_WeiXin,
 
         /// <summary>
         /// 弹出地理位置选择器
@@ -193,7 +193,7 @@ namespace CQCMXY.Weixin.QY
         /// <summary>
         /// 弹出微信相册发图器
         /// </summary>
-        pic_weixin,
+        pic_WeiXin,
         /// <summary>
         /// 弹出地理位置选择器
         /// </summary>

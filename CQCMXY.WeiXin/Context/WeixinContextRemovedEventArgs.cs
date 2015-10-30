@@ -1,7 +1,7 @@
 ﻿/*----------------------------------------------------------------
     Copyright (C) 2015 CQCMXY
     
-    文件名：WeixinContextRemovedEventArgs.cs
+    文件名：WeiXinContextRemovedEventArgs.cs
     文件功能描述：对话上下文被删除时触发事件的事件数据
     
     
@@ -15,15 +15,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.Context
+namespace CQCMXY.WeiXin.Context
 {
 
     /// <summary>
     /// 对话上下文被删除时触发事件的事件数据
     /// </summary>
-    public class WeixinContextRemovedEventArgs<TRequest,TResponse> : EventArgs
+    public class WeiXinContextRemovedEventArgs<TRequest,TResponse> : EventArgs
         where TRequest : IRequestMessageBase
         where TResponse : IResponseMessageBase
     {
@@ -53,7 +53,7 @@ namespace CQCMXY.Weixin.Context
         /// </summary>
         public IMessageContext<TRequest, TResponse> MessageContext { get; set; }
 
-        public WeixinContextRemovedEventArgs(IMessageContext<TRequest, TResponse> messageContext)
+        public WeiXinContextRemovedEventArgs(IMessageContext<TRequest, TResponse> messageContext)
         {
             MessageContext = messageContext;
         }

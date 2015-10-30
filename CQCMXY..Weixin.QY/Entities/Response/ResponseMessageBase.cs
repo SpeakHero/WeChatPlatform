@@ -16,13 +16,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.QY.Helpers;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.QY.Helpers;
 
-namespace CQCMXY.Weixin.QY.Entities
+namespace CQCMXY.WeiXin.QY.Entities
 {
-	public interface IResponseMessageBase : CQCMXY.Weixin.Entities.IResponseMessageBase, IMessageBase
+	public interface IResponseMessageBase : CQCMXY.WeiXin.Entities.IResponseMessageBase, IMessageBase
 	{
 		ResponseMsgType MsgType { get; }
 		//string Content { get; set; }
@@ -84,7 +84,7 @@ namespace CQCMXY.Weixin.QY.Entities
 			}
 			catch (Exception ex)
 			{
-				throw new WeixinException("CreateFromRequestMessage过程发生异常", ex);
+				throw new WeiXinException("CreateFromRequestMessage过程发生异常", ex);
 			}
 
 			return responseMessage;
@@ -107,7 +107,7 @@ namespace CQCMXY.Weixin.QY.Entities
 			}
 			catch (Exception ex)
 			{
-				throw new WeixinException("ResponseMessageBase.CreateFromRequestMessage<T>过程发生异常！", ex);
+				throw new WeiXinException("ResponseMessageBase.CreateFromRequestMessage<T>过程发生异常！", ex);
 			}
 		}
 
@@ -155,7 +155,7 @@ namespace CQCMXY.Weixin.QY.Entities
 			}
 			catch (Exception ex)
 			{
-				throw new WeixinException("ResponseMessageBase.CreateFromResponseXml<T>过程发生异常！" + ex.Message, ex);
+				throw new WeiXinException("ResponseMessageBase.CreateFromResponseXml<T>过程发生异常！" + ex.Message, ex);
 			}
 		}
 	}

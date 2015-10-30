@@ -15,10 +15,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.Entities.Menu;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.Entities.Menu;
 
-namespace CQCMXY.Weixin.MP.Entities
+namespace CQCMXY.WeiXin.MP.Entities
 {
     /// <summary>
     /// GetMenu返回的Json结果

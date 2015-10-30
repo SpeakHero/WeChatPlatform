@@ -13,14 +13,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.Helpers;
-using CQCMXY.Weixin.Open.CommonAPIs;
-using CQCMXY.Weixin.Open.Entities;
-using CQCMXY.Weixin.Open.Helpers;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.Helpers;
+using CQCMXY.WeiXin.Open.CommonAPIs;
+using CQCMXY.WeiXin.Open.Entities;
+using CQCMXY.WeiXin.Open.Helpers;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.Open.CommonAPIs
+namespace CQCMXY.WeiXin.Open.CommonAPIs
 {
     public enum CommonJsonSendType
     {

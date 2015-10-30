@@ -12,7 +12,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方文档：http://qydev.weixin.qq.com/wiki/index.php?title=%E7%AE%A1%E7%90%86%E4%BC%81%E4%B8%9A%E5%8F%B7%E5%BA%94%E7%94%A8
+    官方文档：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E7%AE%A1%E7%90%86%E4%BC%81%E4%B8%9A%E5%8F%B7%E5%BA%94%E7%94%A8
  */
 
 using System;
@@ -22,13 +22,13 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.QY.AdvancedAPIs.App;
-using CQCMXY.Weixin.QY.CommonAPIs;
-using CQCMXY.Weixin.QY.Entities;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.QY.AdvancedAPIs.App;
+using CQCMXY.WeiXin.QY.CommonAPIs;
+using CQCMXY.WeiXin.QY.Entities;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs
 {
     /// <summary>
     /// 管理企业号应用
@@ -44,7 +44,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetAppInfoResult GetAppInfo(string accessToken, int agentId, int timeOut = Config.TIME_OUT)
         {
-            string url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/agent/get?access_token={0}&agentid={1}", accessToken, agentId);
+            string url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/agent/get?access_token={0}&agentid={1}", accessToken, agentId);
 
             return Get.GetJson<GetAppInfoResult>(url);
         }
@@ -59,7 +59,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult SetApp(string accessToken, SetAppPostData data, int timeOut = Config.TIME_OUT)
         {
-            string url =string.Format( "https://qyapi.weixin.qq.com/cgi-bin/agent/set?access_token={0}",accessToken);
+            string url =string.Format( "https://qyapi.WeiXin.qq.com/cgi-bin/agent/set?access_token={0}",accessToken);
 
             return Get.GetJson<QyJsonResult>(url);
         }
@@ -72,7 +72,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetAppListResult GetAppList(string accessToken, int timeOut = Config.TIME_OUT)
         {
-            string url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/agent/list?access_token={0}",accessToken);
+            string url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/agent/list?access_token={0}",accessToken);
 
             return Get.GetJson<GetAppListResult>(url);
         }

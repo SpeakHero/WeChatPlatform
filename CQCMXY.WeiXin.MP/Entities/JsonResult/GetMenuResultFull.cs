@@ -15,10 +15,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.Entities.Menu;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.Entities.Menu;
 
-namespace CQCMXY.Weixin.MP
+namespace CQCMXY.WeiXin.MP
 {
     /// <summary>
     /// 获取菜单时候的完整结构，用于接收微信服务器返回的Json信息

@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.TemplateMessage
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.TemplateMessage
 {
     public class TempleteModel
     {

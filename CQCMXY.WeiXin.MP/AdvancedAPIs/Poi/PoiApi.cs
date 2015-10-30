@@ -9,18 +9,18 @@
 ----------------------------------------------------------------*/
 
 /* 
-   开发文档下载地址：https://mp.weixin.qq.com/zh_CN/htmledition/comm_htmledition/res/store_manage/store_manage_file.zip
+   开发文档下载地址：https://mp.WeiXin.qq.com/zh_CN/htmledition/comm_htmledition/res/store_manage/store_manage_file.zip
 */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.AdvancedAPIs.Poi;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.Poi;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     #region 商户在使用门店管理接口时需注意以下几个问题：
 
@@ -60,7 +60,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("https://api.weixin.qq.com/cgi-bin/media/uploadimg?access_token={0}",
+                var url = string.Format("https://api.WeiXin.qq.com/cgi-bin/media/uploadimg?access_token={0}",
                     accessToken);
 
                 var fileDictionary = new Dictionary<string, string>();
@@ -82,7 +82,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("http://api.weixin.qq.com/cgi-bin/poi/addpoi?access_token={0}", accessToken);
+                var url = string.Format("http://api.WeiXin.qq.com/cgi-bin/poi/addpoi?access_token={0}", accessToken);
 
                 return CommonJsonSend.Send<WxJsonResult>(null, url, createStoreData, CommonJsonSendType.POST, timeOut);
 
@@ -100,7 +100,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("http://api.weixin.qq.com/cgi-bin/poi/getpoi?access_token={0}", accessToken);
+                var url = string.Format("http://api.WeiXin.qq.com/cgi-bin/poi/getpoi?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -124,7 +124,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("http://api.weixin.qq.com/cgi-bin/poi/getpoilist?access_token={0}", accessToken);
+                var url = string.Format("http://api.WeiXin.qq.com/cgi-bin/poi/getpoilist?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -148,7 +148,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("http://api.weixin.qq.com/cgi-bin/poi/delpoi?access_token={0}", accessToken);
+                var url = string.Format("http://api.WeiXin.qq.com/cgi-bin/poi/delpoi?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -174,7 +174,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("http://api.weixin.qq.com/cgi-bin/poi/updatepoi?access_token={0}", accessToken);
+                var url = string.Format("http://api.WeiXin.qq.com/cgi-bin/poi/updatepoi?access_token={0}", accessToken);
 
                 return CommonJsonSend.Send<WxJsonResult>(null, url, updateStoreData, CommonJsonSendType.POST, timeOut);
 
@@ -190,7 +190,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("http://api.weixin.qq.com/cgi-bin/api_getwxcategory?access_token={0}", accessToken);
+                var url = string.Format("http://api.WeiXin.qq.com/cgi-bin/api_getwxcategory?access_token={0}", accessToken);
 
                 return CommonJsonSend.Send<GetCategoryResult>(null, url, null, CommonJsonSendType.GET);
 

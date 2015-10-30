@@ -11,7 +11,7 @@
 using System;
 using System.IO;
 
-namespace CQCMXY.Weixin.StreamUtility
+namespace CQCMXY.WeiXin.StreamUtility
 {
     public static class StreamUtility
     {

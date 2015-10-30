@@ -5,10 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs.Mass
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs.Mass
 {
     /// <summary>
     /// 发送消息返回结果

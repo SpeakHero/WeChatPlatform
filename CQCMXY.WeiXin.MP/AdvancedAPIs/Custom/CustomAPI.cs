@@ -15,7 +15,7 @@
 ----------------------------------------------------------------*/
 
 /* 
-   API地址：http://mp.weixin.qq.com/wiki/1/70a29afed17f56d537c833f89be979c9.html
+   API地址：http://mp.WeiXin.qq.com/wiki/1/70a29afed17f56d537c833f89be979c9.html
 */
 
 using System;
@@ -26,19 +26,19 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web.Script.Serialization;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
     /// 客服接口
     /// </summary>
     public static class CustomApi
     {
-        private const string URL_FORMAT = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token={0}";
+        private const string URL_FORMAT = "https://api.WeiXin.qq.com/cgi-bin/message/custom/send?access_token={0}";
 
         /// <summary>
         /// 发送文本信息

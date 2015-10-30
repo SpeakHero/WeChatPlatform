@@ -9,11 +9,11 @@
 ----------------------------------------------------------------*/
 
 using System.Collections.Generic;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.MP.Entities.GoogleMap;
-using CQCMXY.Weixin.MP.Helpers;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.MP.Entities.GoogleMap;
+using CQCMXY.WeiXin.MP.Helpers;
 
-namespace CQCMXY.Weixin.Service
+namespace CQCMXY.WeiXin.Service
 {
     public class LocationService
     {

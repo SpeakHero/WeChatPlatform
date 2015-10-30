@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Groups
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Groups
 {
     /// <summary>
     /// 获取用户分组ID返回结果

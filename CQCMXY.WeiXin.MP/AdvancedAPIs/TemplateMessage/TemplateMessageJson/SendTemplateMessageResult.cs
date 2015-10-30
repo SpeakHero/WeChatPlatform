@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.TemplateMessage
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.TemplateMessage
 {
     /// <summary>
     /// 发送模板消息结果

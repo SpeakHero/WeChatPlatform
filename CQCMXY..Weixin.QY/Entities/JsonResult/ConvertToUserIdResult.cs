@@ -12,9 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.QY.Entities
+namespace CQCMXY.WeiXin.QY.Entities
 {
     /// <summary>
     /// openid转换成userid接口返回的Json结果

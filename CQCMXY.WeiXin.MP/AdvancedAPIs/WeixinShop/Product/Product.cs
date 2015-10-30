@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
-    /// 微小店接口，官方API：http://mp.weixin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97%E6%8E%A5%E5%8F%A3
+    /// 微小店接口，官方API：http://mp.WeiXin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97%E6%8E%A5%E5%8F%A3
     /// </summary>
-    public static class WeixinShopProduct
+    public static class WeiXinShopProduct
     {
         /// <summary>
         /// 增加商品
@@ -21,7 +21,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static AddProductResult AddProduct(string accessToken, AddProductData addProductData)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/create?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/create?access_token={0}";
 
             return CommonJsonSend.Send<AddProductResult>(accessToken, urlFormat, addProductData);
         }
@@ -34,7 +34,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult DeleteProduct(string accessToken, string productId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/del?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/del?access_token={0}";
 
             return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, productId);
         }
@@ -49,7 +49,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult UpDateProduct(string accessToken, UpdateProductData reviseProduct)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/update?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/update?access_token={0}";
 
             return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, reviseProduct);
         }
@@ -62,7 +62,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetProductResult GetProduct(string accessToken, string productId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/get?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/get?access_token={0}";
 
             return CommonJsonSend.Send<GetProductResult>(accessToken, urlFormat, productId);
         }
@@ -75,7 +75,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetByStatusResult Getbystatus(string accessToken, int state)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/getbystatus?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/getbystatus?access_token={0}";
 
             return CommonJsonSend.Send<GetByStatusResult>(accessToken, urlFormat, state);
         }
@@ -88,7 +88,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult ModProductStatus(string accessToken, int status)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/modproductstatus?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/modproductstatus?access_token={0}";
 
             return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, status);
         }
@@ -101,7 +101,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetSubResult GetSub(string accessToken, int cateId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/category/getsub?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/category/getsub?access_token={0}";
 
             return CommonJsonSend.Send<GetSubResult>(accessToken, urlFormat, cateId);
         }
@@ -114,7 +114,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetSkuResult GetSku(string accessToken, int cateId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/category/getsku?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/category/getsku?access_token={0}";
 
             return CommonJsonSend.Send<GetSkuResult>(accessToken, urlFormat, cateId);
         }
@@ -127,7 +127,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetPropertyResult GetProperty(string accessToken, int cateId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/category/getproperty?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/category/getproperty?access_token={0}";
 
             return CommonJsonSend.Send<GetPropertyResult>(accessToken, urlFormat, cateId);
         }

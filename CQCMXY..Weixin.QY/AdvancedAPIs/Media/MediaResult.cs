@@ -12,10 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.QY.Entities;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.QY.Entities;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs.Media
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs.Media
 {
     /// <summary>
     /// 获取永久图文素材返回结果

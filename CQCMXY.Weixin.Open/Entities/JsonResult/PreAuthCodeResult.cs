@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.Open.Entities
+namespace CQCMXY.WeiXin.Open.Entities
 {
     /// <summary>
     /// 获取预授权码返回结果

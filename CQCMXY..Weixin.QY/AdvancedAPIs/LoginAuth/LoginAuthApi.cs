@@ -9,26 +9,26 @@
 ----------------------------------------------------------------*/
 
 /*
-    接口文档：http://qydev.weixin.qq.com/wiki/index.php?title=%E7%99%BB%E5%BD%95%E6%8E%88%E6%9D%83%E6%B5%81%E7%A8%8B%E8%AF%B4%E6%98%8E
+    接口文档：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E7%99%BB%E5%BD%95%E6%8E%88%E6%9D%83%E6%B5%81%E7%A8%8B%E8%AF%B4%E6%98%8E
  */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.QY.AdvancedAPIs.LoginAuth;
-using CQCMXY.Weixin.QY.CommonAPIs;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.QY.AdvancedAPIs.LoginAuth;
+using CQCMXY.WeiXin.QY.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs
 {
     public static class LoginAuthApi
     {
         /// <summary>
         /// 服务商引导用户进入登录授权页
         /// 1、用户进入服务商网站 用户进入服务商网站，如www.ABC.com。
-        /// 2、服务商引导用户进入登录授权页 服务可以在自己的网站首页中放置“微信企业号登录”的入口，引导用户（指企业号系统管理员者）进入登录授权页。网址为: https://qy.weixin.qq.com/cgi-bin/loginpage?corp_id=xxxx&redirect_uri=xxxxx&state=xxxx 服务商需要提供corp_id，跳转uri和state参数，其中uri需要经过一次urlencode作为参数，state用于服务商自行校验session，防止跨域攻击。
+        /// 2、服务商引导用户进入登录授权页 服务可以在自己的网站首页中放置“微信企业号登录”的入口，引导用户（指企业号系统管理员者）进入登录授权页。网址为: https://qy.WeiXin.qq.com/cgi-bin/loginpage?corp_id=xxxx&redirect_uri=xxxxx&state=xxxx 服务商需要提供corp_id，跳转uri和state参数，其中uri需要经过一次urlencode作为参数，state用于服务商自行校验session，防止跨域攻击。
         /// 3、用户确认并同意授权 用户进入登录授权页后，需要确认并同意将自己的企业号和登录账号信息授权给服务商，完成授权流程。
         /// 4、授权后回调URI，得到授权码和过期时间 授权流程完成后，会进入回调URI，并在URL参数中返回授权码和过期时间(redirect_url?auth_code=xxx&expires_in=600)
         /// 5、利用授权码调用企业号的相关API 在得到授权码后，第三方可以使用授权码换取登录授权信息。
@@ -39,7 +39,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static string GetLoginAuthUrl(string corpId, string redirectUrl, string state)
         {
-            return string.Format("https://qy.weixin.qq.com/cgi-bin/loginpage?corp_id={0}&redirect_uri={1}&state={2}",
+            return string.Format("https://qy.WeiXin.qq.com/cgi-bin/loginpage?corp_id={0}&redirect_uri={1}&state={2}",
                               corpId, redirectUrl, state);
         }
 
@@ -52,7 +52,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetLoginInfoResult GetLoginInfo(string providerAccessToken, string authCode, int timeOut = Config.TIME_OUT)
         {
-            string url = "https://qyapi.weixin.qq.com/cgi-bin/service/get_login_info?provider_access_token={0}";
+            string url = "https://qyapi.WeiXin.qq.com/cgi-bin/service/get_login_info?provider_access_token={0}";
 
             var data = new
                 {

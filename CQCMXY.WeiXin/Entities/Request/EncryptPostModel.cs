@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin
+namespace CQCMXY.WeiXin
 {
     /// <summary>
     /// 接收解密信息统一接口

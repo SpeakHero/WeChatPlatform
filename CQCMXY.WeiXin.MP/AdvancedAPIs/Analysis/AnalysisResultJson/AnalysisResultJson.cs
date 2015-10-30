@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Analysis
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Analysis
 {
     /// <summary>
     /// 分析数据接口返回结果

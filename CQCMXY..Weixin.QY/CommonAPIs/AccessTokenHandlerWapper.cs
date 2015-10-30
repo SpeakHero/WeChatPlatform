@@ -15,10 +15,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.Exceptions;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.Exceptions;
 
-namespace CQCMXY.Weixin.QY.CommonAPIs
+namespace CQCMXY.WeiXin.QY.CommonAPIs
 {
     public static class AccessTokenHandlerWapper
     {

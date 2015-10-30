@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("CQCMXY.Weixin.MP.MvcExtension")]
+[assembly: AssemblyTitle("CQCMXY.WeiXin.MP.MvcExtension")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CQCMXY.Weixin.MP.MvcExtension")]
+[assembly: AssemblyProduct("CQCMXY.WeiXin.MP.MvcExtension")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

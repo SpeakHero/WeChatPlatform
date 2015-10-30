@@ -9,10 +9,10 @@
 ----------------------------------------------------------------*/
 
 using System;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.MP;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.MP;
 
-namespace CQCMXY.Weixin.MP.AppStore.Api
+namespace CQCMXY.WeiXin.MP.AppStore.Api
 {
     public class ApiConnection
     {
@@ -21,7 +21,7 @@ namespace CQCMXY.Weixin.MP.AppStore.Api
         {
             if (passport == null)
             {
-                throw new WeixinException("Passport不可以为NULL！");
+                throw new WeiXinException("Passport不可以为NULL！");
             }
             _passport = passport;
         }

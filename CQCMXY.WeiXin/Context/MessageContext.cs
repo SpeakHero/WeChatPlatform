@@ -19,9 +19,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.Context
+namespace CQCMXY.WeiXin.Context
 {
     /// <summary>
     /// 微信消息上下文（单个用户）接口
@@ -58,7 +58,7 @@ namespace CQCMXY.Weixin.Context
         object StorageData { get; set; }
 
         /// <summary>
-        /// 用于覆盖WeixinContext所设置的默认过期时间
+        /// 用于覆盖WeiXinContext所设置的默认过期时间
         /// </summary>
         Double? ExpireMinutes { get; set; }
 
@@ -67,7 +67,7 @@ namespace CQCMXY.Weixin.Context
         /// </summary>
         AppStoreState AppStoreState { get; set; }
 
-        event EventHandler<WeixinContextRemovedEventArgs<TRequest, TResponse>> MessageContextRemoved;
+        event EventHandler<WeiXinContextRemovedEventArgs<TRequest, TResponse>> MessageContextRemoved;
 
         void OnRemoved();
     }
@@ -111,16 +111,16 @@ namespace CQCMXY.Weixin.Context
         /// <summary>
         /// 当MessageContext被删除时触发的事件
         /// </summary>
-        public virtual event EventHandler<WeixinContextRemovedEventArgs<TRequest, TResponse>> MessageContextRemoved = null;
+        public virtual event EventHandler<WeiXinContextRemovedEventArgs<TRequest, TResponse>> MessageContextRemoved = null;
 
         /// <summary>
         /// 执行上下文被移除的事件
         /// 注意：此事件不是实时触发的，而是等过期后任意一个人发过来的下一条消息执行之前触发。
         /// </summary>
         /// <param name="e"></param>
-        private void OnMessageContextRemoved(WeixinContextRemovedEventArgs<TRequest, TResponse> e)
+        private void OnMessageContextRemoved(WeiXinContextRemovedEventArgs<TRequest, TResponse> e)
         {
-            EventHandler<WeixinContextRemovedEventArgs<TRequest, TResponse>> temp = MessageContextRemoved;
+            EventHandler<WeiXinContextRemovedEventArgs<TRequest, TResponse>> temp = MessageContextRemoved;
 
             if (temp != null)
             {
@@ -151,7 +151,7 @@ namespace CQCMXY.Weixin.Context
         /// </summary>
         public virtual void OnRemoved()
         {
-            var onRemovedArg = new WeixinContextRemovedEventArgs<TRequest, TResponse>(this);
+            var onRemovedArg = new WeiXinContextRemovedEventArgs<TRequest, TResponse>(this);
             OnMessageContextRemoved(onRemovedArg);
         }
     }

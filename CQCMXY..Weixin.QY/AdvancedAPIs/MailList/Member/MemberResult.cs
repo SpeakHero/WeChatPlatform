@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs.MailList
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs.MailList
 {
     public class GetMemberResult : QyJsonResult
     {
@@ -59,7 +59,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs.MailList
         /// <summary>
         /// 微信号
         /// </summary>
-        public string weixinid { get; set; }
+        public string WeiXinid { get; set; }
         /// <summary>
         /// 头像url。注：小图将url最后的"/0"改成"/64"
         /// </summary>

@@ -16,9 +16,9 @@ using System.Xml;
 using System.Security.Cryptography;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using CQCMXY.Weixin.QY.Helpers;
+using CQCMXY.WeiXin.QY.Helpers;
 
-namespace CQCMXY.Weixin.QY.TenPayLib
+namespace CQCMXY.WeiXin.QY.TenPayLib
 {
     /**
     '签名工具类

@@ -16,13 +16,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.Helpers;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.Helpers;
 
-namespace CQCMXY.Weixin.MP
+namespace CQCMXY.WeiXin.MP
 {
-    using CQCMXY.Weixin.MP.Entities;
-    using CQCMXY.Weixin.MP.Helpers;
+    using CQCMXY.WeiXin.MP.Entities;
+    using CQCMXY.WeiXin.MP.Helpers;
 
     public static class ResponseMessageFactory
     {
@@ -34,7 +34,7 @@ namespace CQCMXY.Weixin.MP
         //  <MsgType>text</MsgType>
         //  <Content><![CDATA[您刚才发送了文字信息：中文
         //您还可以发送【位置】【图片】【语音】信息，查看不同格式的回复。
-        //SDK官方地址：http://weixin.CQCMXY.com]]></Content>
+        //SDK官方地址：http://WeiXin.CQCMXY.com]]></Content>
         //  <FuncFlag>0</FuncFlag>
         //</xml>
 
@@ -80,7 +80,7 @@ namespace CQCMXY.Weixin.MP
             }
             catch (ArgumentException ex)
             {
-                throw new WeixinException(string.Format("ResponseMessage转换出错！可能是MsgType不存在！，XML：{0}", doc.ToString()), ex);
+                throw new WeiXinException(string.Format("ResponseMessage转换出错！可能是MsgType不存在！，XML：{0}", doc.ToString()), ex);
             }
             return responseMessage;
         }

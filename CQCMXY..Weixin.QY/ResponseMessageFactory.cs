@@ -16,12 +16,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.QY.Helpers;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.QY.Helpers;
 
-namespace CQCMXY.Weixin.QY
+namespace CQCMXY.WeiXin.QY
 {
-    using CQCMXY.Weixin.QY.Entities;
+    using CQCMXY.WeiXin.QY.Entities;
 
    public static class ResponseMessageFactory
     {
@@ -62,7 +62,7 @@ namespace CQCMXY.Weixin.QY
             }
             catch (ArgumentException ex)
             {
-                throw new WeixinException(string.Format("ResponseMessage转换出错！可能是MsgType不存在！，XML：{0}", doc.ToString()), ex);
+                throw new WeiXinException(string.Format("ResponseMessage转换出错！可能是MsgType不存在！，XML：{0}", doc.ToString()), ex);
             }
             return responseMessage;
         }

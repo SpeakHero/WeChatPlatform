@@ -12,7 +12,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方API：https://mp.weixin.qq.com/paymch/readtemplate?t=mp/business/course2_tmpl&lang=zh_CN&token=25857919#4
+    官方API：https://mp.WeiXin.qq.com/paymch/readtemplate?t=mp/business/course2_tmpl&lang=zh_CN&token=25857919#4
  */
 
 using System;
@@ -21,14 +21,14 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.MP.Helpers;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.MP.Helpers;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
-    /// 微信支付接口，官方API：https://mp.weixin.qq.com/paymch/readtemplate?t=mp/business/course2_tmpl&lang=zh_CN&token=25857919#4
+    /// 微信支付接口，官方API：https://mp.WeiXin.qq.com/paymch/readtemplate?t=mp/business/course2_tmpl&lang=zh_CN&token=25857919#4
     /// </summary>
     public static class TenPayV3
     {
@@ -41,13 +41,13 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static string Unifiedorder(string data, int timeOut = Config.TIME_OUT)
         {
-            var urlFormat = "https://api.mch.weixin.qq.com/pay/unifiedorder";
+            var urlFormat = "https://api.mch.WeiXin.qq.com/pay/unifiedorder";
 
             var formDataBytes = data == null ? new byte[0] : Encoding.UTF8.GetBytes(data);
             MemoryStream ms = new MemoryStream();
             ms.Write(formDataBytes, 0, formDataBytes.Length);
             ms.Seek(0, SeekOrigin.Begin);//设置指针读取位置
-            return CQCMXY.Weixin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms, timeOut: timeOut);
+            return CQCMXY.WeiXin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms, timeOut: timeOut);
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <param name="sign">签名</param>
         public static string NativePay(string appId, string timesTamp, string mchId, string nonceStr, string productId, string sign)
         {
-            var urlFormat = "weixin://wxpay/bizpayurl?sign={0}&appid={1}&mch_id={2}&product_id={3}&time_stamp={4}&nonce_str={5}";
+            var urlFormat = "WeiXin://wxpay/bizpayurl?sign={0}&appid={1}&mch_id={2}&product_id={3}&time_stamp={4}&nonce_str={5}";
             var url = string.Format(urlFormat, sign, appId, mchId, productId, timesTamp, nonceStr);
 
             return url;
@@ -74,13 +74,13 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static string OrderQuery(string data)
         {
-            var urlFormat = "https://api.mch.weixin.qq.com/pay/orderquery";
+            var urlFormat = "https://api.mch.WeiXin.qq.com/pay/orderquery";
 
             var formDataBytes = data == null ? new byte[0] : Encoding.UTF8.GetBytes(data);
             MemoryStream ms = new MemoryStream();
             ms.Write(formDataBytes, 0, formDataBytes.Length);
             ms.Seek(0, SeekOrigin.Begin);//设置指针读取位置
-            return CQCMXY.Weixin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
+            return CQCMXY.WeiXin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
         }
 
         /// <summary>
@@ -90,16 +90,16 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static string CloseOrder(string data)
         {
-            var urlFormat = "https://api.mch.weixin.qq.com/pay/closeorder";
+            var urlFormat = "https://api.mch.WeiXin.qq.com/pay/closeorder";
 
             var formDataBytes = data == null ? new byte[0] : Encoding.UTF8.GetBytes(data);
             MemoryStream ms = new MemoryStream();
             ms.Write(formDataBytes, 0, formDataBytes.Length);
             ms.Seek(0, SeekOrigin.Begin);//设置指针读取位置
-            return CQCMXY.Weixin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
+            return CQCMXY.WeiXin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
         }
 
-        //退款申请请直接参考CQCMXY.Weixin.MP.Sample中的退款demo
+        //退款申请请直接参考CQCMXY.WeiXin.MP.Sample中的退款demo
         ///// <summary>
         ///// 退款申请接口
         ///// </summary>
@@ -107,13 +107,13 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         ///// <returns></returns>
         //public static string Refund(string data)
         //{
-        //    var urlFormat = "https://api.mch.weixin.qq.com/secapi/pay/refund";
+        //    var urlFormat = "https://api.mch.WeiXin.qq.com/secapi/pay/refund";
 
         //    var formDataBytes = data == null ? new byte[0] : Encoding.UTF8.GetBytes(data);
         //    MemoryStream ms = new MemoryStream();
         //    ms.Write(formDataBytes, 0, formDataBytes.Length);
         //    ms.Seek(0, SeekOrigin.Begin);//设置指针读取位置
-        //    return CQCMXY.Weixin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
+        //    return CQCMXY.WeiXin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
         //}
 
         /// <summary>
@@ -123,13 +123,13 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static string RefundQuery(string data)
         {
-            var urlFormat = "https://api.mch.weixin.qq.com/pay/refundquery";
+            var urlFormat = "https://api.mch.WeiXin.qq.com/pay/refundquery";
 
             var formDataBytes = data == null ? new byte[0] : Encoding.UTF8.GetBytes(data);
             MemoryStream ms = new MemoryStream();
             ms.Write(formDataBytes, 0, formDataBytes.Length);
             ms.Seek(0, SeekOrigin.Begin);//设置指针读取位置
-            return CQCMXY.Weixin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
+            return CQCMXY.WeiXin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
         }
 
         /// <summary>
@@ -139,13 +139,13 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static string DownloadBill(string data)
         {
-            var urlFormat = "https://api.mch.weixin.qq.com/pay/downloadbill";
+            var urlFormat = "https://api.mch.WeiXin.qq.com/pay/downloadbill";
 
             var formDataBytes = data == null ? new byte[0] : Encoding.UTF8.GetBytes(data);
             MemoryStream ms = new MemoryStream();
             ms.Write(formDataBytes, 0, formDataBytes.Length);
             ms.Seek(0, SeekOrigin.Begin);//设置指针读取位置
-            return CQCMXY.Weixin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
+            return CQCMXY.WeiXin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
         }
 
         /// <summary>
@@ -155,13 +155,13 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static string ShortUrl(string data)
         {
-            var urlFormat = "https://api.mch.weixin.qq.com/tools/shorturl";
+            var urlFormat = "https://api.mch.WeiXin.qq.com/tools/shorturl";
 
             var formDataBytes = data == null ? new byte[0] : Encoding.UTF8.GetBytes(data);
             MemoryStream ms = new MemoryStream();
             ms.Write(formDataBytes, 0, formDataBytes.Length);
             ms.Seek(0, SeekOrigin.Begin);//设置指针读取位置
-            return CQCMXY.Weixin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
+            return CQCMXY.WeiXin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
         }
 
         /// <summary>
@@ -172,13 +172,13 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static string MicroPay(string data)
         {
-            var urlFormat = "https://api.mch.weixin.qq.com/pay/micropay";
+            var urlFormat = "https://api.mch.WeiXin.qq.com/pay/micropay";
 
             var formDataBytes = data == null ? new byte[0] : Encoding.UTF8.GetBytes(data);
             MemoryStream ms = new MemoryStream();
             ms.Write(formDataBytes, 0, formDataBytes.Length);
             ms.Seek(0, SeekOrigin.Begin);//设置指针读取位置
-            return CQCMXY.Weixin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
+            return CQCMXY.WeiXin.HttpUtility.RequestUtility.HttpPost(urlFormat, null, ms);
         }
     }
 }

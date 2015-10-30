@@ -15,7 +15,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CQCMXY.Weixin.QY.Helpers
+namespace CQCMXY.WeiXin.QY.Helpers
 {
 	/// <summary>
     /// MD5UtilHelper 的摘要说明。

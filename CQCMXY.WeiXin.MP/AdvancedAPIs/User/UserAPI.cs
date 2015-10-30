@@ -18,19 +18,19 @@
 ----------------------------------------------------------------*/
 
 /*
-    接口详见：http://mp.weixin.qq.com/wiki/index.php?title=%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF
+    接口详见：http://mp.WeiXin.qq.com/wiki/index.php?title=%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF
  */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.HttpUtility;
-using CQCMXY.Weixin.MP.AdvancedAPIs.User;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.HttpUtility;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.User;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
     /// 用户接口
@@ -48,7 +48,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = string.Format("https://api.weixin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}&lang={2}",
+                string url = string.Format("https://api.WeiXin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}&lang={2}",
                     accessToken, openId, lang.ToString());
                 return HttpUtility.Get.GetJson<UserInfoJson>(url);
 
@@ -68,7 +68,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = string.Format("https://api.weixin.qq.com/cgi-bin/user/get?access_token={0}",
+                string url = string.Format("https://api.WeiXin.qq.com/cgi-bin/user/get?access_token={0}",
                     accessToken);
                 if (!string.IsNullOrEmpty(nextOpenId))
                 {
@@ -91,7 +91,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = string.Format("https://api.weixin.qq.com/cgi-bin/user/info/updateremark?access_token={0}",
+                string url = string.Format("https://api.WeiXin.qq.com/cgi-bin/user/info/updateremark?access_token={0}",
                     accessToken);
                 var data = new
                 {
@@ -114,7 +114,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = string.Format("https://api.weixin.qq.com/cgi-bin/user/info/batchget?access_token={0}",
+                string url = string.Format("https://api.WeiXin.qq.com/cgi-bin/user/info/batchget?access_token={0}",
                     accessToken);
                 var data = new
                 {

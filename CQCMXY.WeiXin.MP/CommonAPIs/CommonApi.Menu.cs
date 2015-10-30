@@ -21,7 +21,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    API：http://mp.weixin.qq.com/wiki/13/43de8269be54a0a6f64413e4dfa94f39.html
+    API：http://mp.WeiXin.qq.com/wiki/13/43de8269be54a0a6f64413e4dfa94f39.html
  */
 
 using System;
@@ -32,13 +32,13 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.MP.Entities.Menu;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.MP.Entities.Menu;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.MP.CommonAPIs
+namespace CQCMXY.WeiXin.MP.CommonAPIs
 {
     public partial class CommonApi
     {
@@ -63,7 +63,7 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
              {
-                 var urlFormat = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token={0}";
+                 var urlFormat = "https://api.WeiXin.qq.com/cgi-bin/menu/create?access_token={0}";
                  ////对特殊符号进行URL转义
                  //foreach (var button in buttonData.button)
                  //{
@@ -174,7 +174,7 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
         /// <returns></returns>
         public static GetMenuResult GetMenu(string accessToken)
         {
-            var url = string.Format("https://api.weixin.qq.com/cgi-bin/menu/get?access_token={0}", accessToken);
+            var url = string.Format("https://api.WeiXin.qq.com/cgi-bin/menu/get?access_token={0}", accessToken);
 
             var jsonString = HttpUtility.RequestUtility.HttpGet(url, Encoding.UTF8);
             //var finalResult = GetMenuFromJson(jsonString);
@@ -186,12 +186,12 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
                 var jsonResult = js.Deserialize<GetMenuResultFull>(jsonString);
                 if (jsonResult.menu == null || jsonResult.menu.button.Count == 0)
                 {
-                    throw new WeixinException(jsonResult.errmsg);
+                    throw new WeiXinException(jsonResult.errmsg);
                 }
 
                 finalResult = GetMenuFromJsonResult(jsonResult);
             }
-            catch (WeixinException ex)
+            catch (WeiXinException ex)
             {
                 finalResult = null;
             }
@@ -225,7 +225,7 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
                             (rootButton.type.Equals("CLICK", StringComparison.OrdinalIgnoreCase)
                             && string.IsNullOrEmpty(rootButton.key)))
                         {
-                            throw new WeixinMenuException("单击按钮的key不能为空！");
+                            throw new WeiXinMenuException("单击按钮的key不能为空！");
                         }
 
                         if (rootButton.type.Equals("CLICK", StringComparison.OrdinalIgnoreCase))
@@ -278,10 +278,10 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
                                 type = rootButton.type
                             });
                         }
-                        else if (rootButton.type.Equals("PIC_WEIXIN", StringComparison.OrdinalIgnoreCase))
+                        else if (rootButton.type.Equals("PIC_WeiXin", StringComparison.OrdinalIgnoreCase))
                         {
                             //弹出微信相册发图器
-                            bg.button.Add(new SinglePicWeixinButton()
+                            bg.button.Add(new SinglePicWeiXinButton()
                             {
                                 name = rootButton.name,
                                 key = rootButton.key,
@@ -311,7 +311,7 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
                     }
                     //else if (availableSubButton < 2)
                     //{
-                    //    throw new WeixinMenuException("子菜单至少需要填写2个！");
+                    //    throw new WeiXinMenuException("子菜单至少需要填写2个！");
                     //}
                     else
                     {
@@ -329,7 +329,7 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
                             if (subSubButton.type.Equals("CLICK", StringComparison.OrdinalIgnoreCase)
                                 && string.IsNullOrEmpty(subSubButton.key))
                             {
-                                throw new WeixinMenuException("单击按钮的key不能为空！");
+                                throw new WeiXinMenuException("单击按钮的key不能为空！");
                             }
 
 
@@ -383,10 +383,10 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
                                     type = subSubButton.type
                                 });
                             }
-                            else if (subSubButton.type.Equals("PIC_WEIXIN", StringComparison.OrdinalIgnoreCase))
+                            else if (subSubButton.type.Equals("PIC_WeiXin", StringComparison.OrdinalIgnoreCase))
                             {
                                 //弹出微信相册发图器
-                                subButton.sub_button.Add(new SinglePicWeixinButton()
+                                subButton.sub_button.Add(new SinglePicWeiXinButton()
                                 {
                                     name = subSubButton.name,
                                     key = subSubButton.key,
@@ -424,7 +424,7 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
             }
             catch (Exception ex)
             {
-                throw new WeixinMenuException(ex.Message, ex);
+                throw new WeiXinMenuException(ex.Message, ex);
             }
             return result;
         }
@@ -438,7 +438,7 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
         /// <returns></returns>
         public static WxJsonResult DeleteMenu(string accessToken)
         {
-            var url = string.Format("https://api.weixin.qq.com/cgi-bin/menu/delete?access_token={0}", accessToken);
+            var url = string.Format("https://api.WeiXin.qq.com/cgi-bin/menu/delete?access_token={0}", accessToken);
             var result = Get.GetJson<WxJsonResult>(url);
             return result;
         }

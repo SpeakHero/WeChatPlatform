@@ -13,10 +13,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
-using CQCMXY.Weixin.Context;
-using CQCMXY.Weixin.QY.Entities;
+using CQCMXY.WeiXin.Context;
+using CQCMXY.WeiXin.QY.Entities;
 
-namespace CQCMXY.Weixin.Service.QyMessageHandler
+namespace CQCMXY.WeiXin.Service.QyMessageHandler
 {
     public class QyCustomMessageContext : MessageContext<IRequestMessageBase,IResponseMessageBase>
     {
@@ -25,10 +25,10 @@ namespace CQCMXY.Weixin.Service.QyMessageHandler
             base.MessageContextRemoved += CustomMessageContext_MessageContextRemoved;
         }
 
-        void CustomMessageContext_MessageContextRemoved(object sender, CQCMXY.Weixin.Context.WeixinContextRemovedEventArgs<IRequestMessageBase,IResponseMessageBase> e)
+        void CustomMessageContext_MessageContextRemoved(object sender, CQCMXY.WeiXin.Context.WeiXinContextRemovedEventArgs<IRequestMessageBase,IResponseMessageBase> e)
         {
             /* 注意，这个事件不是实时触发的（当然你也可以专门写一个线程监控）
-             * 为了提高效率，根据WeixinContext中的算法，这里的过期消息会在过期后下一条请求执行之前被清除
+             * 为了提高效率，根据WeiXinContext中的算法，这里的过期消息会在过期后下一条请求执行之前被清除
              */
 
             var messageContext = e.MessageContext as QyCustomMessageContext;

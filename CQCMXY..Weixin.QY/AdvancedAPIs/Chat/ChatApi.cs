@@ -9,20 +9,20 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方文档：http://qydev.weixin.qq.com/wiki/index.php?title=%E4%BC%81%E4%B8%9A%E5%8F%B7%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E
+    官方文档：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E4%BC%81%E4%B8%9A%E5%8F%B7%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E
  */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.HttpUtility;
-using CQCMXY.Weixin.QY.AdvancedAPIs.OAuth2;
-using CQCMXY.Weixin.QY.CommonAPIs;
-using CQCMXY.Weixin.QY.Helpers;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.HttpUtility;
+using CQCMXY.WeiXin.QY.AdvancedAPIs.OAuth2;
+using CQCMXY.WeiXin.QY.CommonAPIs;
+using CQCMXY.WeiXin.QY.Helpers;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs
 {
 
     public static class ChatApi
@@ -39,7 +39,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult CreateChat(string accessToken, string chatId, string name, string owner, string[] userlist, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/chat/create?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/chat/create?access_token={0}", accessToken);
 
             var data = new
             {
@@ -60,7 +60,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetChatResult GetChat(string accessToken, string chatId)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/chat/get?access_token={0}&chatid={1}", accessToken, chatId);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/chat/get?access_token={0}&chatid={1}", accessToken, chatId);
 
             return Get.GetJson<GetChatResult>(url);
         }
@@ -79,7 +79,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult UpdateChat(string accessToken, string chatId, string opUser, string name = null, string owner = null, string[] addUserList = null, string[] delUserList = null, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/chat/update?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/chat/update?access_token={0}", accessToken);
 
             var data = new
             {
@@ -104,7 +104,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult QuitChat(string accessToken, string chatId, string opUser, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/chat/quit?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/chat/quit?access_token={0}", accessToken);
 
             var data = new
             {
@@ -126,7 +126,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult ClearNotify(string accessToken, string opUser, Chat_Type type, string chatIdOrUserId, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/chat/clearnotify?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/chat/clearnotify?access_token={0}", accessToken);
 
             var data = new
             {
@@ -154,7 +154,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult SendChatMessage(string accessToken, string sender, Chat_Type type, ChatMsgType msgType, string chatIdOrUserId, string contentOrMediaId, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/chat/clearnotify?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/chat/clearnotify?access_token={0}", accessToken);
 
             BaseSendChatMessageData data;
 
@@ -224,7 +224,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static SetMuteResult SetMute(string accessToken, List<UserMute> userMuteList, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/chat/setmute?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/chat/setmute?access_token={0}", accessToken);
 
             var data = new
             {

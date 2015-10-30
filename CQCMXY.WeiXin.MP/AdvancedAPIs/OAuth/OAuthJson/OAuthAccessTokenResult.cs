@@ -18,9 +18,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.OAuth
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.OAuth
 {
     /// <summary>
     /// 获取OAuth AccessToken的结果

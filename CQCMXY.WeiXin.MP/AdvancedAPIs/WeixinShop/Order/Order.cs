@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
-    /// 微小店接口，官方API：http://mp.weixin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97%E6%8E%A5%E5%8F%A3
+    /// 微小店接口，官方API：http://mp.WeiXin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97%E6%8E%A5%E5%8F%A3
     /// </summary>
-    public static class WeixinShopOrder
+    public static class WeiXinShopOrder
     {
         /// <summary>
         /// 根据订单ID获取订单详情
@@ -21,7 +21,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetByIdOrderResult GetByIdOrder(string accessToken, string orderId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/order/getbyid?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/order/getbyid?access_token={0}";
 
             return CommonJsonSend.Send<GetByIdOrderResult>(accessToken, urlFormat, orderId);
         }
@@ -36,7 +36,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetByFilterResult GetByFilterOrder(string accessToken, int status, string beginTime, string endTime)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/order/getbyfilter?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/order/getbyfilter?access_token={0}";
 
             var data = new
                 {
@@ -69,7 +69,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// 易迅快递	zj001yixun
         public static WxJsonResult SetdeliveryOrder(string accessToken, string orderId, string deliveryCompany, string deliveryTrackNo)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/order/setdelivery?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/order/setdelivery?access_token={0}";
 
             var data = new
             {
@@ -89,7 +89,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult CloseOrder(string accessToken, string orderId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/order/close?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/order/close?access_token={0}";
 
             return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, orderId);
         }

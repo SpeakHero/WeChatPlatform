@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MessageHandlers;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MessageHandlers;
 
-namespace CQCMXY.Weixin.MP.MvcExtension
+namespace CQCMXY.WeiXin.MP.MvcExtension
 {
-    public class FixWeixinBugWeixinResult : ContentResult
+    public class FixWeiXinBugWeiXinResult : ContentResult
     {
         //private string _content;
         protected IMessageHandlerDocument _messageHandlerDocument;
@@ -18,12 +18,12 @@ namespace CQCMXY.Weixin.MP.MvcExtension
         /// <summary>
         /// 这个类型只用于特殊阶段：目前IOS版本微信有换行的bug，\r\n会识别为2行
         /// </summary>
-        public FixWeixinBugWeixinResult(IMessageHandlerDocument messageHandlerDocument)
+        public FixWeiXinBugWeiXinResult(IMessageHandlerDocument messageHandlerDocument)
         {
             _messageHandlerDocument = messageHandlerDocument;
         }
 
-        public FixWeixinBugWeixinResult(string content)
+        public FixWeiXinBugWeiXinResult(string content)
         {
             //_content = content;
             base.Content = content;
@@ -67,12 +67,12 @@ namespace CQCMXY.Weixin.MP.MvcExtension
                 //使用IMessageHandler输出
                 if (_messageHandlerDocument == null)
                 {
-                    throw new CQCMXY.Weixin.Exceptions.WeixinException("执行WeixinResult时提供的MessageHandler不能为Null！", null);
+                    throw new CQCMXY.WeiXin.Exceptions.WeiXinException("执行WeiXinResult时提供的MessageHandler不能为Null！", null);
                 }
 
                 if (_messageHandlerDocument.FinalResponseDocument == null)
                 {
-                    //throw new CQCMXY.Weixin.MP.WeixinException("FinalResponseDocument不能为Null！", null);
+                    //throw new CQCMXY.WeiXin.MP.WeiXinException("FinalResponseDocument不能为Null！", null);
                 }
                 else
                 {

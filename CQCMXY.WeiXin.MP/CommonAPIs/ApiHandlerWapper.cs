@@ -18,12 +18,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.Utilities.WeixinUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Utilities.WeiXinUtility;
 
-namespace CQCMXY.Weixin.MP
+namespace CQCMXY.WeiXin.MP
 {
     /// <summary>
     /// 针对AccessToken无效或过期的自动处理类
@@ -49,14 +49,14 @@ namespace CQCMXY.Weixin.MP
                 appId = AccessTokenContainer.GetFirstOrDefaultAppId();
                 if (appId == null)
                 {
-                    throw new WeixinException("尚无已经注册的AppId，请先使用AccessTokenContainer.Register完成注册（全局执行一次即可）！");
+                    throw new WeiXinException("尚无已经注册的AppId，请先使用AccessTokenContainer.Register完成注册（全局执行一次即可）！");
                 }
             }
             else if (ApiUtility.IsAppId(accessTokenOrAppId))
             {
                 if (!AccessTokenContainer.CheckRegistered(accessTokenOrAppId))
                 {
-                    throw new WeixinException("此appId尚未注册，请先使用AccessTokenContainer.Register完成注册（全局执行一次即可）！");
+                    throw new WeiXinException("此appId尚未注册，请先使用AccessTokenContainer.Register完成注册（全局执行一次即可）！");
                 }
 
                 appId = accessTokenOrAppId;

@@ -23,19 +23,19 @@
 ----------------------------------------------------------------*/
 
 /* 
-   API地址：http://mp.weixin.qq.com/wiki/9/d8a5f3b102915f30516d79b44fe665ed.html
-   PDF下载：https://mp.weixin.qq.com/zh_CN/htmledition/comm_htmledition/res/cardticket/wx_card_document.zip
+   API地址：http://mp.WeiXin.qq.com/wiki/9/d8a5f3b102915f30516d79b44fe665ed.html
+   PDF下载：https://mp.WeiXin.qq.com/zh_CN/htmledition/comm_htmledition/res/cardticket/wx_card_document.zip
 */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.AdvancedAPIs.Card;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.Card;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
     /// 卡券接口
@@ -53,7 +53,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/create?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/create?access_token={0}", accessToken);
 
                 CardCreateInfo cardData = null;
                 CardType cardType = cardInfo.CardType;
@@ -189,7 +189,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/getcolors?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/getcolors?access_token={0}", accessToken);
 
                 return CommonJsonSend.Send<GetColorsResultJson>(null, urlFormat, null, timeOut: timeOut);
 
@@ -198,7 +198,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
 
         /// <summary>
         /// 生成卡券二维码
-        /// 获取二维码ticket 后，开发者可用ticket 换取二维码图片。换取指引参考：http://mp.weixin.qq.com/wiki/index.php?title=生成带参数的二维码
+        /// 获取二维码ticket 后，开发者可用ticket 换取二维码图片。换取指引参考：http://mp.WeiXin.qq.com/wiki/index.php?title=生成带参数的二维码
         /// </summary>
         /// <param name="accessTokenOrAppId"></param>
         /// <param name="cardId">卡券ID</param>
@@ -215,7 +215,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/qrcode/create?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/qrcode/create?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -251,7 +251,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/code/consume?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/code/consume?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -278,7 +278,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/code/decrypt?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/code/decrypt?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -301,7 +301,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/delete?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/delete?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -325,7 +325,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/code/get?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/code/get?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -350,7 +350,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/batchget?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/batchget?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -374,7 +374,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/get?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/get?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -399,7 +399,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/code/update?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/code/update?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -425,7 +425,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/code/unavailable?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/code/unavailable?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -452,7 +452,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/update?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/update?access_token={0}", accessToken);
 
                 BaseCardUpdateInfo cardData = null;
 
@@ -509,7 +509,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/testwhitelist/set?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/testwhitelist/set?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -556,7 +556,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/testwhitelist/set?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/testwhitelist/set?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -590,7 +590,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/membercard/updateuser?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/membercard/updateuser?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -624,7 +624,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/movieticket/updateuser?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/movieticket/updateuser?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -660,7 +660,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/boardingpass/checkin?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/boardingpass/checkin?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -692,7 +692,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/luckymoney/updateuserbalance?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/luckymoney/updateuserbalance?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -721,7 +721,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/meetingticket/updateuser?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/meetingticket/updateuser?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -749,7 +749,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/user/getcardlist?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/user/getcardlist?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -775,7 +775,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var urlFormat = string.Format("https://api.weixin.qq.com/card/modifystock?access_token={0}", accessToken);
+                var urlFormat = string.Format("https://api.WeiXin.qq.com/card/modifystock?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -800,7 +800,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         ///// <returns></returns>
         //public static StoreResultJson StoreBatchAdd(string accessToken, StoreLocationData data, int timeOut = Config.TIME_OUT)
         //{
-        //    var urlFormat = string.Format("https://api.weixin.qq.com/card/location/batchadd?access_token={0}", accessToken);
+        //    var urlFormat = string.Format("https://api.WeiXin.qq.com/card/location/batchadd?access_token={0}", accessToken);
 
         //    return CommonJsonSend.Send<StoreResultJson>(null, urlFormat, data, timeOut: timeOut);
         //}
@@ -815,7 +815,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         ///// <returns></returns>
         //public static StoreGetResultJson BatchGet(string accessToken, int offset, int count, int timeOut = Config.TIME_OUT)
         //{
-        //    var urlFormat = string.Format("https://api.weixin.qq.com/card/location/batchget?access_token={0}", accessToken);
+        //    var urlFormat = string.Format("https://api.WeiXin.qq.com/card/location/batchget?access_token={0}", accessToken);
 
         //    var data = new
         //    {
@@ -835,7 +835,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         ///// <returns></returns>
         //public static Card_UploadLogoResultJson UploadLogo(string accessToken, string file, int timeOut = Config.TIME_OUT)
         //{
-        //    var url = string.Format("https://api.weixin.qq.com/cgi-bin/media/uploadimg?access_token={0}", accessToken);
+        //    var url = string.Format("https://api.WeiXin.qq.com/cgi-bin/media/uploadimg?access_token={0}", accessToken);
         //    var fileDictionary = new Dictionary<string, string>();
         //    fileDictionary["media"] = file;
         //    return HttpUtility.Post.PostFileGetJson<Card_UploadLogoResultJson>(url, null, fileDictionary, null, timeOut: timeOut);

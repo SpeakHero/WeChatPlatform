@@ -15,17 +15,17 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方文档：http://qydev.weixin.qq.com/wiki/index.php?title=OAuth2%E9%AA%8C%E8%AF%81%E6%8E%A5%E5%8F%A3
+    官方文档：http://qydev.WeiXin.qq.com/wiki/index.php?title=OAuth2%E9%AA%8C%E8%AF%81%E6%8E%A5%E5%8F%A3
  */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.HttpUtility;
-using CQCMXY.Weixin.QY.AdvancedAPIs.OAuth2;
+using CQCMXY.WeiXin.HttpUtility;
+using CQCMXY.WeiXin.QY.AdvancedAPIs.OAuth2;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs
 {
 
     public static class OAuth2Api
@@ -43,7 +43,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static string GetCode(string corpId, string redirectUrl, string state, string responseType = "code", string scope = "snsapi_base")
         {
-            var url = string.Format("https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type={2}&scope={3}&state={4}#wechat_redirect", corpId, redirectUrl, responseType, scope, state);
+            var url = string.Format("https://open.WeiXin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type={2}&scope={3}&state={4}#wechat_redirect", corpId, redirectUrl, responseType, scope, state);
 
             return url;
         }
@@ -58,7 +58,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetUserInfoResult GetUserId(string accessToken, string code, int agentId)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token={0}&code={1}&agentid={2}", accessToken, code, agentId);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/user/getuserinfo?access_token={0}&code={1}&agentid={2}", accessToken, code, agentId);
 
             return Get.GetJson<GetUserInfoResult>(url);
         }

@@ -15,7 +15,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    获取AccessToken API地址：http://qydev.weixin.qq.com/wiki/index.php?title=%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95
+    获取AccessToken API地址：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95
  */
 
 using System;
@@ -23,13 +23,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Script.Serialization;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.HttpUtility;
-using CQCMXY.Weixin.QY.Entities;
-using CQCMXY.Weixin.QY.Entities.Menu;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.HttpUtility;
+using CQCMXY.WeiXin.QY.Entities;
+using CQCMXY.WeiXin.QY.Entities.Menu;
 
-namespace CQCMXY.Weixin.QY.CommonAPIs
+namespace CQCMXY.WeiXin.QY.CommonAPIs
 {
     public partial class CommonApi
     {
@@ -43,7 +43,7 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
         /// <returns></returns>
         public static QyJsonResult CreateMenu(string accessToken, int agentId, ButtonGroup buttonData, int timeOut = Config.TIME_OUT)
         {
-            var urlFormat = string.Format("https://qyapi.weixin.qq.com/cgi-bin/menu/create?access_token={0}&agentid={1}", accessToken, agentId);
+            var urlFormat = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/menu/create?access_token={0}&agentid={1}", accessToken, agentId);
             ////对特殊符号进行URL转义
             //foreach (var button in buttonData.button)
             //{
@@ -154,7 +154,7 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
         /// <returns></returns>
         public static GetMenuResult GetMenu(string accessToken, int agentId)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/menu/get?access_token={0}&agentid={1}", accessToken, agentId);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/menu/get?access_token={0}&agentid={1}", accessToken, agentId);
 
             var jsonString = HttpUtility.RequestUtility.HttpGet(url, Encoding.UTF8);
             //var finalResult = GetMenuFromJson(jsonString);
@@ -166,12 +166,12 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
                 var jsonResult = js.Deserialize<GetMenuResultFull>(jsonString);
                 if (jsonResult.menu == null || jsonResult.menu.button.Count == 0)
                 {
-                    throw new WeixinException(jsonResult.errmsg);
+                    throw new WeiXinException(jsonResult.errmsg);
                 }
 
                 finalResult = GetMenuFromJsonResult(jsonResult);
             }
-            catch (WeixinException ex)
+            catch (WeiXinException ex)
             {
                 finalResult = null;
             }
@@ -205,7 +205,7 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
                             (rootButton.type.Equals("CLICK", StringComparison.OrdinalIgnoreCase)
                             && string.IsNullOrEmpty(rootButton.key)))
                         {
-                            throw new WeixinMenuException("单击按钮的key不能为空！");
+                            throw new WeiXinMenuException("单击按钮的key不能为空！");
                         }
 
                         if (rootButton.type.Equals("CLICK", StringComparison.OrdinalIgnoreCase))
@@ -258,10 +258,10 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
                                 type = rootButton.type
                             });
                         }
-                        else if (rootButton.type.Equals("PIC_WEIXIN", StringComparison.OrdinalIgnoreCase))
+                        else if (rootButton.type.Equals("PIC_WeiXin", StringComparison.OrdinalIgnoreCase))
                         {
                             //弹出微信相册发图器
-                            bg.button.Add(new SinglePicWeixinButton()
+                            bg.button.Add(new SinglePicWeiXinButton()
                             {
                                 name = rootButton.name,
                                 key = rootButton.key,
@@ -305,7 +305,7 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
                             if (subSubButton.type.Equals("CLICK", StringComparison.OrdinalIgnoreCase)
                                 && string.IsNullOrEmpty(subSubButton.key))
                             {
-                                throw new WeixinMenuException("单击按钮的key不能为空！");
+                                throw new WeiXinMenuException("单击按钮的key不能为空！");
                             }
 
 
@@ -359,10 +359,10 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
                                     type = subSubButton.type
                                 });
                             }
-                            else if (subSubButton.type.Equals("PIC_WEIXIN", StringComparison.OrdinalIgnoreCase))
+                            else if (subSubButton.type.Equals("PIC_WeiXin", StringComparison.OrdinalIgnoreCase))
                             {
                                 //弹出微信相册发图器
-                                subButton.sub_button.Add(new SinglePicWeixinButton()
+                                subButton.sub_button.Add(new SinglePicWeiXinButton()
                                 {
                                     name = subSubButton.name,
                                     key = subSubButton.key,
@@ -400,7 +400,7 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
             }
             catch (Exception ex)
             {
-                throw new WeixinMenuException(ex.Message, ex);
+                throw new WeiXinMenuException(ex.Message, ex);
             }
             return result;
         }
@@ -415,7 +415,7 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
         /// <returns></returns>
         public static QyJsonResult DeleteMenu(string accessToken, int agentId)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/menu/delete?access_token={0}&agentid={1}", accessToken, agentId);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/menu/delete?access_token={0}&agentid={1}", accessToken, agentId);
             var result = Get.GetJson<QyJsonResult>(url);
             return result;
         }

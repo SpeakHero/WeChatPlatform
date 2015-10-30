@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.Service.Utilities;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.Service.Utilities;
 
-namespace CQCMXY.Weixin.Service.OpenTicket
+namespace CQCMXY.WeiXin.Service.OpenTicket
 {
     public class OpenTicketHelper
     {
@@ -25,7 +25,7 @@ namespace CQCMXY.Weixin.Service.OpenTicket
             }
             else
             {
-                throw new WeixinException("OpenTicket不存在！");
+                throw new WeiXinException("OpenTicket不存在！");
             }
 
             //其他逻辑

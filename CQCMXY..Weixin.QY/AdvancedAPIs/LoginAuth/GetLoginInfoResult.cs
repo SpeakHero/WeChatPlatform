@@ -12,9 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs.LoginAuth
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs.LoginAuth
 {
     /// <summary>
     /// 获取企业号管理员登录信息返回结果

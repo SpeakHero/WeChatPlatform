@@ -18,9 +18,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml;
-using CQCMXY.Weixin.MP.Helpers;
+using CQCMXY.WeiXin.MP.Helpers;
 
-namespace CQCMXY.Weixin.MP.TenPayLibV3
+namespace CQCMXY.WeiXin.MP.TenPayLibV3
 {
 
     /** 

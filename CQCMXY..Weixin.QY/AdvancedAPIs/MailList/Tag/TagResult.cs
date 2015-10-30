@@ -18,9 +18,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs.MailList
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs.MailList
 {
     /// <summary>
     /// 创建标签返回结果

@@ -12,7 +12,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方API：https://mp.weixin.qq.com/htmledition/res/bussiness-course2/wxm-payment-kf-api.pdf
+    官方API：https://mp.WeiXin.qq.com/htmledition/res/bussiness-course2/wxm-payment-kf-api.pdf
  */
 
 using System;
@@ -20,14 +20,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
-    /// 微信支付维权接口，官方API：https://mp.weixin.qq.com/htmledition/res/bussiness-course2/wxm-payment-kf-api.pdf
+    /// 微信支付维权接口，官方API：https://mp.WeiXin.qq.com/htmledition/res/bussiness-course2/wxm-payment-kf-api.pdf
     /// </summary>
     public static class TenPayRights
     {
@@ -40,7 +40,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult UpDateFeedBack(string accessToken, string openId, string feedBackId)
         {
-            var urlFormat = "https://api.weixin.qq.com/payfeedback/update?access_token={0}&openid={1}&feedbackid={2}";
+            var urlFormat = "https://api.WeiXin.qq.com/payfeedback/update?access_token={0}&openid={1}&feedbackid={2}";
             var url = string.Format(urlFormat, accessToken, openId, feedBackId);
 
             return Get.GetJson<WxJsonResult>(url);

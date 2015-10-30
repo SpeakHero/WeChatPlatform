@@ -4,7 +4,7 @@ using System.Text;
 using System.Web;
 using System.Collections;
 
-namespace CQCMXY.Weixin.MP.TenPayLib
+namespace CQCMXY.WeiXin.MP.TenPayLib
 {
     public class RefundQueryRequestHandler : ClientRequestHandler
     {

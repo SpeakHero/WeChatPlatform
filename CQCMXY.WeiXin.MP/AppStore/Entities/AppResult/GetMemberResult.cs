@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AppStore
+namespace CQCMXY.WeiXin.MP.AppStore
 {
     /// <summary>
     /// 获取微信会员信息结果
@@ -22,7 +22,7 @@ namespace CQCMXY.Weixin.MP.AppStore
     {
         public string OpenId { get; set; }
         public string NickName { get; set; }
-        public WeixinSex Sex { get; set; }
+        public WeiXinSex Sex { get; set; }
         /// <summary>
         /// Base64格式的头像信息，当提供HeadImageUrl时不再提供HeadImageBase64
         /// </summary>

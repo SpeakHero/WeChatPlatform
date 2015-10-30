@@ -15,10 +15,10 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs.App
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs.App
 {
     /// <summary>
     /// 设置企业号应用需要Post的数据

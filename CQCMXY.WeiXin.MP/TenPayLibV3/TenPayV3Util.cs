@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web;
-using CQCMXY.Weixin.MP.Helpers;
+using CQCMXY.WeiXin.MP.Helpers;
 
-namespace CQCMXY.Weixin.MP.TenPayLibV3
+namespace CQCMXY.WeiXin.MP.TenPayLibV3
 {
     /// <summary>
     /// TenpayUtil 的摘要说明。

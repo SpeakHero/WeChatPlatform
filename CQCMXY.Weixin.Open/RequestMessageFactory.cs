@@ -23,15 +23,15 @@ using System.Xml;
 
 using Tencent;
 
-namespace CQCMXY.Weixin.Open
+namespace CQCMXY.WeiXin.Open
 {
     using System.Xml.Linq;
-    using CQCMXY.Weixin.Open.Entities;
-    using CQCMXY.Weixin.Open.Helpers;
-    using CQCMXY.Weixin.Exceptions;
-    using CQCMXY.Weixin.Helpers;
-    using CQCMXY.Weixin.Open.Entities.Request;
-    using CQCMXY.Weixin.Open;
+    using CQCMXY.WeiXin.Open.Entities;
+    using CQCMXY.WeiXin.Open.Helpers;
+    using CQCMXY.WeiXin.Exceptions;
+    using CQCMXY.WeiXin.Helpers;
+    using CQCMXY.WeiXin.Open.Entities.Request;
+    using CQCMXY.WeiXin.Open;
 
     public static class RequestMessageFactory
     {
@@ -73,7 +73,7 @@ namespace CQCMXY.Weixin.Open
             }
             catch (ArgumentException ex)
             {
-                throw new WeixinException(string.Format("RequestMessage转换出错！可能是InfoType不存在！，XML：{0}", doc.ToString()), ex);
+                throw new WeiXinException(string.Format("RequestMessage转换出错！可能是InfoType不存在！，XML：{0}", doc.ToString()), ex);
             }
             return requestMessage;
         }

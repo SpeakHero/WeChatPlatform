@@ -13,12 +13,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.Open
+namespace CQCMXY.WeiXin.Open
 {
     /// <summary>
     /// 请求消息接口
     /// </summary>
-    public interface IRequestMessageBase// : Weixin.Entities.IRequestMessageBase
+    public interface IRequestMessageBase// : WeiXin.Entities.IRequestMessageBase
     {
         string AppId { get; set; }
         DateTime CreateTime { get; set; }

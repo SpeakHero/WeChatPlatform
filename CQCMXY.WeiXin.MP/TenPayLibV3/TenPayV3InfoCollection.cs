@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Exceptions;
+using CQCMXY.WeiXin.Exceptions;
 
-namespace CQCMXY.Weixin.MP.TenPayLibV3
+namespace CQCMXY.WeiXin.MP.TenPayLibV3
 {
     /// <summary>
     /// 微信支付信息集合，Key为商户号（MchId）
@@ -44,7 +44,7 @@ namespace CQCMXY.Weixin.MP.TenPayLibV3
             {
                 if (!base.ContainsKey(key))
                 {
-                    throw new WeixinException(string.Format("TenPayV3InfoCollection尚未注册Mch：{0}", key));
+                    throw new WeiXinException(string.Format("TenPayV3InfoCollection尚未注册Mch：{0}", key));
                 }
                 else
                 {

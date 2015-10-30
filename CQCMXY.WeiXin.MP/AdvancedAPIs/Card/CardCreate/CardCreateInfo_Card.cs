@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Card
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Card
 {
     /// <summary>
     /// 卡券信息数据中的card字段

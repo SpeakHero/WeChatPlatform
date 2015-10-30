@@ -12,9 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.User
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.User
 {
     /// <summary>
     /// 批量获取用户基本信息数据

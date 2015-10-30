@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net.Mime;
 using System.Text;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Helpers;
+using CQCMXY.WeiXin.Helpers;
 
-namespace CQCMXY.Weixin.Open.Helpers
+namespace CQCMXY.WeiXin.Open.Helpers
 {
     public static class EntityHelper
     {

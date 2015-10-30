@@ -18,7 +18,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
 
-namespace CQCMXY.Weixin.Helpers
+namespace CQCMXY.WeiXin.Helpers
 {
     public class SerializerHelper
     {

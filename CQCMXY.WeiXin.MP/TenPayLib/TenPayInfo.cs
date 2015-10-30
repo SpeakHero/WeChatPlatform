@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.TenPayLib
+namespace CQCMXY.WeiXin.MP.TenPayLib
 {
     /// <summary>
     /// 微信支付基础信息储存类

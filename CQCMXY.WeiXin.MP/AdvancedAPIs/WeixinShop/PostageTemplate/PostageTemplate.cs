@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
-    /// 微小店接口，官方API：http://mp.weixin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97%E6%8E%A5%E5%8F%A3
+    /// 微小店接口，官方API：http://mp.WeiXin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97%E6%8E%A5%E5%8F%A3
     /// </summary>
-    public static class WeixinShopPostageTemplate
+    public static class WeiXinShopPostageTemplate
     {
         /// <summary>
         /// 增加邮费模板
@@ -21,7 +21,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static AddPostageTemplateResult AddPostageTemplate(string accessToken, AddPostageTemplateData addPostageTemplateData)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/express/add?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/express/add?access_token={0}";
 
             return CommonJsonSend.Send<AddPostageTemplateResult>(accessToken, urlFormat, addPostageTemplateData);
         }
@@ -34,7 +34,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult DeletePostageTemplate(string accessToken, int templateId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/express/del?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/express/del?access_token={0}";
 
             return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, templateId);
         }
@@ -47,7 +47,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult UpDatePostageTemplate(string accessToken, UpDatePostageTemplateData upDatePostageTemplateData)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/express/update?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/express/update?access_token={0}";
 
             return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, upDatePostageTemplateData);
         }
@@ -60,7 +60,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetByIdPostageTemplateResult GetByIdPostageTemplate(string accessToken, int templateId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/express/getbyid?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/express/getbyid?access_token={0}";
 
             return CommonJsonSend.Send<GetByIdPostageTemplateResult>(accessToken, urlFormat, templateId);
         }
@@ -72,7 +72,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetAllPostageTemplateResult GetAllPostageTemplate(string accessToken)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/express/getall?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/express/getall?access_token={0}";
 
             return CommonJsonSend.Send<GetAllPostageTemplateResult>(accessToken, urlFormat, null, CommonJsonSendType.GET);
         }

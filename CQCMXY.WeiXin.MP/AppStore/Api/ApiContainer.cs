@@ -8,7 +8,7 @@
     创建标识：CQCMXY - 20150319
 ----------------------------------------------------------------*/
 
-namespace CQCMXY.Weixin.MP.AppStore.Api
+namespace CQCMXY.WeiXin.MP.AppStore.Api
 {
     /// <summary>
     /// API操作容器（每次构造都会获取当前缓存中最新的Passport）

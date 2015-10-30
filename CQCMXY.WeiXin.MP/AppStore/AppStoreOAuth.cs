@@ -13,10 +13,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
-using CQCMXY.Weixin.HttpUtility;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.HttpUtility;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AppStore
+namespace CQCMXY.WeiXin.MP.AppStore
 {
     public static class AppStoreOAuth
     {
@@ -31,16 +31,16 @@ namespace CQCMXY.Weixin.MP.AppStore
         /// <summary>
         /// 获取验证地址
         /// </summary>
-        /// <param name="weixinId">正在使用此APP的weixinId</param>
+        /// <param name="WeiXinId">正在使用此APP的WeiXinId</param>
         /// <param name="clientId">此App的唯一标识。可以在此APP的【开发接入】页面的【OAuth认证 设置】页面看到</param>
         /// <param name="redirectUrl"></param>
         /// <param name="state"></param>
         /// <param name="responseType"></param>
         /// <returns></returns>
-        public static string GetAuthorizeUrl(int weixinId, string clientId, string redirectUrl, string state, string responseType = "code")
+        public static string GetAuthorizeUrl(int WeiXinId, string clientId, string redirectUrl, string state, string responseType = "code")
         {
-            var url = string.Format(Domain + "/OAuth2/Authorize?weixinId={0}&clientId={1}&RedirectUri={2}&response_type=code&state={3}",
-                        weixinId, clientId, redirectUrl.UrlEncode(), state);
+            var url = string.Format(Domain + "/OAuth2/Authorize?WeiXinId={0}&clientId={1}&RedirectUri={2}&response_type=code&state={3}",
+                        WeiXinId, clientId, redirectUrl.UrlEncode(), state);
 
             /* 这一步发送之后，客户会得到授权页面，无论同意或拒绝，都会返回redirectUrl页面。
              * 如果用户同意授权，页面将跳转至 redirect_uri/?code=CODE&state=STATE。这里的code用于换取access_token（和通用接口的access_token不通用）

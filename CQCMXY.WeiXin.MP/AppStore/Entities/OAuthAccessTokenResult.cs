@@ -13,14 +13,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AppStore
+namespace CQCMXY.WeiXin.MP.AppStore
 {
     public class OAuthAccountInfo
     {
         //public int user_id { get; set; }
         //public int user_name { get; set; }
-        public int weixin_id { get; set; }
-        public string weixin_name { get; set; }
+        public int WeiXin_id { get; set; }
+        public string WeiXin_name { get; set; }
     }
 
     /// <summary>

@@ -12,10 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.AdvancedAPIs.GroupMessage;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.GroupMessage;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.WiFi
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.WiFi
 {
     /// <summary>
     /// 获取物料二维码返回结果

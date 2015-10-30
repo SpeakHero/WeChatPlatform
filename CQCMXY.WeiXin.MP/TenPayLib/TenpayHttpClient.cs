@@ -48,7 +48,7 @@ using System.Web.UI.WebControls.WebParts;
  *
  */
 
-namespace CQCMXY.Weixin.MP.TenPayLib
+namespace CQCMXY.WeiXin.MP.TenPayLib
 {
     public class TenPayHttpClient
     {

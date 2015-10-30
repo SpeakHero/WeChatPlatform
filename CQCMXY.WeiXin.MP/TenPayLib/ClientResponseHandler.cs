@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Text;
 using System.Web;
 using System.Xml;
-using CQCMXY.Weixin.MP.Helpers;
+using CQCMXY.WeiXin.MP.Helpers;
 
 /**
  * 后台应答类
@@ -21,7 +21,7 @@ using CQCMXY.Weixin.MP.Helpers;
  *
  */
 
-namespace CQCMXY.Weixin.MP.TenPayLib
+namespace CQCMXY.WeiXin.MP.TenPayLib
 {
     public class ClientResponseHandler
     {

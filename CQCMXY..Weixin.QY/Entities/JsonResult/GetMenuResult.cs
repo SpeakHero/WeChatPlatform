@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.QY.Entities.Menu;
+using CQCMXY.WeiXin.QY.Entities.Menu;
 
-namespace CQCMXY.Weixin.QY.Entities
+namespace CQCMXY.WeiXin.QY.Entities
 {
     /// <summary>
     /// GetMenu返回的Json结果

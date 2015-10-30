@@ -8,7 +8,7 @@
     创建标识：CQCMXY - 20150319
 ----------------------------------------------------------------*/
 
-namespace CQCMXY.Weixin.MP.AppStore.Api
+namespace CQCMXY.WeiXin.MP.AppStore.Api
 {
     /// <summary>
     /// API调用类基类

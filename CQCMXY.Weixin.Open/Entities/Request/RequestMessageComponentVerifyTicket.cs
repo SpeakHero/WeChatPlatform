@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.Open
+namespace CQCMXY.WeiXin.Open
 {
     public class RequestMessageComponentVerifyTicket : RequestMessageBase
     {

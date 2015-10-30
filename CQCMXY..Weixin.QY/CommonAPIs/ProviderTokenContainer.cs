@@ -15,10 +15,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.QY.Entities;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.QY.Entities;
 
-namespace CQCMXY.Weixin.QY.CommonAPIs
+namespace CQCMXY.WeiXin.QY.CommonAPIs
 {
     class ProviderTokenBag
     {
@@ -93,7 +93,7 @@ namespace CQCMXY.Weixin.QY.CommonAPIs
         {
             if (!ProviderTokenCollection.ContainsKey(corpId))
             {
-                throw new WeixinException("此CorpId尚未注册，请先使用ProviderTokenContainer.Register完成注册（全局执行一次即可）！");
+                throw new WeiXinException("此CorpId尚未注册，请先使用ProviderTokenContainer.Register完成注册（全局执行一次即可）！");
             }
 
             var accessTokenBag = ProviderTokenCollection[corpId];

@@ -21,15 +21,15 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Context;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.Exceptions;
+using CQCMXY.WeiXin.Context;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.Exceptions;
 
-namespace CQCMXY.Weixin.MessageHandlers
+namespace CQCMXY.WeiXin.MessageHandlers
 {
     /// <summary>
     /// 微信请求的集中处理方法
-    /// 此方法中所有过程，都基于CQCMXY.Weixin的基础功能，只为简化代码而设。
+    /// 此方法中所有过程，都基于CQCMXY.WeiXin的基础功能，只为简化代码而设。
     /// </summary>
     public abstract class MessageHandler<TC, TRequest, TResponse> : IMessageHandler<TRequest, TResponse>
         where TC : class, IMessageContext<TRequest, TResponse>, new()
@@ -39,25 +39,25 @@ namespace CQCMXY.Weixin.MessageHandlers
         ///// <summary>
         ///// 上下文
         ///// </summary>
-        //public static WeixinContext<TC> GlobalWeixinContext = new WeixinContext<TC>();
+        //public static WeiXinContext<TC> GlobalWeiXinContext = new WeiXinContext<TC>();
 
         /// <summary>
         /// 全局消息上下文
         /// </summary>
-        public abstract WeixinContext<TC, TRequest, TResponse> WeixinContext { get; }
+        public abstract WeiXinContext<TC, TRequest, TResponse> WeiXinContext { get; }
 
         /// <summary>
         /// 当前用户消息上下文
         /// </summary>
         public virtual TC CurrentMessageContext
         {
-            get { return WeixinContext.GetMessageContext(RequestMessage); }
+            get { return WeiXinContext.GetMessageContext(RequestMessage); }
         }
 
         /// <summary>
         /// 发送者用户名（OpenId）
         /// </summary>
-        public string WeixinOpenId
+        public string WeiXinOpenId
         {
             get
             {
@@ -72,12 +72,12 @@ namespace CQCMXY.Weixin.MessageHandlers
         /// <summary>
         /// 
         /// </summary>
-        [Obsolete("UserName属性从v0.6起已过期，建议使用WeixinOpenId")]
+        [Obsolete("UserName属性从v0.6起已过期，建议使用WeiXinOpenId")]
         public string UserName
         {
             get
             {
-                return WeixinOpenId;
+                return WeiXinOpenId;
             }
         }
 
@@ -103,7 +103,7 @@ namespace CQCMXY.Weixin.MessageHandlers
 
         /// <summary>
         /// 最后返回的ResponseDocument。
-        /// 如果是CQCMXY.Weixin.QY，则应当和ResponseDocument一致；如果是CQCMXY.Weixin.QY，则应当在ResponseDocument基础上进行加密
+        /// 如果是CQCMXY.WeiXin.QY，则应当和ResponseDocument一致；如果是CQCMXY.WeiXin.QY，则应当在ResponseDocument基础上进行加密
         /// </summary>
         public abstract XDocument FinalResponseDocument { get; }
 
@@ -161,7 +161,7 @@ namespace CQCMXY.Weixin.MessageHandlers
         /// <param name="postData"></param>
         public void CommonInitialize(XDocument postDataDocument, int maxRecordCount, object postData)
         {
-            WeixinContext.MaxRecordCount = maxRecordCount;
+            WeiXinContext.MaxRecordCount = maxRecordCount;
             RequestDocument = Init(postDataDocument, postData);
         }
 
@@ -203,7 +203,7 @@ namespace CQCMXY.Weixin.MessageHandlers
 
             //CommonInitialize(postDataDocument, maxRecordCount, postData);
 
-            //此方法不执行任何方法，提供给具体的类库进行测试使用，例如CQCMXY.Weixin.QY
+            //此方法不执行任何方法，提供给具体的类库进行测试使用，例如CQCMXY.WeiXin.QY
         }
 
 

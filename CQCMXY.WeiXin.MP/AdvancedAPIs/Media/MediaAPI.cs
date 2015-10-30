@@ -24,7 +24,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    接口详见：http://mp.weixin.qq.com/wiki/index.php?title=%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E5%A4%9A%E5%AA%92%E4%BD%93%E6%96%87%E4%BB%B6
+    接口详见：http://mp.WeiXin.qq.com/wiki/index.php?title=%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E5%A4%9A%E5%AA%92%E4%BD%93%E6%96%87%E4%BB%B6
  */
 
 using System;
@@ -32,14 +32,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.Helpers;
-using CQCMXY.Weixin.MP.AdvancedAPIs.GroupMessage;
-using CQCMXY.Weixin.MP.AdvancedAPIs.Media;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.Helpers;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.GroupMessage;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.Media;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
     /// 素材管理接口（原多媒体文件接口）
@@ -59,7 +59,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("http://api.weixin.qq.com/cgi-bin/media/upload?access_token={0}&type={1}", accessToken, type.ToString());
+                var url = string.Format("http://api.WeiXin.qq.com/cgi-bin/media/upload?access_token={0}&type={1}", accessToken, type.ToString());
                 var fileDictionary = new Dictionary<string, string>();
                 fileDictionary["media"] = file;
                 return HttpUtility.Post.PostFileGetJson<UploadTemporaryMediaResult>(url, null, fileDictionary, null, timeOut: timeOut);
@@ -78,7 +78,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                const string urlFormat = "https://api.weixin.qq.com/cgi-bin/media/uploadnews?access_token={0}";
+                const string urlFormat = "https://api.WeiXin.qq.com/cgi-bin/media/uploadnews?access_token={0}";
 
                 var data = new
                 {
@@ -97,7 +97,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <param name="stream"></param>
         public static void Get(string accessToken, string mediaId, Stream stream)
         {
-            var url = string.Format("http://api.weixin.qq.com/cgi-bin/media/get?access_token={0}&media_id={1}",
+            var url = string.Format("http://api.WeiXin.qq.com/cgi-bin/media/get?access_token={0}&media_id={1}",
                 accessToken, mediaId);
             HttpUtility.Get.Download(url, stream);
         }
@@ -121,7 +121,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                const string urlFormat = "https://api.weixin.qq.com/cgi-bin/material/add_news?access_token={0}";
+                const string urlFormat = "https://api.WeiXin.qq.com/cgi-bin/material/add_news?access_token={0}";
 
                 var data = new
                 {
@@ -143,7 +143,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("http://api.weixin.qq.com/cgi-bin/material/add_material?access_token={0}", accessToken);
+                var url = string.Format("http://api.WeiXin.qq.com/cgi-bin/material/add_material?access_token={0}", accessToken);
 
                 //因为有文件上传，所以忽略dataDictionary，全部改用文件上传格式
                 //var dataDictionary = new Dictionary<string, string>();
@@ -170,7 +170,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("http://api.weixin.qq.com/cgi-bin/material/add_material?access_token={0}", accessToken);
+                var url = string.Format("http://api.WeiXin.qq.com/cgi-bin/material/add_material?access_token={0}", accessToken);
                 var fileDictionary = new Dictionary<string, string>();
                 fileDictionary["media"] = file;
                 fileDictionary["description"] = string.Format("{{\"title\":\"{0}\", \"introduction\":\"{1}\"}}", title, introduction);
@@ -191,7 +191,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = "https://api.weixin.qq.com/cgi-bin/material/get_material?access_token={0}";
+                string url = "https://api.WeiXin.qq.com/cgi-bin/material/get_material?access_token={0}";
                 var data = new
                 {
                     media_id = mediaId
@@ -209,7 +209,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <param name="stream"></param>
         public static void GetForeverMedia(string accessToken, string mediaId, Stream stream)
         {
-            var url = string.Format("https://api.weixin.qq.com/cgi-bin/material/get_material?access_token={0}",
+            var url = string.Format("https://api.WeiXin.qq.com/cgi-bin/material/get_material?access_token={0}",
                 accessToken);
             var data = new
             {
@@ -231,7 +231,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = "https://api.weixin.qq.com/cgi-bin/material/del_material?access_token={0}";
+                string url = "https://api.WeiXin.qq.com/cgi-bin/material/del_material?access_token={0}";
                 var data = new
                 {
                     media_id = mediaId
@@ -254,7 +254,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = "https://api.weixin.qq.com/cgi-bin/material/update_news?access_token={0}";
+                string url = "https://api.WeiXin.qq.com/cgi-bin/material/update_news?access_token={0}";
 
                 var data = new
                 {
@@ -278,7 +278,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = string.Format("https://api.weixin.qq.com/cgi-bin/material/get_materialcount?access_token={0}", accessToken);
+                string url = string.Format("https://api.WeiXin.qq.com/cgi-bin/material/get_materialcount?access_token={0}", accessToken);
 
                 return HttpUtility.Get.GetJson<GetMediaCountResultJson>(url);
 
@@ -297,7 +297,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = string.Format("https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token={0}",
+                string url = string.Format("https://api.WeiXin.qq.com/cgi-bin/material/batchget_material?access_token={0}",
                                            accessToken);
 
                 var date = new
@@ -327,7 +327,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = string.Format("https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token={0}",
+                string url = string.Format("https://api.WeiXin.qq.com/cgi-bin/material/batchget_material?access_token={0}",
                                            accessToken);
 
                 var date = new

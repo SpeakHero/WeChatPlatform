@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.MP.Agent;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.MP.MessageHandlers;
+using CQCMXY.WeiXin.MP.Agent;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.MP.MessageHandlers;
 
-namespace CQCMXY.Weixin.MP.AppStore
+namespace CQCMXY.WeiXin.MP.AppStore
 {
     //public static class Api
     //{

@@ -18,9 +18,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.MP.Entities;
+using CQCMXY.WeiXin.MP.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Analysis
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Analysis
 {
     /// <summary>
     /// 图文群发每日数据 单条数据

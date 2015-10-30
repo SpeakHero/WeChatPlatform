@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.OAuth
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.OAuth
 {
     /// <summary>
     /// 通过OAuth的获取到的用户信息（snsapi_userinfo=scope）
@@ -42,7 +42,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs.OAuth
         /// </summary>
         public string[] privilege { get; set; }
         /// <summary>
-        /// 只有在用户将公众号绑定到微信开放平台帐号后，才会出现该字段。详见：https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&lang=zh_CN
+        /// 只有在用户将公众号绑定到微信开放平台帐号后，才会出现该字段。详见：https://open.WeiXin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&lang=zh_CN
         /// </summary>
         public string unionid { get; set; }
     }

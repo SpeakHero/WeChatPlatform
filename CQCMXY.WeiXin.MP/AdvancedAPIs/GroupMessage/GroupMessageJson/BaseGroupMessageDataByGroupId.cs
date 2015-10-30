@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.GroupMessage
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.GroupMessage
 {
     public class BaseGroupMessageDataByGroupId
     {

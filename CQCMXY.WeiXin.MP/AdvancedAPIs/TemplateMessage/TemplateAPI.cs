@@ -15,18 +15,18 @@
 ----------------------------------------------------------------*/
 
 /*
-    API：http://mp.weixin.qq.com/wiki/17/304c1885ea66dbedf7dc170d84999a9d.html
+    API：http://mp.WeiXin.qq.com/wiki/17/304c1885ea66dbedf7dc170d84999a9d.html
  */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.MP.AdvancedAPIs.TemplateMessage;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.MP.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.TemplateMessage;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.MP.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
     /// 模板消息接口
@@ -48,7 +48,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                const string urlFormat = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={0}";
+                const string urlFormat = "https://api.WeiXin.qq.com/cgi-bin/message/template/send?access_token={0}";
                 var msgData = new TempleteModel()
                 {
                     touser = openId,

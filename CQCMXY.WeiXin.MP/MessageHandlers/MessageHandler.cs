@@ -21,19 +21,19 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Context;
-using CQCMXY.Weixin.MP.Agent;
-using CQCMXY.Weixin.MP.AppStore;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.MP.Entities.Request;
-using CQCMXY.Weixin.MP.Helpers;
+using CQCMXY.WeiXin.Context;
+using CQCMXY.WeiXin.MP.Agent;
+using CQCMXY.WeiXin.MP.AppStore;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.MP.Entities.Request;
+using CQCMXY.WeiXin.MP.Helpers;
 using Tencent;
 
 
-namespace CQCMXY.Weixin.MP.MessageHandlers
+namespace CQCMXY.WeiXin.MP.MessageHandlers
 {
-    public interface IMessageHandler : Weixin.MessageHandlers.IMessageHandler<IRequestMessageBase, IResponseMessageBase>
+    public interface IMessageHandler : WeiXin.MessageHandlers.IMessageHandler<IRequestMessageBase, IResponseMessageBase>
     {
         new IRequestMessageBase RequestMessage { get; set; }
         new IResponseMessageBase ResponseMessage { get; set; }
@@ -41,27 +41,27 @@ namespace CQCMXY.Weixin.MP.MessageHandlers
 
     /// <summary>
     /// 微信请求的集中处理方法
-    /// 此方法中所有过程，都基于CQCMXY.Weixin.MP的基础功能，只为简化代码而设。
+    /// 此方法中所有过程，都基于CQCMXY.WeiXin.MP的基础功能，只为简化代码而设。
     /// </summary>
     public abstract class MessageHandler<TC> :
-        Weixin.MessageHandlers.MessageHandler<TC, IRequestMessageBase, IResponseMessageBase>, IMessageHandler
+        WeiXin.MessageHandlers.MessageHandler<TC, IRequestMessageBase, IResponseMessageBase>, IMessageHandler
         where TC : class, IMessageContext<IRequestMessageBase, IResponseMessageBase>, new()
     {
         /// <summary>
         /// 上下文（仅限于当前MessageHandler基类内）
         /// </summary>
-        public static WeixinContext<TC, IRequestMessageBase, IResponseMessageBase> GlobalWeixinContext = new WeixinContext<TC, IRequestMessageBase, IResponseMessageBase>();
-        //TODO:这里如果用一个MP自定义的WeixinContext，继承WeixinContext<TC, IRequestMessageBase, IResponseMessageBase>，在下面的WeixinContext中将无法转换成基类要求的类型
+        public static WeiXinContext<TC, IRequestMessageBase, IResponseMessageBase> GlobalWeiXinContext = new WeiXinContext<TC, IRequestMessageBase, IResponseMessageBase>();
+        //TODO:这里如果用一个MP自定义的WeiXinContext，继承WeiXinContext<TC, IRequestMessageBase, IResponseMessageBase>，在下面的WeiXinContext中将无法转换成基类要求的类型
 
 
         /// <summary>
         /// 全局消息上下文
         /// </summary>
-        public override WeixinContext<TC, IRequestMessageBase, IResponseMessageBase> WeixinContext
+        public override WeiXinContext<TC, IRequestMessageBase, IResponseMessageBase> WeiXinContext
         {
             get
             {
-                return GlobalWeixinContext;
+                return GlobalWeiXinContext;
             }
         }
 
@@ -88,7 +88,7 @@ namespace CQCMXY.Weixin.MP.MessageHandlers
 
         /// <summary>
         /// 最后返回的ResponseDocument。
-        /// 这里是CQCMXY.Weixin.MP，根据请求消息半段在ResponseDocument基础上是否需要再次进行加密（每次获取重新加密，所以结果会不同）
+        /// 这里是CQCMXY.WeiXin.MP，根据请求消息半段在ResponseDocument基础上是否需要再次进行加密（每次获取重新加密，所以结果会不同）
         /// </summary>
         public override XDocument FinalResponseDocument
         {
@@ -189,7 +189,7 @@ namespace CQCMXY.Weixin.MP.MessageHandlers
             : base(requestDocument, maxRecordCount, postModel)
         {
             DeveloperInfo = developerInfo;
-            //WeixinContext.MaxRecordCount = maxRecordCount;
+            //WeiXinContext.MaxRecordCount = maxRecordCount;
             //Init(requestDocument);
         }
 
@@ -253,9 +253,9 @@ namespace CQCMXY.Weixin.MP.MessageHandlers
 
 
             //记录上下文
-            if (WeixinContextGlobal.UseWeixinContext)
+            if (WeiXinContextGlobal.UseWeiXinContext)
             {
-                WeixinContext.InsertMessage(RequestMessage);
+                WeiXinContext.InsertMessage(RequestMessage);
             }
 
             return decryptDoc;
@@ -337,9 +337,9 @@ namespace CQCMXY.Weixin.MP.MessageHandlers
                 }
 
                 //记录上下文
-                if (WeixinContextGlobal.UseWeixinContext && ResponseMessage != null)
+                if (WeiXinContextGlobal.UseWeiXinContext && ResponseMessage != null)
                 {
-                    WeixinContext.InsertMessage(ResponseMessage);
+                    WeiXinContext.InsertMessage(ResponseMessage);
                 }
             }
             catch (Exception ex)
@@ -516,8 +516,8 @@ namespace CQCMXY.Weixin.MP.MessageHandlers
                 case Event.location_select://弹出地理位置选择器
                     responseMessage = OnEvent_LocationSelectRequest(RequestMessage as RequestMessageEvent_Location_Select);
                     break;
-                case Event.pic_weixin://弹出微信相册发图器
-                    responseMessage = OnEvent_PicWeixinRequest(RequestMessage as RequestMessageEvent_Pic_Weixin);
+                case Event.pic_WeiXin://弹出微信相册发图器
+                    responseMessage = OnEvent_PicWeiXinRequest(RequestMessage as RequestMessageEvent_Pic_WeiXin);
                     break;
                 case Event.pic_sysphoto://弹出系统拍照发图
                     responseMessage = OnEvent_PicSysphotoRequest(RequestMessage as RequestMessageEvent_Pic_Sysphoto);
@@ -682,7 +682,7 @@ namespace CQCMXY.Weixin.MP.MessageHandlers
         /// 弹出微信相册发图器
         /// </summary>
         /// <returns></returns>
-        public virtual IResponseMessageBase OnEvent_PicWeixinRequest(RequestMessageEvent_Pic_Weixin requestMessage)
+        public virtual IResponseMessageBase OnEvent_PicWeiXinRequest(RequestMessageEvent_Pic_WeiXin requestMessage)
         {
             return DefaultResponseMessage(requestMessage);
         }

@@ -22,7 +22,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.Entities
+namespace CQCMXY.WeiXin.Entities
 {
     public interface IJsonResult
     {

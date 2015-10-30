@@ -16,12 +16,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.Exceptions
+namespace CQCMXY.WeiXin.Exceptions
 {
     /// <summary>
     /// 未知请求类型。
     /// </summary>
-    public class UnknownRequestMsgTypeException : WeixinException //ArgumentOutOfRangeException
+    public class UnknownRequestMsgTypeException : WeiXinException //ArgumentOutOfRangeException
     {
         public UnknownRequestMsgTypeException(string message)
             : base(message, null)

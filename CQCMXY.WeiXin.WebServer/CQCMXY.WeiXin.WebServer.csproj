@@ -56,12 +56,24 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -169,7 +181,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppInterfaceInfoesController.cs" />
+    <Compile Include="Controllers\AppTokenInfoesController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\menusController.cs" />
+    <Compile Include="Controllers\NewMsgsController.cs" />
+    <Compile Include="Controllers\testController.cs" />
     <Compile Include="Controllers\WeiXinController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -246,16 +263,40 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\AppInterfaceInfoes\Create.cshtml" />
+    <Content Include="Views\AppInterfaceInfoes\Delete.cshtml" />
+    <Content Include="Views\AppInterfaceInfoes\Details.cshtml" />
+    <Content Include="Views\AppInterfaceInfoes\Edit.cshtml" />
+    <Content Include="Views\AppInterfaceInfoes\Index.cshtml" />
+    <Content Include="Views\AppTokenInfoes\Create.cshtml" />
+    <Content Include="Views\AppTokenInfoes\Delete.cshtml" />
+    <Content Include="Views\AppTokenInfoes\Details.cshtml" />
+    <Content Include="Views\AppTokenInfoes\Edit.cshtml" />
+    <Content Include="Views\AppTokenInfoes\Index.cshtml" />
+    <Content Include="Views\NewMsgs\Create.cshtml" />
+    <Content Include="Views\NewMsgs\Delete.cshtml" />
+    <Content Include="Views\NewMsgs\Details.cshtml" />
+    <Content Include="Views\NewMsgs\Edit.cshtml" />
+    <Content Include="Views\NewMsgs\Index.cshtml" />
+    <Content Include="Views\menus\Create.cshtml" />
+    <Content Include="Views\menus\Delete.cshtml" />
+    <Content Include="Views\menus\Details.cshtml" />
+    <Content Include="Views\menus\Edit.cshtml" />
+    <Content Include="Views\menus\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Menu\" />
+    <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\MyDocument\Documents\Visual Studio 2013\Projects\Cqcmxy.Attendance.System\Cqcmxy.Common\Cqcmxy.Common.csproj">
+      <Project>{467a32aa-1873-4ecc-b28b-330968feac08}</Project>
+      <Name>Cqcmxy.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CQCMXY..Weixin.QY\CQCMXY..Weixin.QY.csproj">
       <Project>{c9136b73-7841-4973-9cc7-f4ea906c450b}</Project>
       <Name>CQCMXY..Weixin.QY</Name>
@@ -283,6 +324,10 @@
     <ProjectReference Include="..\CQCMXY.WeiXin\CQCMXY.WeiXin.csproj">
       <Project>{19117ff5-c9d6-4002-8f89-99ec9b261652}</Project>
       <Name>CQCMXY.WeiXin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CQCMXY.WexXin.Data.Entity\CQCMXY.WexXin.Data.Entity.csproj">
+      <Project>{67e031f0-1630-4214-8a28-9d3b1b8c7b71}</Project>
+      <Name>CQCMXY.WexXin.Data.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

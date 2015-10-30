@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace CQCMXY.Weixin.MessageHandlers
+namespace CQCMXY.WeiXin.MessageHandlers
 {
     /// <summary>
     /// 为IMessageHandler单独提供XDocument类型的属性接口（主要是ResponseDocument）。
@@ -38,7 +38,7 @@ namespace CQCMXY.Weixin.MessageHandlers
 
         /// <summary>
         /// 最后返回的ResponseDocument。
-        /// 如果是CQCMXY.Weixin.QY，则应当和ResponseDocument一致；如果是CQCMXY.Weixin.QY，则应当在ResponseDocument基础上进行加密
+        /// 如果是CQCMXY.WeiXin.QY，则应当和ResponseDocument一致；如果是CQCMXY.WeiXin.QY，则应当在ResponseDocument基础上进行加密
         /// </summary>
         XDocument FinalResponseDocument { get; }
 

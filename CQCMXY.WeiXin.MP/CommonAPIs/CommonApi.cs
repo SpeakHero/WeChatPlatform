@@ -21,7 +21,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    API：http://mp.weixin.qq.com/wiki/index.php?title=%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3&oldid=103
+    API：http://mp.WeiXin.qq.com/wiki/index.php?title=%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3&oldid=103
     
  */
 
@@ -32,13 +32,13 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
-using CQCMXY.Weixin.Helpers;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.MP.Entities.Menu;
-using CQCMXY.Weixin.MP.Helpers;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Helpers;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.MP.Entities.Menu;
+using CQCMXY.WeiXin.MP.Helpers;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.MP.CommonAPIs
+namespace CQCMXY.WeiXin.MP.CommonAPIs
 {
     /// <summary>
     /// 通用接口
@@ -55,7 +55,7 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
         /// <returns></returns>
         public static AccessTokenResult GetToken(string appid, string secret, string grant_type = "client_credential")
         {
-            var url = string.Format("https://api.weixin.qq.com/cgi-bin/token?grant_type={0}&appid={1}&secret={2}",
+            var url = string.Format("https://api.WeiXin.qq.com/cgi-bin/token?grant_type={0}&appid={1}&secret={2}",
                                     grant_type, appid, secret);
 
             AccessTokenResult result = Get.GetJson<AccessTokenResult>(url);
@@ -68,13 +68,13 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
         /// <param name="accessTokenOrAppId"></param>
         /// <param name="openId"></param>
         /// <returns></returns>
-        public static WeixinUserInfoResult GetUserInfo(string accessTokenOrAppId, string openId)
+        public static WeiXinUserInfoResult GetUserInfo(string accessTokenOrAppId, string openId)
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("http://api.weixin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}",
+                var url = string.Format("http://api.WeiXin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}",
                                         accessToken, openId);
-                WeixinUserInfoResult result = Get.GetJson<WeixinUserInfoResult>(url);
+                WeiXinUserInfoResult result = Get.GetJson<WeiXinUserInfoResult>(url);
                 return result;
 
             }, accessTokenOrAppId);
@@ -101,7 +101,7 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
         //    var cookieContainer = new CookieContainer();
         //    var fileStream = FileHelper.GetFileStream(fileName);
 
-        //    var url = string.Format("http://api.weixin.qq.com/cgi-bin/media/upload?access_token={0}&type={1}&filename={2}&filelength={3}",
+        //    var url = string.Format("http://api.WeiXin.qq.com/cgi-bin/media/upload?access_token={0}&type={1}&filename={2}&filelength={3}",
         //        accessToken, type.ToString(), Path.GetFileName(fileName), fileStream != null ? fileStream.Length : 0);
         //    UploadMediaFileResult result = Post.PostGetJson<UploadMediaFileResult>(url, cookieContainer, fileStream);
         //    return result;
@@ -118,7 +118,7 @@ namespace CQCMXY.Weixin.MP.CommonAPIs
         {
             var accessToken = AccessTokenContainer.TryGetToken(appId, secret);
 
-            var url = string.Format("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token={0}&type={1}",
+            var url = string.Format("https://api.WeiXin.qq.com/cgi-bin/ticket/getticket?access_token={0}&type={1}",
                                     accessToken, type);
 
             JsApiTicketResult result = Get.GetJson<JsApiTicketResult>(url);

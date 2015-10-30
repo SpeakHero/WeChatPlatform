@@ -20,13 +20,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web.Script.Serialization;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.Helpers;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.MP.Helpers;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.Helpers;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.MP.Helpers;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.MP.CommonAPIs
+namespace CQCMXY.WeiXin.MP.CommonAPIs
 {
     public enum CommonJsonSendType
     {

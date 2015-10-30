@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.MP.Entities;
+using CQCMXY.WeiXin.MP.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Semantic
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Semantic
 {
     /// <summary>
     /// 火车服务（train）

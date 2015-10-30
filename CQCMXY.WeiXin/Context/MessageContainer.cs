@@ -16,9 +16,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.Context
+namespace CQCMXY.WeiXin.Context
 {
     public class MessageContainer<T> : List<T> 
         //where T : IMessageBase

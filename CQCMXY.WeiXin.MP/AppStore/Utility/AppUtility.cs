@@ -8,23 +8,23 @@
     创建标识：CQCMXY - 20150319
 ----------------------------------------------------------------*/
 
-using CQCMXY.Weixin.MP.Entities;
+using CQCMXY.WeiXin.MP.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.AppStore.Utility
+namespace CQCMXY.WeiXin.MP.AppStore.Utility
 {
     /// <summary>
     /// 微信请求中ToUserName包含的信息
     /// </summary>
-    public class WeixinRequestInfo
+    public class WeiXinRequestInfo
     {
         /// <summary>
         /// 使用此应用的微信账号ID（在微微嗨平台上的唯一ID）
         /// </summary>
-        public int WeixinId { get; set; }
+        public int WeiXinId { get; set; }
 
         /// <summary>
         /// 被请求应用的唯一ID
@@ -39,13 +39,13 @@ namespace CQCMXY.Weixin.MP.AppStore.Utility
         /// </summary>
         /// <param name="toUserName">RequestMessage中的ToUserName属性</param>
         /// <returns></returns>
-        public static WeixinRequestInfo GetWeixinRequestInfo(string toUserName)
+        public static WeiXinRequestInfo GetWeiXinRequestInfo(string toUserName)
         {
-            var info = new WeixinRequestInfo();
+            var info = new WeiXinRequestInfo();
             try
             {
                 var data = toUserName.Split('_');
-                info.WeixinId = int.Parse(data[1]);
+                info.WeiXinId = int.Parse(data[1]);
                 info.AppId = int.Parse(data[2]);
             }
             catch
@@ -59,9 +59,9 @@ namespace CQCMXY.Weixin.MP.AppStore.Utility
         /// </summary>
         /// <param name="requestMessage"></param>
         /// <returns></returns>
-        public static WeixinRequestInfo GetWeixinRequestInfo(this IRequestMessageBase requestMessage)
+        public static WeiXinRequestInfo GetWeiXinRequestInfo(this IRequestMessageBase requestMessage)
         {
-            return GetWeixinRequestInfo(requestMessage.ToUserName);
+            return GetWeiXinRequestInfo(requestMessage.ToUserName);
         }
     }
 }

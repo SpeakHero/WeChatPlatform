@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.MP.Entities;
+using CQCMXY.WeiXin.MP.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Card
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Card
 {
     public class BaseCardUpdateInfo
     {

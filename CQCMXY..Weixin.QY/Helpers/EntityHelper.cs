@@ -18,10 +18,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
-using CQCMXY.Weixin.Helpers;
-using CQCMXY.Weixin.QY.Entities;
+using CQCMXY.WeiXin.Helpers;
+using CQCMXY.WeiXin.QY.Entities;
 
-namespace CQCMXY.Weixin.QY.Helpers
+namespace CQCMXY.WeiXin.QY.Helpers
 {
     public static class EntityHelper
     {
@@ -266,7 +266,7 @@ namespace CQCMXY.Weixin.QY.Helpers
                                                  new XCData(prop.GetValue(entity, null) as string ?? "")));
 							break;
 						case "DateTime":
-							root.Add(new XElement(propName, DateTimeHelper.GetWeixinDateTime((DateTime)prop.GetValue(entity, null))));
+							root.Add(new XElement(propName, DateTimeHelper.GetWeiXinDateTime((DateTime)prop.GetValue(entity, null))));
 							break;
 						case "Boolean":
 							if (propName == "FuncFlag")

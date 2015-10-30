@@ -21,21 +21,21 @@
 ----------------------------------------------------------------*/
 
 /*
-    成员接口：http://qydev.weixin.qq.com/wiki/index.php?title=%E7%AE%A1%E7%90%86%E6%88%90%E5%91%98
-    部门接口：http://qydev.weixin.qq.com/wiki/index.php?title=%E7%AE%A1%E7%90%86%E9%83%A8%E9%97%A8
-    标签接口：http://qydev.weixin.qq.com/wiki/index.php?title=%E7%AE%A1%E7%90%86%E6%A0%87%E7%AD%BE
+    成员接口：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E7%AE%A1%E7%90%86%E6%88%90%E5%91%98
+    部门接口：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E7%AE%A1%E7%90%86%E9%83%A8%E9%97%A8
+    标签接口：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E7%AE%A1%E7%90%86%E6%A0%87%E7%AD%BE
  */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.QY.AdvancedAPIs.MailList;
-using CQCMXY.Weixin.QY.CommonAPIs;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.QY.AdvancedAPIs.MailList;
+using CQCMXY.WeiXin.QY.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs
 {
     public static class MailListApi
     {
@@ -51,7 +51,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static CreateDepartmentResult CreateDepartment(string accessToken, string name, int parentId, int order = 1, int? id = null, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/department/create?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/department/create?access_token={0}", accessToken);
 
             var data = new
             {
@@ -76,7 +76,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult UpdateDepartment(string accessToken, string id, string name, int parentId, int order = 1, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/department/update?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/department/update?access_token={0}", accessToken);
 
             var data = new
             {
@@ -97,7 +97,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult DeleteDepartment(string accessToken, string id)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/department/delete?access_token={0}&id={1}", accessToken, id);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/department/delete?access_token={0}&id={1}", accessToken, id);
 
             return Get.GetJson<QyJsonResult>(url);
         }
@@ -110,7 +110,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetDepartmentListResult GetDepartmentList(string accessToken, int? id = null)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/department/list?access_token={0}", accessToken);
 
             if (id.HasValue)
             {
@@ -121,7 +121,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         }
 
         /// <summary>
-        /// 创建成员(mobile/weixinid/email三者不能同时为空)
+        /// 创建成员(mobile/WeiXinid/email三者不能同时为空)
         /// </summary>
         /// <param name="accessToken">调用接口凭证</param>
         /// <param name="userId">员工UserID。必须企业内唯一</param>
@@ -131,7 +131,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <param name="mobile">手机号码。必须企业内唯一</param>
         /// <param name="tel">办公电话。长度为0~64个字符</param>
         /// <param name="email">邮箱。长度为0~64个字符。必须企业内唯一</param>
-        /// <param name="weixinId">微信号。必须企业内唯一</param>
+        /// <param name="WeiXinId">微信号。必须企业内唯一</param>
         /// <param name="gender">性别。gender=0表示男，=1表示女。默认gender=0</param>
         /// <param name="avatarMediaid"></param>
         /// <param name="extattr">扩展属性。扩展属性需要在WEB管理端创建后才生效，否则忽略未知属性的赋值</param>
@@ -139,10 +139,10 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// accessToken、userId和name为必须的参数，其余参数不是必须的，可以传入null
         /// <returns></returns>
         public static QyJsonResult CreateMember(string accessToken, string userId, string name, int[] department = null,
-            string position = null, string mobile = null, string email = null, string weixinId = null, /*string tel = null,
+            string position = null, string mobile = null, string email = null, string WeiXinId = null, /*string tel = null,
             int gender = 0,*/string avatarMediaid = null, Extattr extattr = null, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://qyapi.weixin.qq.com/cgi-bin/user/create?access_token={0}";
+            var url = "https://qyapi.WeiXin.qq.com/cgi-bin/user/create?access_token={0}";
 
             var data = new
             {
@@ -157,7 +157,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
                 //tel = tel,
 
                 email = email,
-                weixinid = weixinId,
+                WeiXinid = WeiXinId,
                 avatar_mediaid = avatarMediaid,
                 extattr = extattr
             };
@@ -168,7 +168,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         ///// <param name="tel">办公电话。长度为0~64个字符</param>
         ///// <param name="gender">性别。gender=0表示男，=1表示女。默认gender=0</param>
         /// <summary>
-        /// 更新成员(mobile/weixinid/email三者不能同时为空)
+        /// 更新成员(mobile/WeiXinid/email三者不能同时为空)
         /// </summary>
         /// <param name="accessToken">调用接口凭证</param>
         /// <param name="userId">员工UserID。必须企业内唯一</param>
@@ -177,7 +177,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <param name="position">职位信息。长度为0~64个字符</param>
         /// <param name="mobile">手机号码。必须企业内唯一</param>
         /// <param name="email">邮箱。长度为0~64个字符。必须企业内唯一</param>
-        /// <param name="weixinId">微信号。必须企业内唯一</param>
+        /// <param name="WeiXinId">微信号。必须企业内唯一</param>
         /// <param name="enable">启用/禁用成员。1表示启用成员，0表示禁用成员</param>
         /// <param name="avatarMediaid"></param>
         /// <param name="extattr">扩展属性。扩展属性需要在WEB管理端创建后才生效，否则忽略未知属性的赋值</param>
@@ -185,10 +185,10 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// accessToken和userId为必须的参数，其余参数不是必须的，可以传入null
         /// <returns></returns>
         public static QyJsonResult UpdateMember(string accessToken, string userId, string name = null, int[] department = null, string position = null,
-            string mobile = null, string email = null, string weixinId = null, int enable = 1, /*string tel = null,
+            string mobile = null, string email = null, string WeiXinId = null, int enable = 1, /*string tel = null,
             int gender = 0,*/string avatarMediaid = null, Extattr extattr = null, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://qyapi.weixin.qq.com/cgi-bin/user/update?access_token={0}";
+            var url = "https://qyapi.WeiXin.qq.com/cgi-bin/user/update?access_token={0}";
 
             var data = new
             {
@@ -203,7 +203,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
                 //tel = tel,
 
                 email = email,
-                weixinid = weixinId,
+                WeiXinid = WeiXinId,
                 enable = enable,
                 avatar_mediaid = avatarMediaid,
                 extattr = extattr
@@ -220,7 +220,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult DeleteMember(string accessToken, string userId)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/user/delete?access_token={0}&userid={1}", accessToken, userId);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/user/delete?access_token={0}&userid={1}", accessToken, userId);
 
             return Get.GetJson<QyJsonResult>(url);
         }
@@ -234,7 +234,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult BatchDeleteMember(string accessToken, string[] userIds, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/user/batchdelete?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/user/batchdelete?access_token={0}", accessToken);
 
             var data = new
             {
@@ -252,7 +252,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetMemberResult GetMember(string accessToken, string userId)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token={0}&userid={1}", accessToken, userId);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/user/get?access_token={0}&userid={1}", accessToken, userId);
 
             return Get.GetJson<GetMemberResult>(url);
         }
@@ -267,7 +267,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetDepartmentMemberResult GetDepartmentMember(string accessToken, int departmentId, int fetchChild, int status)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/user/simplelist?access_token={0}&department_id={1}&fetch_child={2}&status={3}", accessToken, departmentId, fetchChild, status);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/user/simplelist?access_token={0}&department_id={1}&fetch_child={2}&status={3}", accessToken, departmentId, fetchChild, status);
 
             return Get.GetJson<GetDepartmentMemberResult>(url);
         }
@@ -282,14 +282,14 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetDepartmentMemberInfoResult GetDepartmentMemberInfo(string accessToken, int departmentId, int fetchChild, int status)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/user/list?access_token={0}&department_id={1}&fetch_child={2}&status={3}", accessToken, departmentId, fetchChild, status);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/user/list?access_token={0}&department_id={1}&fetch_child={2}&status={3}", accessToken, departmentId, fetchChild, status);
 
             return Get.GetJson<GetDepartmentMemberInfoResult>(url);
         }
 
         /// <summary>
         /// 邀请成员关注
-        /// 认证号优先使用微信推送邀请关注，如果没有weixinid字段则依次对手机号，邮箱绑定的微信进行推送，全部没有匹配则通过邮件邀请关注。 邮箱字段无效则邀请失败。 非认证号只通过邮件邀请关注。邮箱字段无效则邀请失败。 已关注以及被禁用用户不允许发起邀请关注请求。
+        /// 认证号优先使用微信推送邀请关注，如果没有WeiXinid字段则依次对手机号，邮箱绑定的微信进行推送，全部没有匹配则通过邮件邀请关注。 邮箱字段无效则邀请失败。 非认证号只通过邮件邀请关注。邮箱字段无效则邀请失败。 已关注以及被禁用用户不允许发起邀请关注请求。
         /// 测试发现同一个邮箱只发送一封邀请关注邮件，第二次再对此邮箱发送微信会提示系统错误
         /// </summary>
         /// <param name="accessToken">调用接口凭证</param>
@@ -299,7 +299,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetDepartmentMemberInfoResult InviteMember(string accessToken, string userId, string inviteTips = null, int timeOut = Config.TIME_OUT)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/invite/send?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/invite/send?access_token={0}", accessToken);
 
             var data = new
             {
@@ -321,7 +321,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static CreateTagResult CreateTag(string accessToken, string tagName, int? tagId = null, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://qyapi.weixin.qq.com/cgi-bin/tag/create?access_token={0}";
+            var url = "https://qyapi.WeiXin.qq.com/cgi-bin/tag/create?access_token={0}";
 
             var data = new
             {
@@ -342,7 +342,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult UpdateTag(string accessToken, int tagId, string tagName, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://qyapi.weixin.qq.com/cgi-bin/tag/update?access_token={0}";
+            var url = "https://qyapi.WeiXin.qq.com/cgi-bin/tag/update?access_token={0}";
 
             var data = new
             {
@@ -361,7 +361,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult DeleteTag(string accessToken, int tagId)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/tag/delete?access_token={0}&tagid={1}", accessToken, tagId);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/tag/delete?access_token={0}&tagid={1}", accessToken, tagId);
 
             return Get.GetJson<QyJsonResult>(url);
         }
@@ -374,7 +374,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetTagMemberResult GetTagMember(string accessToken, int tagId)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/tag/get?access_token={0}&tagid={1}", accessToken, tagId);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/tag/get?access_token={0}&tagid={1}", accessToken, tagId);
 
             return Get.GetJson<GetTagMemberResult>(url);
         }
@@ -389,7 +389,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static AddTagMemberResult AddTagMember(string accessToken, int tagId, string[] userList, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://qyapi.weixin.qq.com/cgi-bin/tag/addtagusers?access_token={0}";
+            var url = "https://qyapi.WeiXin.qq.com/cgi-bin/tag/addtagusers?access_token={0}";
 
             var data = new
             {
@@ -410,7 +410,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static DelTagMemberResult DelTagMember(string accessToken, int tagId, string[] userList, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://qyapi.weixin.qq.com/cgi-bin/tag/deltagusers?access_token={0}";
+            var url = "https://qyapi.WeiXin.qq.com/cgi-bin/tag/deltagusers?access_token={0}";
 
             var data = new
             {
@@ -428,7 +428,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static GetTagListResult GetTagList(string accessToken)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/tag/list?access_token={0}", accessToken);
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/tag/list?access_token={0}", accessToken);
 
             return Get.GetJson<GetTagListResult>(url);
         }

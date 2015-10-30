@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs.Media
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs.Media
 {
     /// <summary>
     /// 上传临时媒体文件返回结果

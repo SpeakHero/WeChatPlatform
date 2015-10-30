@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace CQCMXY.Weixin.QY.Helpers
+namespace CQCMXY.WeiXin.QY.Helpers
 {
     public class SHA1UtilHelper
     {

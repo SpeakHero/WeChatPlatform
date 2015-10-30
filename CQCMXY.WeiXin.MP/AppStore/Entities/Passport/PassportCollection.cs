@@ -10,7 +10,7 @@
 
 using System.Collections.Generic;
 
-namespace CQCMXY.Weixin.MP.AppStore
+namespace CQCMXY.WeiXin.MP.AppStore
 {
     /// <summary>
     /// 同时管理多个应用的Passport的容器

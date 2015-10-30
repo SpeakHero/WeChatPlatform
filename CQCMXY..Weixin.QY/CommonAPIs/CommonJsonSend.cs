@@ -16,11 +16,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Helpers;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Helpers;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.QY.CommonAPIs
+namespace CQCMXY.WeiXin.QY.CommonAPIs
 {
     public enum CommonJsonSendType
     {

@@ -9,7 +9,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方文档：http://qydev.weixin.qq.com/wiki/index.php?title=%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3
+    官方文档：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3
  */
 
 using System;
@@ -19,12 +19,12 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.QY.AdvancedAPIs.Asynchronous;
-using CQCMXY.Weixin.QY.CommonAPIs;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.QY.AdvancedAPIs.Asynchronous;
+using CQCMXY.WeiXin.QY.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs
 {
     /// <summary>
     /// 异步任务接口
@@ -57,7 +57,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static AsynchronousJobId BatchInviteUser(string accessToken, string toUser, string toParty, string toTag, string inviteTips, Asynchronous_CallBack callBack, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://qyapi.weixin.qq.com/cgi-bin/batch/inviteuser?access_token={0}";
+            var url = "https://qyapi.WeiXin.qq.com/cgi-bin/batch/inviteuser?access_token={0}";
 
             var data = new
                 {
@@ -90,7 +90,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
 
         /// <summary>
         /// 增量更新成员
-        /// CSV模板下载地址：http://qydev.weixin.qq.com/batch_user_sample.csv
+        /// CSV模板下载地址：http://qydev.WeiXin.qq.com/batch_user_sample.csv
         /// 注意事项：
         /// 1.模板中的部门需填写部门ID，多个部门用分号分隔，部门ID必须为数字
         /// 2.文件中存在、通讯录中也存在的成员，更新成员在文件中指定的字段值
@@ -114,7 +114,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static AsynchronousJobId BatchSyncUser(string accessToken, string mediaId, Asynchronous_CallBack callBack, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://qyapi.weixin.qq.com/cgi-bin/batch/syncuser?access_token={0}";
+            var url = "https://qyapi.WeiXin.qq.com/cgi-bin/batch/syncuser?access_token={0}";
 
             var data = new
                 {
@@ -127,7 +127,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
 
         /// <summary>
         /// 全量覆盖成员
-        /// CSV模板下载地址：http://qydev.weixin.qq.com/batch_user_sample.csv
+        /// CSV模板下载地址：http://qydev.WeiXin.qq.com/batch_user_sample.csv
         /// 注意事项：
         /// 1.模板中的部门需填写部门ID，多个部门用分号分隔，部门ID必须为数字
         /// 2.文件中存在、通讯录中也存在的成员，完全以文件为准
@@ -151,7 +151,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static AsynchronousJobId BatchReplaceUser(string accessToken, string mediaId, Asynchronous_CallBack callBack, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://qyapi.weixin.qq.com/cgi-bin/batch/replaceuser?access_token={0}";
+            var url = "https://qyapi.WeiXin.qq.com/cgi-bin/batch/replaceuser?access_token={0}";
 
             var data = new
             {
@@ -164,7 +164,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
 
         /// <summary>
         /// 全量覆盖部门
-        /// CSV模板下载地址：http://qydev.weixin.qq.com/batch_party_sample.csv
+        /// CSV模板下载地址：http://qydev.WeiXin.qq.com/batch_party_sample.csv
         /// 注意事项：
         /// 1.文件中存在、通讯录中也存在的部门，执行修改操作
         /// 2.文件中存在、通讯录中不存在的部门，执行添加操作
@@ -188,7 +188,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static AsynchronousJobId BatchReplaceParty(string accessToken, string mediaId, Asynchronous_CallBack callBack, int timeOut = Config.TIME_OUT)
         {
-            var url = "https://qyapi.weixin.qq.com/cgi-bin/batch/replaceparty?access_token={0}";
+            var url = "https://qyapi.WeiXin.qq.com/cgi-bin/batch/replaceparty?access_token={0}";
 
             var data = new
             {
@@ -207,7 +207,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static AsynchronousInviteUserResult GetInviteUserResult(string accessToken, string jobId)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/batch/getresult?access_token={0}&jobid={1}",
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/batch/getresult?access_token={0}&jobid={1}",
                                     accessToken, jobId);
 
             return Get.GetJson<AsynchronousInviteUserResult>(url);
@@ -221,7 +221,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static AsynchronousReplaceUserResult GetReplaceUserResult(string accessToken, string jobId)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/batch/getresult?access_token={0}&jobid={1}",
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/batch/getresult?access_token={0}&jobid={1}",
                                     accessToken, jobId);
 
             return Get.GetJson<AsynchronousReplaceUserResult>(url);
@@ -235,7 +235,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static AsynchronousReplacePartyResult GetReplacePartyResult(string accessToken, string jobId)
         {
-            var url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/batch/getresult?access_token={0}&jobid={1}",
+            var url = string.Format("https://qyapi.WeiXin.qq.com/cgi-bin/batch/getresult?access_token={0}&jobid={1}",
                                     accessToken, jobId);
 
             return Get.GetJson<AsynchronousReplacePartyResult>(url);

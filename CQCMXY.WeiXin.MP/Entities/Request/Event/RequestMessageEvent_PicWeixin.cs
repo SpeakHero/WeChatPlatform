@@ -1,8 +1,8 @@
 ﻿/*----------------------------------------------------------------
     Copyright (C) 2015 CQCMXY
     
-    文件名：RequestMessageEvent_PicWeixin.cs
-    文件功能描述：事件之弹出微信相册发图器(pic_weixin)
+    文件名：RequestMessageEvent_PicWeiXin.cs
+    文件功能描述：事件之弹出微信相册发图器(pic_WeiXin)
     
     
     创建标识：CQCMXY - 20150211
@@ -16,19 +16,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.Entities
+namespace CQCMXY.WeiXin.MP.Entities
 {
     /// <summary>
-    /// 事件之弹出微信相册发图器(pic_weixin)
+    /// 事件之弹出微信相册发图器(pic_WeiXin)
     /// </summary>
-    public class RequestMessageEvent_Pic_Weixin : RequestMessageEventBase, IRequestMessageEventBase, IRequestMessageEventKey
+    public class RequestMessageEvent_Pic_WeiXin : RequestMessageEventBase, IRequestMessageEventBase, IRequestMessageEventKey
     {
         /// <summary>
         /// 事件类型
         /// </summary>
         public override Event Event
         {
-            get { return Event.pic_weixin; }
+            get { return Event.pic_WeiXin; }
         }
 
         /// <summary>

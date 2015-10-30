@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace CQCMXY.Weixin.QY.Helpers
+namespace CQCMXY.WeiXin.QY.Helpers
 {
     public static class MsgTypeHelper
     {

@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.MP.Entities
+namespace CQCMXY.WeiXin.MP.Entities
 {
     public class RequestMessageEvent_User_Get_Card : RequestMessageEventBase, IRequestMessageEventBase
     {

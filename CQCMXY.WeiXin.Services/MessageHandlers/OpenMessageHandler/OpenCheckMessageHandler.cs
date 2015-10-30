@@ -4,15 +4,15 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web.Configuration;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.MP.Helpers;
-using CQCMXY.Weixin.MP.MessageHandlers;
-using CQCMXY.Weixin.Service.CustomMessageHandler;
-using CQCMXY.Weixin.MP.Entities.Request;
-using CQCMXY.Weixin.Service.OpenTicket;
-using CQCMXY.Weixin.Service.Utilities;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.MP.Helpers;
+using CQCMXY.WeiXin.MP.MessageHandlers;
+using CQCMXY.WeiXin.Service.CustomMessageHandler;
+using CQCMXY.WeiXin.MP.Entities.Request;
+using CQCMXY.WeiXin.Service.OpenTicket;
+using CQCMXY.WeiXin.Service.Utilities;
 
-namespace CQCMXY.Weixin.Service.MessageHandlers.OpenMessageHandler
+namespace CQCMXY.WeiXin.Service.MessageHandlers.OpenMessageHandler
 {
     /// <summary>
     /// 开放平台全网发布之前需要做的验证

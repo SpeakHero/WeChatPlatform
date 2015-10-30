@@ -7,7 +7,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
-namespace CQCMXY.Weixin.XmlUtility
+namespace CQCMXY.WeiXin.XmlUtility
 {
     public static class XmlUtility
     {

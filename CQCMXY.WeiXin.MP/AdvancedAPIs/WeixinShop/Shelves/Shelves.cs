@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
-    /// 微小店接口，官方API：http://mp.weixin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97%E6%8E%A5%E5%8F%A3
+    /// 微小店接口，官方API：http://mp.WeiXin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97%E6%8E%A5%E5%8F%A3
     /// </summary>
-    public static class WeixinShopShelves
+    public static class WeiXinShopShelves
     {
         /// <summary>
         /// 增加货架
@@ -27,7 +27,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static AddShelvesResult AddShelves(string accessToken, M1 m1, M2 m2, M3 m3, M4 m4, M5 m5, string shelfBanner, string shelfName)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/shelf/add?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/shelf/add?access_token={0}";
 
             var data = new
                 {
@@ -57,7 +57,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult DeleteShelves(string accessToken, int shelfId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/shelf/del?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/shelf/del?access_token={0}";
 
             return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, shelfId);
         }
@@ -77,7 +77,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static WxJsonResult ModShelves(string accessToken, M1 m1, M2 m2, M3 m3, M4 m4, M5 m5,int shelfId, string shelfBanner, string shelfName)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/shelf/mod?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/shelf/mod?access_token={0}";
 
             var data = new
             {
@@ -107,7 +107,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetAllShelvesResult GetAllShelves(string accessToken)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/shelf/getall?access_token=ACCESS_TOKEN";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/shelf/getall?access_token=ACCESS_TOKEN";
 
             return CommonJsonSend.Send<GetAllShelvesResult>(accessToken, urlFormat, null, CommonJsonSendType.GET);
         }
@@ -120,7 +120,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <returns></returns>
         public static GetByIdShelvesResult GetByIdShelves(string accessToken, int shelfId)
         {
-            var urlFormat = "https://api.weixin.qq.com/merchant/shelf/getbyid?access_token={0}";
+            var urlFormat = "https://api.WeiXin.qq.com/merchant/shelf/getbyid?access_token={0}";
 
             return CommonJsonSend.Send<GetByIdShelvesResult>(accessToken, urlFormat, shelfId);
         }

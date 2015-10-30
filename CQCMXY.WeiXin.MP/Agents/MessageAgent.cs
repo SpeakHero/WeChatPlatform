@@ -21,11 +21,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.MP.Helpers;
-using CQCMXY.Weixin.MP.MessageHandlers;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.MP.Helpers;
+using CQCMXY.WeiXin.MP.MessageHandlers;
 
-namespace CQCMXY.Weixin.MP.Agent
+namespace CQCMXY.WeiXin.MP.Agent
 {
     /// <summary>
     /// 代理请求
@@ -112,7 +112,7 @@ namespace CQCMXY.Weixin.MP.Agent
             {
                 messageHandler.UsedMessageAgent = true;
             }
-            var url = "http://" + weiweihiDomainName + "/App/Weixin?weiweihiKey=" + weiweihiKey;//官方地址
+            var url = "http://" + weiweihiDomainName + "/App/WeiXin?weiweihiKey=" + weiweihiKey;//官方地址
             using (MemoryStream ms = new MemoryStream())
             {
                 //这里用ms模拟Request.InputStream

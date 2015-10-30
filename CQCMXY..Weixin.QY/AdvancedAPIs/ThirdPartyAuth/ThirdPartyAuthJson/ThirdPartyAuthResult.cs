@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs.ThirdPartyAuth
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs.ThirdPartyAuth
 {
     /// <summary>
     /// 获取应用套件令牌返回结果

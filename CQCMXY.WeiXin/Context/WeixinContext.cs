@@ -1,7 +1,7 @@
 ﻿/*----------------------------------------------------------------
     Copyright (C) 2015 CQCMXY
     
-    文件名：WeixinContext.cs
+    文件名：WeiXinContext.cs
     文件功能描述：微信消息上下文（全局）
     
     
@@ -20,23 +20,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.Context
+namespace CQCMXY.WeiXin.Context
 {
-    public static class WeixinContextGlobal
+    public static class WeiXinContextGlobal
     {
         public static object Lock = new object();
 
         /// <summary>
         /// 是否开启上下文记录
         /// </summary>
-        public static bool UseWeixinContext = true;
+        public static bool UseWeiXinContext = true;
 
     }
 
     #region 废除接口
-    //public interface IWeixinContext<TM, TRequest, TResponse>
+    //public interface IWeiXinContext<TM, TRequest, TResponse>
     //    where TM : class, IMessageContext<TRequest, TResponse>, new()
     //    where TRequest : IRequestMessageBase
     //    where TResponse : IResponseMessageBase
@@ -69,7 +69,7 @@ namespace CQCMXY.Weixin.Context
     /// 微信消息上下文（全局）
     /// 默认过期时间：90分钟
     /// </summary>
-    public class WeixinContext<TM, TRequest, TResponse> /*: IWeixinContext<TM, TRequest, TResponse>*/
+    public class WeiXinContext<TM, TRequest, TResponse> /*: IWeiXinContext<TM, TRequest, TResponse>*/
         where TM : class, IMessageContext<TRequest, TResponse>, new() //TODO:TRequest, TResponse直接写明基类类型
         where TRequest : IRequestMessageBase
         where TResponse : IResponseMessageBase
@@ -96,7 +96,7 @@ namespace CQCMXY.Weixin.Context
         public int MaxRecordCount { get; set; }
 
 
-        public WeixinContext()
+        public WeiXinContext()
         {
             Restore();
         }
@@ -195,7 +195,7 @@ namespace CQCMXY.Weixin.Context
         /// <returns></returns>
         public TM GetMessageContext(TRequest requestMessage)
         {
-            lock (WeixinContextGlobal.Lock)
+            lock (WeiXinContextGlobal.Lock)
             {
                 return GetMessageContext(requestMessage.FromUserName, true);
             }
@@ -207,7 +207,7 @@ namespace CQCMXY.Weixin.Context
         /// <returns></returns>
         public TM GetMessageContext(TResponse responseMessage)
         {
-            lock (WeixinContextGlobal.Lock)
+            lock (WeiXinContextGlobal.Lock)
             {
                 return GetMessageContext(responseMessage.ToUserName, true);
             }
@@ -219,7 +219,7 @@ namespace CQCMXY.Weixin.Context
         /// <param name="requestMessage">请求信息</param>
         public void InsertMessage(TRequest requestMessage)
         {
-            lock (WeixinContextGlobal.Lock)
+            lock (WeiXinContextGlobal.Lock)
             {
                 var userName = requestMessage.FromUserName;
                 var messageContext = GetMessageContext(userName, true);
@@ -247,7 +247,7 @@ namespace CQCMXY.Weixin.Context
         /// <param name="responseMessage">响应信息</param>
         public void InsertMessage(TResponse responseMessage)
         {
-            lock (WeixinContextGlobal.Lock)
+            lock (WeiXinContextGlobal.Lock)
             {
                 var messageContext = GetMessageContext(responseMessage.ToUserName, true);
                 messageContext.ResponseMessages.Add(responseMessage);
@@ -261,7 +261,7 @@ namespace CQCMXY.Weixin.Context
         /// <returns></returns>
         public TRequest GetLastRequestMessage(string userName)
         {
-            lock (WeixinContextGlobal.Lock)
+            lock (WeiXinContextGlobal.Lock)
             {
                 var messageContext = GetMessageContext(userName, true);
                 return messageContext.RequestMessages.LastOrDefault();
@@ -275,7 +275,7 @@ namespace CQCMXY.Weixin.Context
         /// <returns></returns>
         public TResponse GetLastResponseMessage(string userName)
         {
-            lock (WeixinContextGlobal.Lock)
+            lock (WeiXinContextGlobal.Lock)
             {
                 var messageContext = GetMessageContext(userName, true);
                 return messageContext.ResponseMessages.LastOrDefault();

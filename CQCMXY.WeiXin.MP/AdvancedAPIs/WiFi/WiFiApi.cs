@@ -9,19 +9,19 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方文档：http://mp.weixin.qq.com/wiki/10/6232005bdc497f7cf8e19d4e843c70d2.html
+    官方文档：http://mp.WeiXin.qq.com/wiki/10/6232005bdc497f7cf8e19d4e843c70d2.html
  */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.AdvancedAPIs.WiFi;
-using CQCMXY.Weixin.MP.CommonAPIs;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.WiFi;
+using CQCMXY.WeiXin.MP.CommonAPIs;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     public static class WiFiApi
     {
@@ -39,7 +39,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                const string urlFormat = "https://api.weixin.qq.com/bizwifi/device/add?access_token={0}";
+                const string urlFormat = "https://api.WeiXin.qq.com/bizwifi/device/add?access_token={0}";
 
                 var data = new
                 {
@@ -67,7 +67,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                const string urlFormat = "https://api.weixin.qq.com/bizwifi/device/list?access_token={0}";
+                const string urlFormat = "https://api.WeiXin.qq.com/bizwifi/device/list?access_token={0}";
 
                 object data = new object();
 
@@ -105,7 +105,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                const string urlFormat = "https://api.weixin.qq.com/bizwifi/device/delete?access_token={0}";
+                const string urlFormat = "https://api.WeiXin.qq.com/bizwifi/device/delete?access_token={0}";
 
                 var data = new
                 {
@@ -129,7 +129,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                const string urlFormat = "https://api.weixin.qq.com/bizwifi/qrcode/get?access_token={0}";
+                const string urlFormat = "https://api.WeiXin.qq.com/bizwifi/qrcode/get?access_token={0}";
 
                 var data = new
                 {
@@ -155,7 +155,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                const string urlFormat = "https://api.weixin.qq.com/bizwifi/homepage/get?access_token={0}";
+                const string urlFormat = "https://api.WeiXin.qq.com/bizwifi/homepage/get?access_token={0}";
 
                 var data = new object();
 
@@ -196,7 +196,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                const string urlFormat = "https://api.weixin.qq.com/bizwifi/homepage/get?access_token={0}";
+                const string urlFormat = "https://api.WeiXin.qq.com/bizwifi/homepage/get?access_token={0}";
 
                 var data = new
                 {
@@ -222,7 +222,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                const string urlFormat = "https://api.weixin.qq.com/bizwifi/statistics/list?access_token={0}";
+                const string urlFormat = "https://api.WeiXin.qq.com/bizwifi/statistics/list?access_token={0}";
 
                 var data = new
                 {

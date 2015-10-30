@@ -12,10 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Exceptions;
-using CQCMXY.Weixin.Open.Entities;
+using CQCMXY.WeiXin.Exceptions;
+using CQCMXY.WeiXin.Open.Entities;
 
-namespace CQCMXY.Weixin.Open.CommonAPIs
+namespace CQCMXY.WeiXin.Open.CommonAPIs
 {
     class ComponentAccessTokenBag
     {
@@ -93,7 +93,7 @@ namespace CQCMXY.Weixin.Open.CommonAPIs
         {
             if (!ComponentAccessTokenCollection.ContainsKey(componentAppId))
             {
-                throw new WeixinException("此appId尚未注册，请先使用ComponentAccessTokenContainer.Register完成注册（全局执行一次即可）！");
+                throw new WeiXinException("此appId尚未注册，请先使用ComponentAccessTokenContainer.Register完成注册（全局执行一次即可）！");
             }
 
             var accessTokenBag = ComponentAccessTokenCollection[componentAppId];

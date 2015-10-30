@@ -15,16 +15,16 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Configuration;
-using CQCMXY.Weixin.MP.Agent;
-using CQCMXY.Weixin.Context;
-using CQCMXY.Weixin.MP.Entities;
-using CQCMXY.Weixin.MP.Entities.Request;
-using CQCMXY.Weixin.MP.MessageHandlers;
-using CQCMXY.Weixin.MP.Helpers;
-using CQCMXY.Weixin.Service.Utilities;
-using CQCMXY.Weixin.MP;
+using CQCMXY.WeiXin.MP.Agent;
+using CQCMXY.WeiXin.Context;
+using CQCMXY.WeiXin.MP.Entities;
+using CQCMXY.WeiXin.MP.Entities.Request;
+using CQCMXY.WeiXin.MP.MessageHandlers;
+using CQCMXY.WeiXin.MP.Helpers;
+using CQCMXY.WeiXin.Service.Utilities;
+using CQCMXY.WeiXin.MP;
 
-namespace CQCMXY.Weixin.Service.CustomMessageHandler
+namespace CQCMXY.WeiXin.Service.CustomMessageHandler
 {
     /// <summary>
     /// 自定义MessageHandler
@@ -40,18 +40,18 @@ namespace CQCMXY.Weixin.Service.CustomMessageHandler
 
 
         //下面的Url和Token可以用其他平台的消息，或者到www.weiweihi.com注册微信用户，将自动在“微信营销工具”下得到
-        private string agentUrl = WebConfigurationManager.AppSettings["WeixinAgentUrl"];//这里使用了www.weiweihi.com微信自动托管平台
-        private string agentToken = WebConfigurationManager.AppSettings["WeixinAgentToken"];//Token
+        private string agentUrl = WebConfigurationManager.AppSettings["WeiXinAgentUrl"];//这里使用了www.weiweihi.com微信自动托管平台
+        private string agentToken = WebConfigurationManager.AppSettings["WeiXinAgentToken"];//Token
    
-        private string appId = WebConfigurationManager.AppSettings["WeixinAppId"];
-        private string appSecret = WebConfigurationManager.AppSettings["WeixinAppSecret"];
+        private string appId = WebConfigurationManager.AppSettings["WeiXinAppId"];
+        private string appSecret = WebConfigurationManager.AppSettings["WeiXinAppSecret"];
 
         public CustomMessageHandler(Stream inputStream, PostModel postModel, int maxRecordCount = 0)
             : base(inputStream, postModel, maxRecordCount)
         {
             //这里设置可以在外部更全局的地方设置，
-            //比如MessageHandler<MessageContext>.GlobalWeixinContext.ExpireMinutes = 3。
-            WeixinContext.ExpireMinutes = 3;
+            //比如MessageHandler<MessageContext>.GlobalWeiXinContext.ExpireMinutes = 3。
+            WeiXinContext.ExpireMinutes = 3;
 
             if (!string.IsNullOrEmpty(postModel.AppId))
             {
@@ -122,14 +122,14 @@ namespace CQCMXY.Weixin.Service.CustomMessageHandler
                 Title = "您刚才发送了图片信息",
                 Description = "您发送的图片将会显示在边上",
                 PicUrl = requestMessage.PicUrl,
-                Url = "http://weixin.CQCMXY.com"
+                Url = "http://WeiXin.CQCMXY.com"
             });
             responseMessage.Articles.Add(new Article()
             {
                 Title = "第二条",
                 Description = "第二条带连接的内容",
                 PicUrl = requestMessage.PicUrl,
-                Url = "http://weixin.CQCMXY.com"
+                Url = "http://WeiXin.CQCMXY.com"
             });
 
             return responseMessage;
@@ -151,8 +151,8 @@ namespace CQCMXY.Weixin.Service.CustomMessageHandler
             //设置音乐信息
             responseMessage.Music.Title = "天籁之音";
             responseMessage.Music.Description = "播放您上传的语音";
-            responseMessage.Music.MusicUrl = "http://weixin.CQCMXY.com/Media/GetVoice?mediaId=" + requestMessage.MediaId;
-            responseMessage.Music.HQMusicUrl = "http://weixin.CQCMXY.com/Media/GetVoice?mediaId=" + requestMessage.MediaId;
+            responseMessage.Music.MusicUrl = "http://WeiXin.CQCMXY.com/Media/GetVoice?mediaId=" + requestMessage.MediaId;
+            responseMessage.Music.HQMusicUrl = "http://WeiXin.CQCMXY.com/Media/GetVoice?mediaId=" + requestMessage.MediaId;
             responseMessage.Music.ThumbMediaId = uploadResult.media_id;
             return responseMessage;
         }

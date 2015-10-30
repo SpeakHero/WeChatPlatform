@@ -13,11 +13,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Service.QyMessageHandler;
-using CQCMXY.Weixin.QY.Entities;
-using CQCMXY.Weixin.QY.MessageHandlers;
+using CQCMXY.WeiXin.Service.QyMessageHandler;
+using CQCMXY.WeiXin.QY.Entities;
+using CQCMXY.WeiXin.QY.MessageHandlers;
 
-namespace CQCMXY.Weixin.Service.QyMessageHandlers
+namespace CQCMXY.WeiXin.Service.QyMessageHandlers
 {
     public class QyCustomMessageHandler : QyMessageHandler<QyCustomMessageContext>
     {

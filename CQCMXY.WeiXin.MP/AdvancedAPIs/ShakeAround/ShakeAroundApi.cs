@@ -9,18 +9,18 @@
 ----------------------------------------------------------------*/
 
 /*
-    API：http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html
+    API：http://mp.WeiXin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html
  */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.AdvancedAPIs.ShakeAround;
-using CQCMXY.Weixin.MP.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.ShakeAround;
+using CQCMXY.WeiXin.MP.CommonAPIs;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs
 {
     /// <summary>
     /// 摇一摇周边接口
@@ -41,7 +41,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = string.Format("https://api.weixin.qq.com/shakearound/device/applyid?access_token={0}", accessToken);
+                string url = string.Format("https://api.WeiXin.qq.com/shakearound/device/applyid?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -73,7 +73,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = string.Format("https://api.weixin.qq.com/shakearound/device/update?access_token={0}",
+                string url = string.Format("https://api.WeiXin.qq.com/shakearound/device/update?access_token={0}",
                     accessToken);
 
                 var data = new
@@ -110,7 +110,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                string url = string.Format("https://api.weixin.qq.com/shakearound/device/bindlocation?access_token={0}",
+                string url = string.Format("https://api.WeiXin.qq.com/shakearound/device/bindlocation?access_token={0}",
                     accessToken);
 
                 var data = new
@@ -135,7 +135,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         /// <summary>
         /// 查询设备列表Api url
         /// </summary>
-        private static string searchDeviceUrl = "https://api.weixin.qq.com/shakearound/device/search?access_token={0}";
+        private static string searchDeviceUrl = "https://api.WeiXin.qq.com/shakearound/device/search?access_token={0}";
 
         /// <summary>
         /// 根据指定的设备Id查询设备列表
@@ -222,7 +222,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("https://api.weixin.qq.com/shakearound/material/add?access_token={0}", accessToken);
+                var url = string.Format("https://api.WeiXin.qq.com/shakearound/material/add?access_token={0}", accessToken);
                 var fileDictionary = new Dictionary<string, string>();
                 fileDictionary["media"] = file;
                 return HttpUtility.Post.PostFileGetJson<UploadImageResultJson>(url, null, fileDictionary, null, timeOut: timeOut);
@@ -246,7 +246,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("https://api.weixin.qq.com/shakearound/page/add?access_token={0}", accessToken);
+                var url = string.Format("https://api.WeiXin.qq.com/shakearound/page/add?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -279,7 +279,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("https://api.weixin.qq.com/shakearound/page/update?access_token={0}", accessToken);
+                var url = string.Format("https://api.WeiXin.qq.com/shakearound/page/update?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -299,7 +299,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         #region 查询页面列表
 
         private static string searchPageUrl =
-            "https://api.weixin.qq.com/shakearound/page/search?access_token={0}";
+            "https://api.WeiXin.qq.com/shakearound/page/search?access_token={0}";
 
         /// <summary>
         /// 根据页面Id查询页面列表
@@ -362,7 +362,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("https://api.weixin.qq.com/shakearound/page/delete?access_token={0}", accessToken);
+                var url = string.Format("https://api.WeiXin.qq.com/shakearound/page/delete?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -391,7 +391,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("https://api.weixin.qq.com/shakearound/device/bindpage?access_token={0}", accessToken);
+                var url = string.Format("https://api.WeiXin.qq.com/shakearound/device/bindpage?access_token={0}", accessToken);
 
                 var data = new
                 {
@@ -419,7 +419,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("https://api.weixin.qq.com/shakearound/user/getshakeinfo?access_token={0}",
+                var url = string.Format("https://api.WeiXin.qq.com/shakearound/user/getshakeinfo?access_token={0}",
                     accessToken);
 
                 var data = new
@@ -450,7 +450,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("https://api.weixin.qq.com/shakearound/statistics/device?access_token={0}",
+                var url = string.Format("https://api.WeiXin.qq.com/shakearound/statistics/device?access_token={0}",
                     accessToken);
 
                 var data = new
@@ -480,7 +480,7 @@ namespace CQCMXY.Weixin.MP.AdvancedAPIs
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
-                var url = string.Format("https://api.weixin.qq.com/shakearound/statistics/page?access_token={0}",
+                var url = string.Format("https://api.WeiXin.qq.com/shakearound/statistics/page?access_token={0}",
                     accessToken);
 
                 var data = new

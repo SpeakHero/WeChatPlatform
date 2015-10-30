@@ -8,7 +8,7 @@
     创建标识：CQCMXY - 20150319
 ----------------------------------------------------------------*/
 
-namespace CQCMXY.Weixin.MP.AppStore
+namespace CQCMXY.WeiXin.MP.AppStore
 {
     /// <summary>
     /// 普通API返回类型

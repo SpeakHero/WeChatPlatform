@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Open;
-using CQCMXY.Weixin.Open.MessageHandlers;
+using CQCMXY.WeiXin.Open;
+using CQCMXY.WeiXin.Open.MessageHandlers;
 using System.IO;
-using CQCMXY.Weixin.Service.Utilities;
-using CQCMXY.Weixin.Open.Entities.Request;
+using CQCMXY.WeiXin.Service.Utilities;
+using CQCMXY.WeiXin.Open.Entities.Request;
 
-namespace CQCMXY.Weixin.Service.ThirdPartyMessageHandlers
+namespace CQCMXY.WeiXin.Service.ThirdPartyMessageHandlers
 {
     public class CustomThirdPartyMessageHandler : ThirdPartyMessageHandler
     {

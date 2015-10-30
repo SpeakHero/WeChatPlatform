@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Exceptions;
+using CQCMXY.WeiXin.Exceptions;
 
-namespace CQCMXY.Weixin.MP.TenPayLib
+namespace CQCMXY.WeiXin.MP.TenPayLib
 {
     /// <summary>
     /// 微信支付信息集合，Key为商户号（PartnerId）
@@ -30,12 +30,12 @@ namespace CQCMXY.Weixin.MP.TenPayLib
         public static TenPayInfoCollection Data = new TenPayInfoCollection();
 
         /// <summary>
-        /// 注册WeixinPayInfo信息
+        /// 注册WeiXinPayInfo信息
         /// </summary>
-        /// <param name="weixinPayInfo"></param>
-        public static void Register(TenPayInfo weixinPayInfo)
+        /// <param name="WeiXinPayInfo"></param>
+        public static void Register(TenPayInfo WeiXinPayInfo)
         {
-            Data[weixinPayInfo.PartnerId] = weixinPayInfo;
+            Data[WeiXinPayInfo.PartnerId] = WeiXinPayInfo;
         }
 
         new public TenPayInfo this[string key]
@@ -44,7 +44,7 @@ namespace CQCMXY.Weixin.MP.TenPayLib
             {
                 if (!base.ContainsKey(key))
                 {
-                    throw new WeixinException(string.Format("WeixinPayInfoCollection尚未注册Partner：{0}", key));
+                    throw new WeiXinException(string.Format("WeiXinPayInfoCollection尚未注册Partner：{0}", key));
                 }
                 else
                 {

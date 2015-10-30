@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace CQCMXY.Weixin.Service.Utilities
+namespace CQCMXY.WeiXin.Service.Utilities
 {
     public static class Server
     {
@@ -49,7 +49,7 @@ namespace CQCMXY.Weixin.Service.Utilities
                 HttpContext context = HttpContext.Current;
                 if (context == null)
                 {
-                    HttpRequest request = new HttpRequest("Default.aspx", "http://weixin.CQCMXY.com/default.aspx", null);
+                    HttpRequest request = new HttpRequest("Default.aspx", "http://WeiXin.CQCMXY.com/default.aspx", null);
                     StringWriter sw = new StringWriter();
                     HttpResponse response = new HttpResponse(sw);
                     context = new HttpContext(request, response);

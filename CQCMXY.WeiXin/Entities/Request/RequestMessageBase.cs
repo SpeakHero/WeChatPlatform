@@ -11,7 +11,7 @@
     修改描述：整理接口
 ----------------------------------------------------------------*/
 
-namespace CQCMXY.Weixin.Entities
+namespace CQCMXY.WeiXin.Entities
 {
     public interface IRequestMessageBase : IMessageBase
     {

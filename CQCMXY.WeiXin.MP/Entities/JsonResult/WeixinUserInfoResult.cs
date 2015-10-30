@@ -1,7 +1,7 @@
 ﻿/*----------------------------------------------------------------
     Copyright (C) 2015 CQCMXY
     
-    文件名：WeixinUserInfoResult.cs
+    文件名：WeiXinUserInfoResult.cs
     文件功能描述：获取用户信息返回结果
     
     
@@ -15,14 +15,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.MP.Entities
+namespace CQCMXY.WeiXin.MP.Entities
 {
     /// <summary>
     /// 用户信息
     /// </summary>
-    public class WeixinUserInfoResult : WxJsonResult
+    public class WeiXinUserInfoResult : WxJsonResult
     {
         /// <summary>
         /// 用户是否订阅该公众号标识，值为0时，拉取不到其余信息

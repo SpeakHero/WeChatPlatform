@@ -12,10 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.Open.Entities;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.Open.Entities;
 
-namespace CQCMXY.Weixin.Open.ComponentAPIs
+namespace CQCMXY.WeiXin.Open.ComponentAPIs
 {
     /// <summary>
     /// 使用授权码换取公众号的授权信息返回结果

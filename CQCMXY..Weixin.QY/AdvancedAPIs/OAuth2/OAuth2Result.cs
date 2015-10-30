@@ -21,9 +21,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs.OAuth2
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs.OAuth2
 {
     /// <summary>
     /// 获取成员信息返回结果

@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace CQCMXY.Weixin.BrowserUtility
+namespace CQCMXY.WeiXin.BrowserUtility
 {
     public static class BroswerUtility
     {
@@ -23,7 +23,7 @@ namespace CQCMXY.Weixin.BrowserUtility
         /// </summary>
         /// <param name="httpContext"></param>
         /// <returns></returns>
-        public static bool SideInWeixinBroswer(HttpContextBase httpContext)
+        public static bool SideInWeiXinBroswer(HttpContextBase httpContext)
         {
             var userAgent = httpContext.Request.UserAgent;
             if (string.IsNullOrEmpty(userAgent) || (!userAgent.Contains("MicroMessenger") && !userAgent.Contains("Windows Phone")))

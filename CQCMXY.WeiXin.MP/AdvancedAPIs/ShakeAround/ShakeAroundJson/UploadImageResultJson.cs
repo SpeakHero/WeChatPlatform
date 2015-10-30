@@ -12,10 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.AdvancedAPIs.GroupMessage;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.GroupMessage;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.ShakeAround
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.ShakeAround
 {
     /// <summary>
     /// 上传图片素材返回结果

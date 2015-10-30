@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace CQCMXY.Weixin.Open.Helpers
+namespace CQCMXY.WeiXin.Open.Helpers
 {
     public static class InfoTypeHelper
     {

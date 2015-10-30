@@ -16,9 +16,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web;
 using System.Collections;
-using CQCMXY.Weixin.MP.Helpers;
+using CQCMXY.WeiXin.MP.Helpers;
 
-namespace CQCMXY.Weixin.MP.TenPayLib
+namespace CQCMXY.WeiXin.MP.TenPayLib
 {
     public class CheckRequestHandler : ClientRequestHandler
     {

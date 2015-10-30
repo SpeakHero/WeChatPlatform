@@ -12,9 +12,9 @@
 ----------------------------------------------------------------*/
 
 using System.Collections.Generic;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Card
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Card
 {
     /// <summary>
     /// 批量导入门店数据返回结果

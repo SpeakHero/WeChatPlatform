@@ -12,7 +12,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方文档：http://qydev.weixin.qq.com/wiki/index.php?title=%E5%85%B3%E6%B3%A8%E4%B8%8E%E5%8F%96%E6%B6%88%E5%85%B3%E6%B3%A8
+    官方文档：http://qydev.WeiXin.qq.com/wiki/index.php?title=%E5%85%B3%E6%B3%A8%E4%B8%8E%E5%8F%96%E6%B6%88%E5%85%B3%E6%B3%A8
  */
 
 using System;
@@ -22,11 +22,11 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using CQCMXY.Weixin.QY.CommonAPIs;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.QY.CommonAPIs;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.QY.AdvancedAPIs
+namespace CQCMXY.WeiXin.QY.AdvancedAPIs
 {
     /// <summary>
     /// 关注与取消关注
@@ -41,7 +41,7 @@ namespace CQCMXY.Weixin.QY.AdvancedAPIs
         /// <returns></returns>
         public static QyJsonResult TwoVerification(string accessToken, string userId)
         {
-            var url =string.Format ( "https://qyapi.weixin.qq.com/cgi-bin/user/authsucc?access_token={0}&userid={1}",accessToken,userId);
+            var url =string.Format ( "https://qyapi.WeiXin.qq.com/cgi-bin/user/authsucc?access_token={0}&userid={1}",accessToken,userId);
             return Get.GetJson<QyJsonResult>(url);
         }
     }

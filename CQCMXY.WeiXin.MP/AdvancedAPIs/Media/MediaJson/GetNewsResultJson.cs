@@ -12,10 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.MP.AdvancedAPIs.GroupMessage;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.MP.AdvancedAPIs.GroupMessage;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Media
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Media
 {
     /// <summary>
     /// 获取图文类型永久素材返回结果

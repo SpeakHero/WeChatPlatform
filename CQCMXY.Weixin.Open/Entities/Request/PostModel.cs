@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.Open.Entities.Request
+namespace CQCMXY.WeiXin.Open.Entities.Request
 {
     /// <summary>
     /// 微信公众服务器Post过来的加密参数集合（不包括PostData）

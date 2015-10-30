@@ -9,7 +9,7 @@
 ----------------------------------------------------------------*/
 
 /*
-    官方文档：https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318587&lang=zh_CN
+    官方文档：https://open.WeiXin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318587&lang=zh_CN
  */
 
 using System;
@@ -17,12 +17,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
-using CQCMXY.Weixin.Open.CommonAPIs;
-using CQCMXY.Weixin.Open.Entities;
-using CQCMXY.Weixin.HttpUtility;
+using CQCMXY.WeiXin.Entities;
+using CQCMXY.WeiXin.Open.CommonAPIs;
+using CQCMXY.WeiXin.Open.Entities;
+using CQCMXY.WeiXin.HttpUtility;
 
-namespace CQCMXY.Weixin.Open.ComponentAPIs
+namespace CQCMXY.WeiXin.Open.ComponentAPIs
 {
     public static class ComponentApi
     {
@@ -41,7 +41,7 @@ namespace CQCMXY.Weixin.Open.ComponentAPIs
 
             var url =
                 string.Format(
-                    "https://mp.weixin.qq.com/cgi-bin/componentloginpage?component_appid={0}&pre_auth_code={1}&redirect_uri={2}",
+                    "https://mp.WeiXin.qq.com/cgi-bin/componentloginpage?component_appid={0}&pre_auth_code={1}&redirect_uri={2}",
                     componentAppId, preAuthCode, redirectUrl.UrlEncode());
 
             return url;
@@ -60,7 +60,7 @@ namespace CQCMXY.Weixin.Open.ComponentAPIs
         {
             var url =
                 string.Format(
-                    "https://api.weixin.qq.com/cgi-bin/component/api_query_auth?component_access_token={0}", componentAccessToken);
+                    "https://api.WeiXin.qq.com/cgi-bin/component/api_query_auth?component_access_token={0}", componentAccessToken);
 
             var data = new
                 {
@@ -85,7 +85,7 @@ namespace CQCMXY.Weixin.Open.ComponentAPIs
         {
             var url =
                 string.Format(
-                    "https://api.weixin.qq.com/cgi-bin/component/api_authorizer_token?component_access_token={0}",
+                    "https://api.WeiXin.qq.com/cgi-bin/component/api_authorizer_token?component_access_token={0}",
                     componentAccessToken);
 
             var data = new
@@ -110,7 +110,7 @@ namespace CQCMXY.Weixin.Open.ComponentAPIs
         {
             var url =
                 string.Format(
-                    "https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_info?component_access_token={0}",
+                    "https://api.WeiXin.qq.com/cgi-bin/component/api_get_authorizer_info?component_access_token={0}",
                     componentAccessToken);
 
             var data = new
@@ -135,7 +135,7 @@ namespace CQCMXY.Weixin.Open.ComponentAPIs
         {
             var url =
                 string.Format(
-                    "https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_option?component_access_token={0}",
+                    "https://api.WeiXin.qq.com/cgi-bin/component/api_get_authorizer_option?component_access_token={0}",
                     componentAccessToken);
 
             var data = new
@@ -162,7 +162,7 @@ namespace CQCMXY.Weixin.Open.ComponentAPIs
         {
             var url =
                 string.Format(
-                    "https://api.weixin.qq.com/cgi-bin/component/api_set_authorizer_option?component_access_token={0}",
+                    "https://api.WeiXin.qq.com/cgi-bin/component/api_set_authorizer_option?component_access_token={0}",
                     componentAccessToken);
 
             var data = new

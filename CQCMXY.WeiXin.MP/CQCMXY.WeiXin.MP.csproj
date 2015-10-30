@@ -200,6 +200,7 @@
     <Compile Include="CommonAPIs\CommonJsonSend.cs" />
     <Compile Include="CommonAPIs\JsApiTicketContainer.cs" />
     <Compile Include="Entities\BaiduMap\BaiduMapMarkers.cs" />
+    <Compile Include="Entities\BaiduORC.cs" />
     <Compile Include="Entities\Extensions.cs" />
     <Compile Include="Entities\GoogleMap\GoogleMapMarkers.cs" />
     <Compile Include="Entities\JsonResult\AccessTokenResult.cs" />
@@ -315,6 +316,10 @@
     <Compile Include="TenPayLib\TenPay\TenPayResult.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\MyDocument\Documents\Visual Studio 2013\Projects\Cqcmxy.Attendance.System\Cqcmxy.Common\Cqcmxy.Common.csproj">
+      <Project>{467a32aa-1873-4ecc-b28b-330968feac08}</Project>
+      <Name>Cqcmxy.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CQCMXY.WeiXin\CQCMXY.WeiXin.csproj">
       <Project>{19117ff5-c9d6-4002-8f89-99ec9b261652}</Project>
       <Name>CQCMXY.WeiXin</Name>

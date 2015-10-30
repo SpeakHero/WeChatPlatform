@@ -16,9 +16,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using CQCMXY.Weixin.Entities;
+using CQCMXY.WeiXin.Entities;
 
-namespace CQCMXY.Weixin.MP.AdvancedAPIs.Groups
+namespace CQCMXY.WeiXin.MP.AdvancedAPIs.Groups
 {
     public class GroupsJson : WxJsonResult
     {

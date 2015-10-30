@@ -16,9 +16,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CQCMXY.Weixin.Exceptions
+namespace CQCMXY.WeiXin.Exceptions
 {
-    public class MessageHandlerException : WeixinException
+    public class MessageHandlerException : WeiXinException
     {
           public MessageHandlerException(string message)
             : base(message, null)
