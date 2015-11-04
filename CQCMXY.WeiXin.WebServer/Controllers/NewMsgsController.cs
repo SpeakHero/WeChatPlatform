@@ -22,8 +22,8 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
             return View(newMsgs.ToList());
         }
 
-        // GET: NewMsgs/Details/5
-        public ActionResult Details(int? id)
+        // GET: NewMsgs/详细信息/5
+        public ActionResult  Details(int? id)
         {
             if (id == null)
             {

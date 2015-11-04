@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,11 +19,11 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         // GET: menus
         public ActionResult Index()
         {
-            var menus = db.menus.Include(m => m.AppTokenInfo);
+            var menus = db.menus.Include(m => m.AppTokenInfo).Include(m => m.MenusButtonActions).Where(d => d.Title != "根菜单");
             return View(menus.ToList());
         }
 
-        // GET: menus/Details/5
+        // GET: menus/详细信息/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -41,6 +42,8 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         public ActionResult Create()
         {
             ViewBag.AppTokenInfoId = new SelectList(db.AppTokenInfo, "Id", "AppTitle");
+            ViewBag.MenusButtonActionId = new SelectList(db.MenusButtonAction, "Id", "Actiondes");
+            ViewBag.pid = new SelectList(db.menus, "Id", "Title", 0);
             return View();
         }
 
@@ -49,16 +52,27 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AppTokenInfoId,pid,Title,Action")] menus menus)
+        public ActionResult Create([Bind(Include = "Id,AppTokenInfoId,pid,Title,MenusButtonActionId")] menus menus)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.menus.Add(menus);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+
+                    db.menus.Add(menus);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ModelState.AddModelError("", ex.Message);
             }
 
             ViewBag.AppTokenInfoId = new SelectList(db.AppTokenInfo, "Id", "AppTitle", menus.AppTokenInfoId);
+            ViewBag.MenusButtonActionId = new SelectList(db.MenusButtonAction, "Id", "Actiondes", menus.MenusButtonActions);
+            ViewBag.pid = new SelectList(db.menus, "Id", "Title", 0);
             return View(menus);
         }
 
@@ -75,6 +89,8 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
                 return HttpNotFound();
             }
             ViewBag.AppTokenInfoId = new SelectList(db.AppTokenInfo, "Id", "AppTitle", menus.AppTokenInfoId);
+            ViewBag.MenusButtonActionId = new SelectList(db.MenusButtonAction, "Id", "Actiondes", menus.MenusButtonActions);
+            ViewBag.pid = new SelectList(db.menus, "Id", "Title", 0);
             return View(menus);
         }
 
@@ -83,15 +99,38 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,AppTokenInfoId,pid,Title,Action")] menus menus)
+        public ActionResult Edit([Bind(Include = "Id,Timestamp,AppTokenInfoId,pid,Title,MenusButtonActionId")] menus menus)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(menus).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(menus).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                var entry = ex.Entries.Single();
+                var clientValues = (menus)entry.Entity;
+                var databaseEntry = entry.GetDatabaseValues();
+                if (databaseEntry == null)
+                {
+                    ModelState.AddModelError(string.Empty, "无法保存更改，系已经被其他用户删除。");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                }
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError(string.Empty, "无法保存更改，请重试或联系管理员。");
             }
             ViewBag.AppTokenInfoId = new SelectList(db.AppTokenInfo, "Id", "AppTitle", menus.AppTokenInfoId);
+            ViewBag.MenusButtonActionId = new SelectList(db.MenusButtonAction, "Id", "Actiondes", menus.MenusButtonActions);
+            ViewBag.pid = new SelectList(db.menus, "Id", "Title", 0);
             return View(menus);
         }
 

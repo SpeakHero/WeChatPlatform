@@ -1,0 +1,50 @@
+﻿@model CQCMXY.WeiXin.Data.Models.MenusButtonAction
+
+@{
+    ViewBag.Title = "详细信息";
+}
+
+<h2>详细信息</h2>
+
+<div>
+    <h4>MenusButtonAction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Timestamp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActionType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActionType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Actiondes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Actiondes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActionDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActionDetails)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

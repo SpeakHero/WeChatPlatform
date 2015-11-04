@@ -57,6 +57,7 @@
     <Compile Include="BasesModels.cs" />
     <Compile Include="menus.cs" />
     <Compile Include="MenusActionType.cs" />
+    <Compile Include="MenusButtonAction.cs" />
     <Compile Include="NewMsgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WeiXinAccoutInfo.cs" />

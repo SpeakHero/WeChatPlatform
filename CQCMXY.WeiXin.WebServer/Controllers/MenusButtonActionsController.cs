@@ -11,125 +11,107 @@ using CQCMXY.WeiXin.Data.Models;
 
 namespace CQCMXY.WeiXin.WebServer.Controllers
 {
-    public class AppTokenInfoesController : Controller
+    public class MenusButtonActionsController : Controller
     {
         private Db db = new Db();
 
-        // GET: AppTokenInfoes
+        // GET: MenusButtonActions
         public ActionResult Index()
         {
-            return View(db.AppTokenInfo.ToList());
+            return View(db.MenusButtonAction.ToList());
         }
 
-        // GET: AppTokenInfoes/详细信息/5
+        // GET: MenusButtonActions/详细信息/5
         public ActionResult  Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AppTokenInfo appTokenInfo = db.AppTokenInfo.Find(id);
-            if (appTokenInfo == null)
+            MenusButtonAction menusButtonAction = db.MenusButtonAction.Find(id);
+            if (menusButtonAction == null)
             {
                 return HttpNotFound();
             }
-            return View(appTokenInfo);
+            return View(menusButtonAction);
         }
 
-        // GET: AppTokenInfoes/Create
+        // GET: MenusButtonActions/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: AppTokenInfoes/Create
+        // POST: MenusButtonActions/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AppTitle,appID,appsecret")] AppTokenInfo appTokenInfo)
+        public ActionResult Create([Bind(Include = "Id,Timestamp,ActionType,Actiondes,ActionDetails")] MenusButtonAction menusButtonAction)
         {
             if (ModelState.IsValid)
             {
-                if (db.AppTokenInfo.Any(d => d.AppTitle == appTokenInfo.AppTitle || d.appsecret == appTokenInfo.appsecret || d.appID == appTokenInfo.appID))
-                {
-                    ModelState.AddModelError("", "不能添加重复公众号");
-                    return View(appTokenInfo);
-                }
-                db.AppTokenInfo.Add(appTokenInfo);
+                db.MenusButtonAction.Add(menusButtonAction);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(appTokenInfo);
+            return View(menusButtonAction);
         }
 
-        // GET: AppTokenInfoes/Edit/5
+        // GET: MenusButtonActions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AppTokenInfo appTokenInfo = db.AppTokenInfo.Find(id);
-            if (appTokenInfo == null)
+            MenusButtonAction menusButtonAction = db.MenusButtonAction.Find(id);
+            if (menusButtonAction == null)
             {
                 return HttpNotFound();
             }
-            return View(appTokenInfo);
+            return View(menusButtonAction);
         }
 
-        // POST: AppTokenInfoes/Edit/5
+        // POST: MenusButtonActions/Edit/5
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Timestamp,AppTitle,appID,appsecret")] AppTokenInfo appTokenInfo)
+        public ActionResult Edit([Bind(Include = "Id,Timestamp,ActionType,Actiondes,ActionDetails")] MenusButtonAction menusButtonAction)
         {
-
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    //db.Entry(appTokenInfo).State = EntityState.Modified;
-                    var app = db.AppTokenInfo.Find(appTokenInfo.Id);
-                    app.appID = appTokenInfo.appID;
-                    app.appsecret = appTokenInfo.appsecret;
-                    app.AppTitle = appTokenInfo.AppTitle;
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+                db.Entry(menusButtonAction).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", ex.Message);
-            }
-
-            return View(appTokenInfo);
+            return View(menusButtonAction);
         }
 
-        // GET: AppTokenInfoes/Delete/5
+        // GET: MenusButtonActions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AppTokenInfo appTokenInfo = db.AppTokenInfo.Find(id);
-            if (appTokenInfo == null)
+            MenusButtonAction menusButtonAction = db.MenusButtonAction.Find(id);
+            if (menusButtonAction == null)
             {
                 return HttpNotFound();
             }
-            return View(appTokenInfo);
+            return View(menusButtonAction);
         }
 
-        // POST: AppTokenInfoes/Delete/5
+        // POST: MenusButtonActions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            AppTokenInfo appTokenInfo = db.AppTokenInfo.Find(id);
-            db.AppTokenInfo.Remove(appTokenInfo);
+            MenusButtonAction menusButtonAction = db.MenusButtonAction.Find(id);
+            db.MenusButtonAction.Remove(menusButtonAction);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

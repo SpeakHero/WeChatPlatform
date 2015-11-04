@@ -1,10 +1,10 @@
 ﻿@model CQCMXY.WeiXin.Data.Models.menus
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "创建菜单";
 }
 
-<h2>Create</h2>
+<h2>创建菜单</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,11 +12,11 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>menus</h4>
+        <h4>菜单</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            <label class="control-label col-md-2" for="AppTokenInfoId">隶属公众号</label>
+            @Html.LabelFor(model => model.AppTokenInfoId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("AppTokenInfoId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.AppTokenInfoId, "", new { @class = "text-danger" })
@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.pid, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.pid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("pid", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.pid, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -40,10 +40,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Action, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MenusButtonActionId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Action, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Action, "", new { @class = "text-danger" })
+                @Html.DropDownList("MenusButtonActionId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MenusButtonActionId, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -60,5 +60,6 @@
 </div>
 
 @section Scripts {
+<script> $(function(){$("#pid").append("<option selected value='0'>根菜单</option>");})</script>
     @Scripts.Render("~/bundles/jqueryval")
 }

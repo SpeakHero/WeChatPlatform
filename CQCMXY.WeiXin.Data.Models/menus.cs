@@ -14,30 +14,34 @@
         {
             NewMsgs = new HashSet<NewMsgs>();
         }
-        [Timestamp]
-
-        public Byte[] Timestamp { get; set; }
-
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "请选择公众号")]
-        [DisplayName("公众号")]
+        [Column(TypeName = "timestamp")]
+        [MaxLength(8)]
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
+
+        [Required(ErrorMessage ="请选择隶属公众号")]
+        [DisplayName("隶属公众号")]
         public int AppTokenInfoId { get; set; }
-        [DisplayName("上一级菜单")]
-        [Required]
-        [StringLength(10)]
-        public string pid { get; set; }
-        [DisplayName("菜单标题")]
-        [Required]
+
+        [Required(ErrorMessage = "请选择隶根菜单")]
+        [DisplayName("根菜单")]
+        public int pid { get; set; } = 0;
+
+
+        [Required(ErrorMessage = "请输入菜单标题")]
+        [DisplayName("菜单标题 ")]
         [StringLength(250)]
         public string Title { get; set; }
-        [DisplayName("执行方法")]
-        [Required]
-        [StringLength(50)]
-        public string Action { get; set; }
-
+        [Required(ErrorMessage = "请选择执行方法")]
+        [DisplayName("执行方法 ")]
+        public int MenusButtonActionId { get; set; }
+     
         public virtual AppTokenInfo AppTokenInfo { get; set; }
+
+        public virtual MenusButtonAction MenusButtonActions { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NewMsgs> NewMsgs { get; set; }

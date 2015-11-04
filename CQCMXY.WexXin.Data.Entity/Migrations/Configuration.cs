@@ -26,6 +26,11 @@ namespace CQCMXY.WexXin.Data.Entity.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Database.ExecuteSqlCommand("CREATE UNIQUE INDEX AppTokenInfoId ON AppInterfaceInfo (AppTokenInfoId)");
+            context.Database.ExecuteSqlCommand("CREATE UNIQUE INDEX AppTitle ON AppTokenInfo (AppTitle)");
+            context.Database.ExecuteSqlCommand("CREATE UNIQUE INDEX appID ON AppTokenInfo (appID)");
+            context.Database.ExecuteSqlCommand("CREATE UNIQUE INDEX appsecret ON AppTokenInfo (appsecret)");
         }
     }
 }

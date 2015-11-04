@@ -16,7 +16,7 @@ namespace CQCMXY.WeiXin.WebServer
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "WeiXin", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "WeiXin", action = "列表首页", id = UrlParameter.Optional }
             );
         }
     }

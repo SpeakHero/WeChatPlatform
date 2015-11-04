@@ -22,8 +22,8 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
             return View(appInterfaceInfo.ToList());
         }
 
-        // GET: AppInterfaceInfoes/Details/5
-        public ActionResult Details(int? id)
+        // GET: AppInterfaceInfoes/详细信息/5
+        public ActionResult  Details(int? id)
         {
             if (id == null)
             {
@@ -40,7 +40,7 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         // GET: AppInterfaceInfoes/Create
         public ActionResult Create()
         {
-            ViewBag.AppTokenId = new SelectList(db.AppTokenInfo, "Id", "AppTitle");
+            ViewBag.AppTokenInfoId = new SelectList(db.AppTokenInfo, "Id", "AppTitle");
             return View();
         }
 
@@ -49,16 +49,29 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,URL,Token,AppTokenId,JSDomain")] AppInterfaceInfo appInterfaceInfo)
+        public ActionResult Create([Bind(Include = "Id,URL,Token,AppTokenInfoId,JSDomain")] AppInterfaceInfo appInterfaceInfo)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.AppInterfaceInfo.Add(appInterfaceInfo);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+
+                    if (db.AppInterfaceInfo.Any(d => d.AppTokenInfoId == appInterfaceInfo.AppTokenInfoId))
+                    {
+                        ModelState.AddModelError("AppTokenInfoId", "已经存在相同公众号的配置");
+                    }
+                    db.AppInterfaceInfo.Add(appInterfaceInfo);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ModelState.AddModelError("", ex.Message);
             }
 
-            ViewBag.AppTokenId = new SelectList(db.AppTokenInfo, "Id", "AppTitle", appInterfaceInfo.AppTokenId);
+            ViewBag.AppTokenInfoId = new SelectList(db.AppTokenInfo, "Id", "AppTitle", appInterfaceInfo.AppTokenInfoId);
             return View(appInterfaceInfo);
         }
 
@@ -74,7 +87,7 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AppTokenId = new SelectList(db.AppTokenInfo, "Id", "AppTitle", appInterfaceInfo.AppTokenId);
+            ViewBag.AppTokenInfoId = new SelectList(db.AppTokenInfo, "Id", "AppTitle", appInterfaceInfo.AppTokenInfoId);
             return View(appInterfaceInfo);
         }
 
@@ -83,15 +96,33 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,URL,Token,AppTokenId,JSDomain")] AppInterfaceInfo appInterfaceInfo)
+        public ActionResult Edit([Bind(Include = "Id,URL,Token,AppTokenInfoId,JSDomain")] AppInterfaceInfo appInterfaceInfo)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(appInterfaceInfo).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var app = db.AppInterfaceInfo.Find(appInterfaceInfo.Id);
+                    if (app != null)
+                    {
+                        db.AppInterfaceInfo.Remove(app);
+                        if (db.AppInterfaceInfo.Any(d => d.AppTokenInfoId == appInterfaceInfo.AppTokenInfoId))
+                        {
+                            ModelState.AddModelError("AppTokenInfoId", "已经存在相同公众号的配置");
+                        }
+                        db.AppInterfaceInfo.Add(appInterfaceInfo);
+                        db.SaveChanges();
+                    }
+                    
+                    return RedirectToAction("Index");
+                }
             }
-            ViewBag.AppTokenId = new SelectList(db.AppTokenInfo, "Id", "AppTitle", appInterfaceInfo.AppTokenId);
+            catch (Exception ex)
+            {
+
+                ModelState.AddModelError("", ex.Message);
+            }
+            ViewBag.AppTokenInfoId = new SelectList(db.AppTokenInfo, "Id", "AppTitle", appInterfaceInfo.AppTokenInfoId);
             return View(appInterfaceInfo);
         }
 
