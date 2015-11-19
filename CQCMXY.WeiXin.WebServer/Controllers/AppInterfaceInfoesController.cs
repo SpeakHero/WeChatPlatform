@@ -11,7 +11,7 @@ using CQCMXY.WeiXin.Data.Models;
 
 namespace CQCMXY.WeiXin.WebServer.Controllers
 {
-    public class AppInterfaceInfoesController : Controller
+    public class AppInterfaceInfoesController : BasesController
     {
         private Db db = new Db();
 
@@ -23,7 +23,7 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         }
 
         // GET: AppInterfaceInfoes/详细信息/5
-        public ActionResult  Details(int? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -113,7 +113,7 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
                         db.AppInterfaceInfo.Add(appInterfaceInfo);
                         db.SaveChanges();
                     }
-                    
+
                     return RedirectToAction("Index");
                 }
             }

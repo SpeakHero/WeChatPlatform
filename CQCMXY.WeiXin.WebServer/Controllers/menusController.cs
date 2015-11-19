@@ -12,7 +12,7 @@ using CQCMXY.WeiXin.Data.Models;
 
 namespace CQCMXY.WeiXin.WebServer.Controllers
 {
-    public class menusController : Controller
+    public class menusController : BasesController
     {
         private Db db = new Db();
 

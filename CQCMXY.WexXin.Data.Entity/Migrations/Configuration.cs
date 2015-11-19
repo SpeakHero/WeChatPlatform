@@ -10,6 +10,7 @@ namespace CQCMXY.WexXin.Data.Entity.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(CQCMXY.WeiXin.Data.Entity.Db context)

@@ -1,29 +1,35 @@
 ﻿@model CQCMXY.WeiXin.Data.Models.NewMsgs
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "添加";
 }
 
-<h2>Create</h2>
+<h2>添加文章</h2>
+<link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<style>
+    .ke-edit {
+        min-height: 500px;
+    }
 
-
-@using (Html.BeginForm()) 
+  
+</style>
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>NewMsgs</h4>
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.AppTokenInfoId, "AppTokenInfoId", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group col-md-6 ">
+            @Html.LabelFor(model => model.AppTokenInfoId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("AppTokenInfoId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.AppTokenInfoId, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-6 ">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
@@ -31,15 +37,9 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Contents, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Contents, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Contents, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
+
+        <div class="form-group col-md-6 ">
             @Html.LabelFor(model => model.CreateTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CreateTime, new { htmlAttributes = new { @class = "form-control" } })
@@ -47,15 +47,8 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UpTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UpTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UpTime, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-6 ">
             @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
@@ -63,26 +56,80 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.meunsId, "meunsId", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group col-md-6 ">
+            @Html.LabelFor(model => model.meunsId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("meunsId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.meunsId, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
+        <div class="clearfix"></div>
+        <div class="form-group col-md-6 ">
+            @Html.LabelFor(model => model.Contents, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Contents, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Contents, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group  ">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="创建" class="btn btn-default" />
+                <input type="submit" value="添加" class="btn btn-default col-md-offset-2 col-lg-12" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("返回列表", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/kindeditor-4.1.10/kindeditor-all-min.js"></script>
+    <script charset="utf-8" type="text/javascript" src="~/Scripts/moment.min.js"></script>
+    <script charset="utf-8" type="text/javascript" src=" ~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <script charset="utf-8" type="text/javascript" src="~/Scripts/moment-with-locales.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="~/Scripts/kindeditor-4.1.10/plugins/code/prettify.js"></script>
+    <script src="~/Scripts/kindeditor-4.1.10/plugins/code/code.js"></script>
+    <script type="text/javascript">
+      $(function(){
+         $('#CreateTime').attr("type","text")
+     $('#CreateTime').attr('value',"@DateTime.Now")
+	$('#CreateTime').datetimepicker({
+           language:  'zh-CN',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		forceParse: 0,
+          format: 'yyyy-mm-dd hh:ii:ss'
+    });
+        $('#datetimepicker').datetimepicker();
+        })
+		KindEditor.ready(function(K) {
+			var editor1 = K.create('#Contents', {
+				cssPath : '@Url.Content("~/Scripts/kindeditor-4.1.10/plugins/code/prettify.css")',
+                uploadJson : '@Url.Content("~/UpLoadData/Index")',
+         //上传文件后执行的回调函数,获取上传图片的路径
+      afterUpload : function(data) {
+              $("#Uppics").val(data);
+        },
+                afterCreate : function() {
+    var self = this;
+    K.ctrl(document, 13, function() {
+        self.sync();
+        K('form[name=example]')[0].submit();
+    });
+                        K.ctrl(self.edit.doc, 13, function() {
+                            self.sync();
+                            K('form[name=example]')[0].submit();
+                        });
+                    }
+                });
+			prettyPrint();
+        $(".ke-edit").height(500);$(".ke-edit-iframe").height(500);
+		});
+    </script>
 }

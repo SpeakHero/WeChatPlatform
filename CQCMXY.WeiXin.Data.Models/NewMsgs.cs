@@ -30,9 +30,9 @@
         [Required(ErrorMessage = "文章内容不能为空")]
         public string Contents { get; set; }
         [DisplayName("创建时间")]
-        public DateTime? CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; } = DateTime.Now;
         [DisplayName("更新时间")]
-        public DateTime? UpTime { get; set; }
+        public DateTime? UpTime { get; set; } = DateTime.Now;
         [DisplayName("文章作者")]
         [StringLength(50)]
         public string Author { get; set; }

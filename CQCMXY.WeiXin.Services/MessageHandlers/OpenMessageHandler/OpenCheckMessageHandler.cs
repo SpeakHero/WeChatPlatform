@@ -52,11 +52,10 @@ namespace CQCMXY.WeiXin.Service.MessageHandlers.OpenMessageHandler
                 }
                 catch (Exception ex)
                 {
-                    throw;
+                    throw ex;
                 }
 
             }
-            return null;
             return responseMessage;
         }
 

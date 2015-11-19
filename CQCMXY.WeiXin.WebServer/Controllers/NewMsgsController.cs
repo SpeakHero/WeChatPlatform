@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -11,19 +12,19 @@ using CQCMXY.WeiXin.Data.Models;
 
 namespace CQCMXY.WeiXin.WebServer.Controllers
 {
-    public class NewMsgsController : Controller
+    public class NewMsgsController : BasesController
     {
         private Db db = new Db();
 
         // GET: NewMsgs
         public ActionResult Index()
         {
-            var newMsgs = db.NewMsgs.Include(n => n.AppTokenInfo).Include(n => n.menus);
-            return View(newMsgs.ToList());
+            var newMsgs = db.NewMsgs.Include(n => n.AppTokenInfo).Include(n => n.menus).ToList();
+            return View(newMsgs);
         }
 
         // GET: NewMsgs/详细信息/5
-        public ActionResult  Details(int? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -41,7 +42,7 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         public ActionResult Create()
         {
             ViewBag.AppTokenInfoId = new SelectList(db.AppTokenInfo, "Id", "AppTitle");
-            ViewBag.meunsId = new SelectList(db.menus, "Id", "pid");
+            ViewBag.meunsId = new SelectList(db.menus, "Id", "Title");
             return View();
         }
 
@@ -49,6 +50,7 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,AppTokenInfoId,Title,Contents,CreateTime,UpTime,Author,meunsId")] NewMsgs newMsgs)
         {
@@ -60,7 +62,7 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
             }
 
             ViewBag.AppTokenInfoId = new SelectList(db.AppTokenInfo, "Id", "AppTitle", newMsgs.AppTokenInfoId);
-            ViewBag.meunsId = new SelectList(db.menus, "Id", "pid", newMsgs.meunsId);
+            ViewBag.meunsId = new SelectList(db.menus, "Id", "Title", newMsgs.meunsId);
             return View(newMsgs);
         }
 
@@ -77,7 +79,7 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
                 return HttpNotFound();
             }
             ViewBag.AppTokenInfoId = new SelectList(db.AppTokenInfo, "Id", "AppTitle", newMsgs.AppTokenInfoId);
-            ViewBag.meunsId = new SelectList(db.menus, "Id", "pid", newMsgs.meunsId);
+            ViewBag.meunsId = new SelectList(db.menus, "Id", "Title", newMsgs.meunsId);
             return View(newMsgs);
         }
 
@@ -85,17 +87,47 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,AppTokenInfoId,Title,Contents,CreateTime,UpTime,Author,meunsId")] NewMsgs newMsgs)
+        public ActionResult Edit([Bind(Include = "Id,Timestamp,AppTokenInfoId,Title,Contents,CreateTime,UpTime,Author,meunsId")] NewMsgs newMsgs)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(newMsgs).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+                try
+                {
+                    if (ModelState.IsValid)
+                    {
+                        db.Entry(newMsgs).State = EntityState.Modified;
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    var entry = ex.Entries.Single();
+                    var clientValues = (NewMsgs)entry.Entity;
+                    var databaseEntry = entry.GetDatabaseValues();
+                    if (databaseEntry == null)
+                    {
+                        ModelState.AddModelError(string.Empty, "无法保存更改，系已经被其他用户删除。");
+                    }
+                    else
+                    {
+                        var databaseValues = (NewMsgs)databaseEntry.ToObject();
+                        ModelState.AddModelError(string.Empty, "当前记录已经被其他人更改。如果你仍然想要保存这些数据，"
+                        + "重新点击保存按钮或者点击返回列表撤销本次操作。");
+                        newMsgs.Timestamp = databaseValues.Timestamp;
+                    }
+                }
+                catch (RetryLimitExceededException)
+                {
+                    ModelState.AddModelError(string.Empty, "无法保存更改，请重试或联系管理员。");
+                }
+
             }
             ViewBag.AppTokenInfoId = new SelectList(db.AppTokenInfo, "Id", "AppTitle", newMsgs.AppTokenInfoId);
-            ViewBag.meunsId = new SelectList(db.menus, "Id", "pid", newMsgs.meunsId);
+            ViewBag.meunsId = new SelectList(db.menus, "Id", "Title", newMsgs.meunsId);
             return View(newMsgs);
         }
 

@@ -11,7 +11,7 @@ using CQCMXY.WeiXin.Data.Models;
 
 namespace CQCMXY.WeiXin.WebServer.Controllers
 {
-    public class AppTokenInfoesController : Controller
+    public class AppTokenInfoesController : BasesController
     {
         private Db db = new Db();
 
@@ -22,7 +22,7 @@ namespace CQCMXY.WeiXin.WebServer.Controllers
         }
 
         // GET: AppTokenInfoes/详细信息/5
-        public ActionResult  Details(int? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {

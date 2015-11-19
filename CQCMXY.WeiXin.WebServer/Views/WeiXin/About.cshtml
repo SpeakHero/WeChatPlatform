@@ -4,4 +4,13 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+@{
+            for (int i = 0; i < 20; i++)
+            {
+        <div class="m-page m-bigTxt f-hide" data-page-type="bigTxt" data-statics="info_list" style="height: 907px;">
+            <div class="page-con j-txtWrap lazy-finish" data-position="50% 50%" data-size="cover" style="background-image: url(images/幻灯片4.png); background-size: cover; background-position: 50% 50%;">
+                <img src="images/幻灯片@i.png" />
+            </div>
+        </div>
+    }
+}
